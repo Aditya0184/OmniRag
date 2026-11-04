@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "description": "Additional authored development cases for source selection: different values and entities, negation, similar codes and two-part questions. Not a held-out benchmark.",
+  "documents": [
+    {"id": "lantern", "pages": [
+      {"kind": "native", "stratum": "core", "text": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt."},
+      {"kind": "native", "stratum": "core", "text": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault."}
+    ]},
+    {"id": "basalt", "pages": [
+      {"kind": "native", "stratum": "core", "text": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests."}
+    ]},
+    {"id": "summit", "pages": [
+      {"kind": "native", "stratum": "core", "text": "Summit Kits dispatches standard orders within 6 calendar days. Summit Kits accepts returns only with written authorization from the store manager."}
+    ]}
+  ],
+  "queries": [
+    {"id": "different_entity_values", "stratum": "core", "question": "How long does Lantern Kits take to dispatch standard orders?", "scope": [], "answerable": true, "relevant": [["lantern", 1]], "expected_facts": [["9 business days"]]},
+    {"id": "entity_paraphrase", "stratum": "core", "question": "How much time before Lantern Kits sends my ordinary purchase?", "scope": ["lantern"], "answerable": true, "relevant": [["lantern", 1]], "expected_facts": [["9 business days"]]},
+    {"id": "different_code", "stratum": "core", "question": "What does code BT-306 indicate?", "scope": ["lantern"], "answerable": true, "relevant": [["lantern", 2]], "expected_facts": [["battery fault"]], "forbidden": ["pressure sensor fault"]},
+    {"id": "negation", "stratum": "core", "question": "Does Basalt Studio email backups to customers?", "scope": ["basalt"], "answerable": true, "relevant": [["basalt", 1]], "expected_facts": [["does not email backups"]]},
+    {"id": "condition", "stratum": "core", "question": "Under what condition does Lantern Kits accept returns?", "scope": [], "answerable": true, "relevant": [["lantern", 1]], "expected_facts": [["only with the original receipt"]]},
+    {"id": "two_facts", "stratum": "core", "question": "What is Lantern Kits' standard dispatch deadline, and what is required for returns?", "scope": ["lantern"], "answerable": true, "relevant": [["lantern", 1]], "expected_facts": [["9 business days"], ["original receipt"]]},
+    {"id": "wrong_entity_scope", "stratum": "core", "question": "What is Summit Kits' standard dispatch deadline?", "scope": ["lantern"], "answerable": false, "relevant": [], "expected_facts": []},
+    {"id": "missing_attribute", "stratum": "core", "question": "What is Dr. Chen's birthday?", "scope": ["basalt"], "answerable": false, "relevant": [], "expected_facts": []}
+  ]
+}

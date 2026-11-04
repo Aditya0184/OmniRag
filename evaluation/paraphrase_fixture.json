@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "description": "Authored Phase 7 development regression fixed before prompt experiments. General-policy paraphrases versus missing personal status, named-entity scope and unsupported attributes. Not held out.",
+  "documents": [
+    {"id": "harbor", "pages": [
+      {"kind": "native", "stratum": "core", "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager."},
+      {"kind": "native", "stratum": "core", "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment."}
+    ]},
+    {"id": "meadow", "pages": [
+      {"kind": "native", "stratum": "core", "text": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book."}
+    ]},
+    {"id": "cobalt", "pages": [
+      {"kind": "native", "stratum": "core", "text": "Cobalt Stores delivers standard orders within 4 business days after the warehouse confirms stock. This document does not describe any individual customer's shipment."}
+    ]}
+  ],
+  "queries": [
+    {"id": "unnamed_delivery", "stratum": "core", "question": "How long should I allow for my bought items to turn up?", "scope": ["harbor"], "answerable": true, "relevant": [["harbor", 1]], "expected_facts": [["12 working days"], ["after payment clears"]]},
+    {"id": "named_delivery", "stratum": "core", "question": "How much time does Harbor Tools need to get my purchase to me?", "scope": [], "answerable": true, "relevant": [["harbor", 1]], "expected_facts": [["12 working days"], ["after payment clears"]]},
+    {"id": "loan_paraphrase", "stratum": "core", "question": "How long can I keep a borrowed reference volume?", "scope": ["meadow"], "answerable": true, "relevant": [["meadow", 1]], "expected_facts": [["21 calendar days"]]},
+    {"id": "renewal_condition", "stratum": "core", "question": "When am I allowed to extend my book loan?", "scope": ["meadow"], "answerable": true, "relevant": [["meadow", 1]], "expected_facts": [["only if no other reader has reserved the book"]]},
+    {"id": "return_condition", "stratum": "core", "question": "What proof do I need to bring back something I bought?", "scope": ["harbor"], "answerable": true, "relevant": [["harbor", 2]], "expected_facts": [["only with an original receipt"]]},
+    {"id": "personalized_return", "stratum": "core", "question": "Can I return personalized equipment to Harbor Tools?", "scope": ["harbor"], "answerable": true, "relevant": [["harbor", 2]], "expected_facts": [["does not accept returns of personalized equipment"]]},
+    {"id": "personal_arrival", "stratum": "core", "question": "Has my Harbor Tools order H-903 arrived today?", "scope": ["harbor"], "answerable": false, "relevant": [], "expected_facts": []},
+    {"id": "personal_payment", "stratum": "core", "question": "Has payment cleared for my Harbor Tools order H-903?", "scope": ["harbor"], "answerable": false, "relevant": [], "expected_facts": []},
+    {"id": "personal_due_date", "stratum": "core", "question": "On which exact date is my current Meadow Library loan due?", "scope": ["meadow"], "answerable": false, "relevant": [], "expected_facts": []},
+    {"id": "wrong_entity", "stratum": "core", "question": "How long does Cobalt Stores need to get my purchase to me?", "scope": ["harbor"], "answerable": false, "relevant": [], "expected_facts": []},
+    {"id": "missing_cost", "stratum": "core", "question": "How much does Harbor Tools charge to deliver standard orders?", "scope": ["harbor"], "answerable": false, "relevant": [], "expected_facts": []},
+    {"id": "missing_reservation", "stratum": "core", "question": "Has another reader reserved my Meadow Library book?", "scope": ["meadow"], "answerable": false, "relevant": [], "expected_facts": []}
+  ]
+}

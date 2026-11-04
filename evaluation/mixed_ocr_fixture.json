@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "description": "Additional authored mixed-content OCR regression, fixed before evaluation. Fictional policies with native headers over raster bodies; not a held-out benchmark.",
+  "documents": [
+    {"id": "willow", "pages": [
+      {"kind": "header_scan", "stratum": "core", "header": "WILLOW RECORDS - RETENTION POLICY", "text": "Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days."}
+    ]},
+    {"id": "aspen", "pages": [
+      {"kind": "header_scan", "stratum": "core", "header": "ASPEN SERVICES - REPAIR POLICY", "text": "Aspen Services repairs portable pumps within 9 business days. Customers must provide the equipment serial number."},
+      {"kind": "native", "stratum": "core", "text": "Aspen Services accepts repair requests by email. Requests without the equipment serial number are returned to the sender for correction before a technician can schedule an inspection. This policy covers portable pumps only."}
+    ]}
+  ],
+  "queries": [
+    {"id": "willow_retention", "stratum": "core", "question": "For how many years does Willow Records retain signed agreements?", "scope": ["willow"], "answerable": true, "relevant": [["willow", 1]], "expected_facts": [["13 years", "thirteen years"]]},
+    {"id": "willow_review", "stratum": "core", "question": "How often are access permissions reviewed at Willow Records?", "scope": ["willow"], "answerable": true, "relevant": [["willow", 1]], "expected_facts": [["60 days", "sixty days"]]},
+    {"id": "aspen_repair", "stratum": "core", "question": "How long does Aspen Services take to repair portable pumps?", "scope": ["aspen"], "answerable": true, "relevant": [["aspen", 1]], "expected_facts": [["9 business days", "nine business days"]]},
+    {"id": "willow_missing_fee", "stratum": "core", "question": "What fee does Willow Records charge for storing an agreement?", "scope": ["willow"], "answerable": false, "relevant": [], "expected_facts": []}
+  ]
+}

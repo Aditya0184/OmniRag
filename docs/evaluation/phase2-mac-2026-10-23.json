@@ -1,0 +1,1465 @@
+{
+  "recorded_at": "2026-10-22T19:07:20.386853+00:00",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "fixture_sha256": "f967b5f55645787acd3022579eb3c8fa587cc2096a0dfbd8056abf7b09c28fdd",
+  "model_manifest": {
+    "format": 1,
+    "models": {
+      "embedding": {
+        "name": "BAAI/bge-small-en-v1.5",
+        "repo": "Qdrant/bge-small-en-v1.5-onnx-Q",
+        "revision": "aa8f8b060edb00e03bfdd08813a2949946c8ba55",
+        "license": "mit",
+        "files": {
+          "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+          "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a"
+        }
+      },
+      "reranker": {
+        "name": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "repo": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "revision": "a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+        "license": "apache-2.0",
+        "files": {
+          "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+          "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+        }
+      }
+    }
+  },
+  "packages": {
+    "fastembed": "0.9.0",
+    "qdrant-client": "1.20.0",
+    "onnxruntime": "1.31.0",
+    "tokenizers": "0.23.3"
+  },
+  "settings": {
+    "top_k": 4,
+    "candidates": 12,
+    "threads": 2,
+    "rrf_k": 60
+  },
+  "model_load_seconds": 0.345,
+  "index_seconds": 0.148,
+  "restart_preserved_ranking": true,
+  "answerable_queries": 12,
+  "unsupported_queries": 2,
+  "summary": {
+    "bm25": {
+      "recall_at_4": 0.5833,
+      "mrr_at_4": 0.4306,
+      "ndcg_at_4": 0.4692,
+      "median_latency_ms": 1.121,
+      "unsupported_queries_with_candidates": 1
+    },
+    "dense": {
+      "recall_at_4": 1.0,
+      "mrr_at_4": 1.0,
+      "ndcg_at_4": 1.0,
+      "median_latency_ms": 7.348,
+      "unsupported_queries_with_candidates": 2
+    },
+    "hybrid": {
+      "recall_at_4": 1.0,
+      "mrr_at_4": 0.9167,
+      "ndcg_at_4": 0.9385,
+      "median_latency_ms": 7.611,
+      "unsupported_queries_with_candidates": 2
+    },
+    "hybrid_rerank": {
+      "recall_at_4": 1.0,
+      "mrr_at_4": 0.9583,
+      "ndcg_at_4": 0.9692,
+      "median_latency_ms": 87.84,
+      "unsupported_queries_with_candidates": 2
+    }
+  },
+  "results": [
+    {
+      "query": "delivery_exact",
+      "mode": "bm25",
+      "ranked": [
+        [
+          "procurement",
+          4
+        ],
+        [
+          "procurement",
+          1
+        ]
+      ],
+      "latency_ms": 0.817,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 0.5,
+        "ndcg_at_4": 0.6309297535714575
+      }
+    },
+    {
+      "query": "delivery_exact",
+      "mode": "dense",
+      "ranked": [
+        [
+          "procurement",
+          1
+        ],
+        [
+          "procurement",
+          4
+        ],
+        [
+          "staff",
+          2
+        ],
+        [
+          "procurement",
+          2
+        ]
+      ],
+      "latency_ms": 8.099,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "delivery_exact",
+      "mode": "hybrid",
+      "ranked": [
+        [
+          "procurement",
+          1
+        ],
+        [
+          "procurement",
+          4
+        ],
+        [
+          "staff",
+          2
+        ],
+        [
+          "procurement",
+          2
+        ]
+      ],
+      "latency_ms": 7.638,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "delivery_exact",
+      "mode": "hybrid_rerank",
+      "ranked": [
+        [
+          "procurement",
+          1
+        ],
+        [
+          "procurement",
+          4
+        ],
+        [
+          "procurement",
+          2
+        ],
+        [
+          "staff",
+          2
+        ]
+      ],
+      "latency_ms": 89.929,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "delivery_paraphrase",
+      "mode": "bm25",
+      "ranked": [],
+      "latency_ms": 1.007,
+      "metrics": {
+        "recall_at_4": 0.0,
+        "mrr_at_4": 0.0,
+        "ndcg_at_4": 0.0
+      }
+    },
+    {
+      "query": "delivery_paraphrase",
+      "mode": "dense",
+      "ranked": [
+        [
+          "procurement",
+          1
+        ],
+        [
+          "procurement",
+          4
+        ],
+        [
+          "procurement",
+          2
+        ],
+        [
+          "staff",
+          2
+        ]
+      ],
+      "latency_ms": 6.838,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "delivery_paraphrase",
+      "mode": "hybrid",
+      "ranked": [
+        [
+          "procurement",
+          1
+        ],
+        [
+          "procurement",
+          4
+        ],
+        [
+          "procurement",
+          2
+        ],
+        [
+          "staff",
+          2
+        ]
+      ],
+      "latency_ms": 7.338,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "delivery_paraphrase",
+      "mode": "hybrid_rerank",
+      "ranked": [
+        [
+          "procurement",
+          2
+        ],
+        [
+          "procurement",
+          1
+        ],
+        [
+          "staff",
+          2
+        ],
+        [
+          "procurement",
+          4
+        ]
+      ],
+      "latency_ms": 87.517,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 0.5,
+        "ndcg_at_4": 0.6309297535714575
+      }
+    },
+    {
+      "query": "inspection",
+      "mode": "bm25",
+      "ranked": [
+        [
+          "procurement",
+          2
+        ]
+      ],
+      "latency_ms": 1.047,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "inspection",
+      "mode": "dense",
+      "ranked": [
+        [
+          "procurement",
+          2
+        ],
+        [
+          "staff",
+          2
+        ],
+        [
+          "procurement",
+          4
+        ],
+        [
+          "procurement",
+          1
+        ]
+      ],
+      "latency_ms": 6.718,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "inspection",
+      "mode": "hybrid",
+      "ranked": [
+        [
+          "procurement",
+          2
+        ],
+        [
+          "staff",
+          2
+        ],
+        [
+          "procurement",
+          4
+        ],
+        [
+          "procurement",
+          1
+        ]
+      ],
+      "latency_ms": 8.113,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "inspection",
+      "mode": "hybrid_rerank",
+      "ranked": [
+        [
+          "procurement",
+          2
+        ],
+        [
+          "staff",
+          2
+        ],
+        [
+          "operations",
+          2
+        ],
+        [
+          "procurement",
+          1
+        ]
+      ],
+      "latency_ms": 89.762,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "warranty",
+      "mode": "bm25",
+      "ranked": [
+        [
+          "procurement",
+          3
+        ]
+      ],
+      "latency_ms": 1.32,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "warranty",
+      "mode": "dense",
+      "ranked": [
+        [
+          "procurement",
+          3
+        ],
+        [
+          "staff",
+          4
+        ],
+        [
+          "procurement",
+          4
+        ],
+        [
+          "procurement",
+          2
+        ]
+      ],
+      "latency_ms": 8.88,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "warranty",
+      "mode": "hybrid",
+      "ranked": [
+        [
+          "procurement",
+          3
+        ],
+        [
+          "staff",
+          4
+        ],
+        [
+          "procurement",
+          4
+        ],
+        [
+          "procurement",
+          2
+        ]
+      ],
+      "latency_ms": 8.876,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "warranty",
+      "mode": "hybrid_rerank",
+      "ranked": [
+        [
+          "procurement",
+          3
+        ],
+        [
+          "operations",
+          2
+        ],
+        [
+          "staff",
+          4
+        ],
+        [
+          "procurement",
+          2
+        ]
+      ],
+      "latency_ms": 96.242,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "safety",
+      "mode": "bm25",
+      "ranked": [
+        [
+          "operations",
+          3
+        ]
+      ],
+      "latency_ms": 0.977,
+      "metrics": {
+        "recall_at_4": 0.0,
+        "mrr_at_4": 0.0,
+        "ndcg_at_4": 0.0
+      }
+    },
+    {
+      "query": "safety",
+      "mode": "dense",
+      "ranked": [
+        [
+          "operations",
+          1
+        ],
+        [
+          "operations",
+          3
+        ],
+        [
+          "operations",
+          4
+        ],
+        [
+          "staff",
+          1
+        ]
+      ],
+      "latency_ms": 7.891,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "safety",
+      "mode": "hybrid",
+      "ranked": [
+        [
+          "operations",
+          3
+        ],
+        [
+          "operations",
+          1
+        ],
+        [
+          "operations",
+          4
+        ],
+        [
+          "staff",
+          1
+        ]
+      ],
+      "latency_ms": 8.239,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 0.5,
+        "ndcg_at_4": 0.6309297535714575
+      }
+    },
+    {
+      "query": "safety",
+      "mode": "hybrid_rerank",
+      "ranked": [
+        [
+          "operations",
+          1
+        ],
+        [
+          "operations",
+          3
+        ],
+        [
+          "operations",
+          4
+        ],
+        [
+          "procurement",
+          2
+        ]
+      ],
+      "latency_ms": 88.954,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "backup",
+      "mode": "bm25",
+      "ranked": [],
+      "latency_ms": 1.022,
+      "metrics": {
+        "recall_at_4": 0.0,
+        "mrr_at_4": 0.0,
+        "ndcg_at_4": 0.0
+      }
+    },
+    {
+      "query": "backup",
+      "mode": "dense",
+      "ranked": [
+        [
+          "operations",
+          2
+        ],
+        [
+          "procurement",
+          2
+        ],
+        [
+          "staff",
+          1
+        ],
+        [
+          "operations",
+          1
+        ]
+      ],
+      "latency_ms": 6.925,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "backup",
+      "mode": "hybrid",
+      "ranked": [
+        [
+          "operations",
+          2
+        ],
+        [
+          "procurement",
+          2
+        ],
+        [
+          "staff",
+          1
+        ],
+        [
+          "operations",
+          1
+        ]
+      ],
+      "latency_ms": 6.927,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "backup",
+      "mode": "hybrid_rerank",
+      "ranked": [
+        [
+          "operations",
+          2
+        ],
+        [
+          "procurement",
+          2
+        ],
+        [
+          "staff",
+          4
+        ],
+        [
+          "staff",
+          2
+        ]
+      ],
+      "latency_ms": 86.054,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "code",
+      "mode": "bm25",
+      "ranked": [
+        [
+          "operations",
+          3
+        ],
+        [
+          "operations",
+          4
+        ]
+      ],
+      "latency_ms": 1.242,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "code",
+      "mode": "dense",
+      "ranked": [
+        [
+          "operations",
+          3
+        ],
+        [
+          "operations",
+          4
+        ],
+        [
+          "procurement",
+          3
+        ],
+        [
+          "staff",
+          1
+        ]
+      ],
+      "latency_ms": 6.936,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "code",
+      "mode": "hybrid",
+      "ranked": [
+        [
+          "operations",
+          3
+        ],
+        [
+          "operations",
+          4
+        ],
+        [
+          "procurement",
+          3
+        ],
+        [
+          "staff",
+          1
+        ]
+      ],
+      "latency_ms": 6.992,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "code",
+      "mode": "hybrid_rerank",
+      "ranked": [
+        [
+          "operations",
+          3
+        ],
+        [
+          "operations",
+          4
+        ],
+        [
+          "operations",
+          1
+        ],
+        [
+          "procurement",
+          3
+        ]
+      ],
+      "latency_ms": 82.977,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "illness",
+      "mode": "bm25",
+      "ranked": [
+        [
+          "staff",
+          1
+        ]
+      ],
+      "latency_ms": 1.246,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "illness",
+      "mode": "dense",
+      "ranked": [
+        [
+          "staff",
+          1
+        ],
+        [
+          "operations",
+          3
+        ],
+        [
+          "staff",
+          3
+        ],
+        [
+          "operations",
+          1
+        ]
+      ],
+      "latency_ms": 9.146,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "illness",
+      "mode": "hybrid",
+      "ranked": [
+        [
+          "staff",
+          1
+        ],
+        [
+          "operations",
+          3
+        ],
+        [
+          "staff",
+          3
+        ],
+        [
+          "operations",
+          1
+        ]
+      ],
+      "latency_ms": 9.108,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "illness",
+      "mode": "hybrid_rerank",
+      "ranked": [
+        [
+          "staff",
+          1
+        ],
+        [
+          "operations",
+          3
+        ],
+        [
+          "operations",
+          4
+        ],
+        [
+          "operations",
+          1
+        ]
+      ],
+      "latency_ms": 97.313,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "expenses",
+      "mode": "bm25",
+      "ranked": [
+        [
+          "procurement",
+          4
+        ],
+        [
+          "procurement",
+          2
+        ],
+        [
+          "staff",
+          2
+        ],
+        [
+          "procurement",
+          1
+        ]
+      ],
+      "latency_ms": 1.281,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 0.3333333333333333,
+        "ndcg_at_4": 0.5
+      }
+    },
+    {
+      "query": "expenses",
+      "mode": "dense",
+      "ranked": [
+        [
+          "staff",
+          2
+        ],
+        [
+          "staff",
+          4
+        ],
+        [
+          "procurement",
+          4
+        ],
+        [
+          "procurement",
+          2
+        ]
+      ],
+      "latency_ms": 8.909,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "expenses",
+      "mode": "hybrid",
+      "ranked": [
+        [
+          "procurement",
+          4
+        ],
+        [
+          "staff",
+          2
+        ],
+        [
+          "procurement",
+          2
+        ],
+        [
+          "procurement",
+          1
+        ]
+      ],
+      "latency_ms": 9.017,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 0.5,
+        "ndcg_at_4": 0.6309297535714575
+      }
+    },
+    {
+      "query": "expenses",
+      "mode": "hybrid_rerank",
+      "ranked": [
+        [
+          "staff",
+          2
+        ],
+        [
+          "procurement",
+          2
+        ],
+        [
+          "staff",
+          4
+        ],
+        [
+          "procurement",
+          4
+        ]
+      ],
+      "latency_ms": 98.504,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "visitor",
+      "mode": "bm25",
+      "ranked": [],
+      "latency_ms": 1.195,
+      "metrics": {
+        "recall_at_4": 0.0,
+        "mrr_at_4": 0.0,
+        "ndcg_at_4": 0.0
+      }
+    },
+    {
+      "query": "visitor",
+      "mode": "dense",
+      "ranked": [
+        [
+          "staff",
+          3
+        ],
+        [
+          "staff",
+          1
+        ],
+        [
+          "staff",
+          4
+        ],
+        [
+          "staff",
+          2
+        ]
+      ],
+      "latency_ms": 7.666,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "visitor",
+      "mode": "hybrid",
+      "ranked": [
+        [
+          "staff",
+          3
+        ],
+        [
+          "staff",
+          1
+        ],
+        [
+          "staff",
+          4
+        ],
+        [
+          "staff",
+          2
+        ]
+      ],
+      "latency_ms": 7.71,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "visitor",
+      "mode": "hybrid_rerank",
+      "ranked": [
+        [
+          "staff",
+          3
+        ],
+        [
+          "staff",
+          1
+        ],
+        [
+          "operations",
+          4
+        ],
+        [
+          "staff",
+          4
+        ]
+      ],
+      "latency_ms": 88.164,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "leave",
+      "mode": "bm25",
+      "ranked": [
+        [
+          "procurement",
+          4
+        ],
+        [
+          "staff",
+          2
+        ],
+        [
+          "staff",
+          4
+        ],
+        [
+          "procurement",
+          1
+        ]
+      ],
+      "latency_ms": 0.961,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 0.3333333333333333,
+        "ndcg_at_4": 0.5
+      }
+    },
+    {
+      "query": "leave",
+      "mode": "dense",
+      "ranked": [
+        [
+          "staff",
+          4
+        ],
+        [
+          "operations",
+          2
+        ],
+        [
+          "staff",
+          2
+        ],
+        [
+          "staff",
+          1
+        ]
+      ],
+      "latency_ms": 6.275,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "leave",
+      "mode": "hybrid",
+      "ranked": [
+        [
+          "staff",
+          4
+        ],
+        [
+          "staff",
+          2
+        ],
+        [
+          "procurement",
+          4
+        ],
+        [
+          "operations",
+          2
+        ]
+      ],
+      "latency_ms": 7.06,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "leave",
+      "mode": "hybrid_rerank",
+      "ranked": [
+        [
+          "staff",
+          4
+        ],
+        [
+          "staff",
+          2
+        ],
+        [
+          "operations",
+          2
+        ],
+        [
+          "staff",
+          1
+        ]
+      ],
+      "latency_ms": 85.157,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "scope",
+      "mode": "bm25",
+      "ranked": [],
+      "latency_ms": 1.274,
+      "metrics": {
+        "recall_at_4": 0.0,
+        "mrr_at_4": 0.0,
+        "ndcg_at_4": 0.0
+      }
+    },
+    {
+      "query": "scope",
+      "mode": "dense",
+      "ranked": [
+        [
+          "staff",
+          2
+        ],
+        [
+          "staff",
+          4
+        ],
+        [
+          "staff",
+          1
+        ],
+        [
+          "staff",
+          3
+        ]
+      ],
+      "latency_ms": 5.993,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "scope",
+      "mode": "hybrid",
+      "ranked": [
+        [
+          "staff",
+          2
+        ],
+        [
+          "staff",
+          4
+        ],
+        [
+          "staff",
+          1
+        ],
+        [
+          "staff",
+          3
+        ]
+      ],
+      "latency_ms": 6.496,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "scope",
+      "mode": "hybrid_rerank",
+      "ranked": [
+        [
+          "staff",
+          2
+        ],
+        [
+          "staff",
+          4
+        ],
+        [
+          "staff",
+          1
+        ],
+        [
+          "staff",
+          3
+        ]
+      ],
+      "latency_ms": 29.271,
+      "metrics": {
+        "recall_at_4": 1.0,
+        "mrr_at_4": 1.0,
+        "ndcg_at_4": 1.0
+      }
+    },
+    {
+      "query": "no_match",
+      "mode": "bm25",
+      "ranked": [],
+      "latency_ms": 0.886,
+      "metrics": null
+    },
+    {
+      "query": "no_match",
+      "mode": "dense",
+      "ranked": [
+        [
+          "operations",
+          3
+        ],
+        [
+          "procurement",
+          3
+        ],
+        [
+          "operations",
+          4
+        ],
+        [
+          "operations",
+          1
+        ]
+      ],
+      "latency_ms": 7.622,
+      "metrics": null
+    },
+    {
+      "query": "no_match",
+      "mode": "hybrid",
+      "ranked": [
+        [
+          "operations",
+          3
+        ],
+        [
+          "procurement",
+          3
+        ],
+        [
+          "operations",
+          4
+        ],
+        [
+          "operations",
+          1
+        ]
+      ],
+      "latency_ms": 7.584,
+      "metrics": null
+    },
+    {
+      "query": "no_match",
+      "mode": "hybrid_rerank",
+      "ranked": [
+        [
+          "staff",
+          3
+        ],
+        [
+          "operations",
+          1
+        ],
+        [
+          "procurement",
+          3
+        ],
+        [
+          "staff",
+          2
+        ]
+      ],
+      "latency_ms": 85.324,
+      "metrics": null
+    },
+    {
+      "query": "unsupported_overlap",
+      "mode": "bm25",
+      "ranked": [
+        [
+          "procurement",
+          4
+        ],
+        [
+          "procurement",
+          1
+        ]
+      ],
+      "latency_ms": 1.303,
+      "metrics": null
+    },
+    {
+      "query": "unsupported_overlap",
+      "mode": "dense",
+      "ranked": [
+        [
+          "procurement",
+          1
+        ],
+        [
+          "procurement",
+          4
+        ],
+        [
+          "procurement",
+          3
+        ],
+        [
+          "staff",
+          3
+        ]
+      ],
+      "latency_ms": 7.074,
+      "metrics": null
+    },
+    {
+      "query": "unsupported_overlap",
+      "mode": "hybrid",
+      "ranked": [
+        [
+          "procurement",
+          1
+        ],
+        [
+          "procurement",
+          4
+        ],
+        [
+          "procurement",
+          3
+        ],
+        [
+          "staff",
+          3
+        ]
+      ],
+      "latency_ms": 7.049,
+      "metrics": null
+    },
+    {
+      "query": "unsupported_overlap",
+      "mode": "hybrid_rerank",
+      "ranked": [
+        [
+          "procurement",
+          1
+        ],
+        [
+          "procurement",
+          4
+        ],
+        [
+          "staff",
+          4
+        ],
+        [
+          "staff",
+          3
+        ]
+      ],
+      "latency_ms": 84.161,
+      "metrics": null
+    }
+  ],
+  "limitations": "Authored development fixture, not held-out or a general benchmark. No LLM calls. Dense candidates are not proof of answerability. One run, no warmup; latency is descriptive only."
+}

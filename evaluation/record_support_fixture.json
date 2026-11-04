@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "description": "Authored explicit-record counterchecks for Phase 7. Fictional historical events and general policies; fixed before record-gate evaluation, not held out.",
+  "documents": [
+    {"id": "ridge", "pages": [
+      {"kind": "native", "stratum": "core", "text": "Ridge Parts delivers orders within 8 working days after payment clears. A general delivery policy does not establish an individual shipment's status."},
+      {"kind": "native", "stratum": "core", "text": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025. These records concern only order R-517."}
+    ]},
+    {"id": "elm", "pages": [
+      {"kind": "native", "stratum": "core", "text": "Elm Library loan L-28: The return due date is 7 November 2025. Another reader has reserved the book on loan L-28. Elm Library loans can be renewed only if no other reader has reserved the book."}
+    ]}
+  ],
+  "queries": [
+    {"id": "payment_record", "stratum": "core", "question": "Has payment cleared for Ridge Parts order R-517?", "scope": ["ridge"], "answerable": true, "relevant": [["ridge", 2]], "expected_facts": [["payment cleared on 18 September 2025"]]},
+    {"id": "arrival_record", "stratum": "core", "question": "Was Ridge Parts order R-517 delivered?", "scope": ["ridge"], "answerable": true, "relevant": [["ridge", 2]], "expected_facts": [["delivered on 29 September 2025"]]},
+    {"id": "missing_order", "stratum": "core", "question": "Has payment cleared for Ridge Parts order R-518?", "scope": ["ridge"], "answerable": false, "relevant": [], "expected_facts": []},
+    {"id": "general_delivery", "stratum": "core", "question": "How long does Ridge Parts normally take to deliver after payment clears?", "scope": ["ridge"], "answerable": true, "relevant": [["ridge", 1]], "expected_facts": [["8 working days"], ["after payment clears"]]},
+    {"id": "due_date_record", "stratum": "core", "question": "What is the exact return due date for Elm Library loan L-28?", "scope": ["elm"], "answerable": true, "relevant": [["elm", 1]], "expected_facts": [["7 November 2025"]]},
+    {"id": "reservation_record", "stratum": "core", "question": "Has another reader reserved the book on Elm Library loan L-28?", "scope": ["elm"], "answerable": true, "relevant": [["elm", 1]], "expected_facts": [["Another reader has reserved the book on loan L-28"]]},
+    {"id": "missing_loan", "stratum": "core", "question": "What is the exact return due date for Elm Library loan L-29?", "scope": ["elm"], "answerable": false, "relevant": [], "expected_facts": []}
+  ]
+}

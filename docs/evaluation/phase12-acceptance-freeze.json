@@ -1,0 +1,17 @@
+{
+  "frozen_at": "2026-11-03T18:12:50.741230+00:00",
+  "fixture_sha256": "1226a07efedf44d749e4303c9ae23dbf68960695ff3aa37d4431b815ee3c3328",
+  "note": "Frozen before any Phase 12 implementation work. Dev fixture: evaluation/broad_dev.json (sha256 2aa4a7d437d7ea956b1efa56e1efad91c796ff9ec42480a1866e1de412d044a2) is used for tuning; this acceptance fixture is run once after implementation and not tuned against.",
+  "gate": "Run once after implementation completes: core answer/summary contracts pass in hybrid_rerank, unsupported/clarification cases behave as specified, no execution errors. BM25 lexical misses are reported separately as known keyword-mode limitations.",
+  "amendment_1": {
+    "at": "2026-11-03T19:17:38.163298+00:00",
+    "change": "Overview-style queries (lumen_overview, harbor_about) use citation:loose \u2014 facts required, at least one reference page cited, citations within scope \u2014 instead of exact page precision.",
+    "reason": "The development fixture showed a correct whole-document overview legitimately cites several pages; strict per-claim page precision penalizes good overviews. No acceptance run had happened yet; no expectations were derived from acceptance results.",
+    "fixture_sha256_after": "1d927af2625c22b5f8b7a02682de719471f2eef40ccc3fa7d26f053dee3810bf"
+  },
+  "amendment_2": {
+    "at": "2026-11-03T19:26:13.175480+00:00",
+    "change": "Summary queries gained their question text (\"Summarize the <doc> document.\"); the field is required by the extended evaluator. Fixture completion before the first acceptance run.",
+    "fixture_sha256_after": "dc66f8c199ec102138a57b2b7188d44cff84c1239b4ba9b7e1aa13612f8df30c"
+  }
+}

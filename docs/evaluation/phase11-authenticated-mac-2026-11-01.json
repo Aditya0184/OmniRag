@@ -1,0 +1,58 @@
+{
+  "checked_at": "2026-11-01T21:51:47.982944+05:30",
+  "user_facing_date": "2026-11-01",
+  "method": "Existing user-authenticated in-app browser; read-only protected routes and local SQLite/hash inspection",
+  "owner_sign_in_verified": true,
+  "authenticated_documents": {
+    "status": 200,
+    "count": 29
+  },
+  "authenticated_history": {
+    "loaded": true,
+    "returned_rows": 20,
+    "stored_query_runs": 35,
+    "note": "The API returns the latest 20 rows; all 35 stored rows were preserved."
+  },
+  "authenticated_readiness": {
+    "model_reachable": true,
+    "model_available": true,
+    "worker_active": true,
+    "retrieval_loaded": true,
+    "local_only": true,
+    "ready_documents": 23,
+    "default_retrieval_mode": "hybrid_rerank"
+  },
+  "authenticated_sample_original": {
+    "http_status": 200,
+    "evidence": "Browser navigation and API access log",
+    "pdf_painting_visually_verified": false
+  },
+  "tables_unchanged": true,
+  "tables": {
+    "documents": {
+      "count": 29,
+      "sha256": "f0c04ae10ab12528dfeef976f4f247431d67cef51f654386445df7dfa0c2ad4f"
+    },
+    "chunks": {
+      "count": 44,
+      "sha256": "5baff6ee8d663a2e0fbee8abac967f2bc27e5bf01762b0f7e8547785ae451e04"
+    },
+    "query_runs": {
+      "count": 35,
+      "sha256": "0c94fd07860070cb5107a6d0552b25fece20f23378482479dec59f17b869a53d"
+    },
+    "vector_jobs": {
+      "count": 23,
+      "sha256": "a4c6fffeb1683d1cac8930111fa2200e2ed8465e1de497506fd029e581f12771"
+    },
+    "page_extractions": {
+      "count": 43,
+      "sha256": "182b8a34ad1d6ca71a1d69510410f4db3800cc1d15e7699a29b81bcc354a1ba3"
+    }
+  },
+  "original_files_verified": 29,
+  "generation_sha256": "0fe7ef6b854481f237f7a042f40e8561c7cd18c8800818845d213a370e6243c9",
+  "credentials_read_or_changed": false,
+  "live_test_uploads_or_saved_queries_added": false,
+  "csrf_and_logout": "Covered by passed backend suite and historical Phase 10 live check; not repeated using the owner browser session; user remains signed in."
+}

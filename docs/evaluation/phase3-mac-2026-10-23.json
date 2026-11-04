@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-23",
+  "purpose": "Authored OCR integration fixtures; not an accuracy benchmark",
+  "ocr": {
+    "engine": "tesseract 5.5.1",
+    "language": "eng",
+    "language_sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+    "renderer": "5.14.0",
+    "pdfium": "156.0.8076.0",
+    "page_segmentation_mode": 3
+  },
+  "fixtures": {
+    "scanned_policy.pdf": {
+      "sha256": "c0fe36ceaead83f50eae09c9b96056518ddd79e0d3c91a7494b4e12dfbf4f7f2",
+      "observed_extraction": {
+        "page_count": 1,
+        "chunks": [
+          {
+            "page": 1,
+            "ordinal": 0,
+            "text": "FICTIONAL SCANNED POLICY - OCR TEST Cedar Archives retention policy Signed records must be retained for 7 years. The records custodian reviews access every 90 days. This sample contains no real company information."
+          }
+        ],
+        "warnings": [
+          "OCR transcription on pages [1]. Verify against the original."
+        ],
+        "pages": [
+          {
+            "page": 1,
+            "method": "ocr",
+            "engine": "tesseract 5.5.1",
+            "language": "eng",
+            "language_sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+            "renderer": "5.14.0",
+            "pdfium": "156.0.8076.0",
+            "page_segmentation_mode": 3,
+            "render_dpi": 200.0,
+            "mean_word_confidence": 96.17,
+            "characters": 214
+          }
+        ]
+      }
+    },
+    "mixed_policy.pdf": {
+      "sha256": "610934320820f8f0aff0da34e463c60e8eec91a9cb9600c29357502d9bb03ed5",
+      "observed_extraction": {
+        "page_count": 2,
+        "chunks": [
+          {
+            "page": 1,
+            "ordinal": 0,
+            "text": "FICTIONAL POLICY - NATIVE TEXT PAGE Cedar Archives delivers records within 3 working days."
+          },
+          {
+            "page": 2,
+            "ordinal": 0,
+            "text": "FICTIONAL SCANNED POLICY - OCR TEST Cedar Archives retention policy Signed records must be retained for 7 years. The records custodian reviews access every 90 days. This sample contains no real company information."
+          }
+        ],
+        "warnings": [
+          "OCR transcription on pages [2]. Verify against the original."
+        ],
+        "pages": [
+          {
+            "page": 1,
+            "method": "native",
+            "characters": 90
+          },
+          {
+            "page": 2,
+            "method": "ocr",
+            "engine": "tesseract 5.5.1",
+            "language": "eng",
+            "language_sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+            "renderer": "5.14.0",
+            "pdfium": "156.0.8076.0",
+            "page_segmentation_mode": 3,
+            "render_dpi": 200.0,
+            "mean_word_confidence": 96.17,
+            "characters": 214
+          }
+        ]
+      }
+    }
+  },
+  "restart": {
+    "date": "2026-10-23",
+    "preserved_rows": {
+      "documents": 26,
+      "chunks": 38,
+      "query_runs": 30,
+      "vector_jobs": 20,
+      "page_extractions": 38
+    },
+    "all_original_hashes_match": true,
+    "ocr_rankings_unchanged": true,
+    "saved_ocr_answer_unchanged": true,
+    "readiness": {
+      "model": {
+        "reachable": true,
+        "model_available": true,
+        "model": "qwen3-vl:2b-instruct"
+      },
+      "worker_active": true,
+      "local_only": true,
+      "retrieval": {
+        "enabled": true,
+        "loaded": true,
+        "error": null,
+        "documents": {
+          "ready": 20
+        },
+        "collection": "chunks_97afa178af9bdeece42f"
+      },
+      "default_retrieval_mode": "hybrid_rerank",
+      "ocr": {
+        "enabled": true,
+        "language": "eng"
+      }
+    }
+  },
+  "ollama": {
+    "recorded_at": "2026-10-23T05:31:41.178937+00:00",
+    "ollama_version": "0.40.8",
+    "model": {
+      "name": "qwen3-vl:2b-instruct",
+      "model": "qwen3-vl:2b-instruct",
+      "modified_at": "2026-10-22T21:54:30.016546638+05:30",
+      "size": 1930568531,
+      "digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+      "details": {
+        "parent_model": "dhiltgen/qwen3-vl:2b-instruct-q4_K_M-llamacpp",
+        "format": "gguf",
+        "family": "qwen3vl",
+        "families": [
+          "qwen3vl",
+          "clip"
+        ],
+        "parameter_size": "1.7B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 262144,
+        "embedding_length": 2048,
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools"
+      ]
+    },
+    "num_ctx": 4096,
+    "num_predict": 768,
+    "temperature": 0,
+    "seed": 42,
+    "thinking": {
+      "values": [
+        false
+      ],
+      "default": false
+    }
+  }
+}

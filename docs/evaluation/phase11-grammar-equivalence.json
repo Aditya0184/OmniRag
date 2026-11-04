@@ -1,0 +1,11 @@
+{
+  "before_generation_sha256": "7382264cb424a56547a10d5fd86e455d1b7ca4682c98594c70b52518edf6bc77",
+  "after_generation_sha256": "0fe7ef6b854481f237f7a042f40e8561c7cd18c8800818845d213a370e6243c9",
+  "prompt_strings_identical": true,
+  "complete_evaluated_inputs_unchanged": 82,
+  "reports": [
+    "phase11-acceptance-v2-2026-10-29.json",
+    "phase11-quality-2026-10-29.json",
+    "phase11-record-support-2026-10-29.json"
+  ]
+}

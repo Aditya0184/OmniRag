@@ -1,0 +1,450 @@
+{
+  "version": 2,
+  "description": "Fresh authored Phase 11 acceptance, frozen before candidate changes. Not an external benchmark. Do not tune against results.",
+  "documents": [
+    {
+      "id": "nova",
+      "pages": [
+        {
+          "kind": "native",
+          "stratum": "core",
+          "text": "Nova Studio rents portable projectors for 8 calendar days. The refundable projector deposit is 55 credits."
+        },
+        {
+          "kind": "native",
+          "stratum": "core",
+          "text": "Nova Studio requires the power cable to be returned with every projector. Projector extensions are allowed only when no later booking exists."
+        }
+      ]
+    },
+    {
+      "id": "delta",
+      "pages": [
+        {
+          "kind": "native",
+          "stratum": "core",
+          "text": "Delta Studio rents portable projectors for 3 calendar days. The refundable projector deposit is 90 credits."
+        }
+      ]
+    },
+    {
+      "id": "quartz",
+      "pages": [
+        {
+          "kind": "scan",
+          "stratum": "core",
+          "text": "Quartz Gallery opens from 11:00 until 18:00 on Fridays. Food is not permitted in the exhibition rooms. Visitors may sketch only with pencils."
+        }
+      ]
+    },
+    {
+      "id": "elm",
+      "pages": [
+        {
+          "kind": "header_scan",
+          "header": "Elm Records access guide",
+          "stratum": "core",
+          "text": "Elm Records retains application forms for 30 months. Viewing original plans requires written permission from the curator."
+        }
+      ]
+    },
+    {
+      "id": "rental",
+      "pages": [
+        {
+          "kind": "native",
+          "stratum": "core",
+          "text": "Rental N-637 was collected by Ravi Sen on 12 October 2026. The deposit for rental N-637 was refunded on 20 October 2026."
+        }
+      ]
+    },
+    {
+      "id": "devices",
+      "pages": [
+        {
+          "kind": "native",
+          "stratum": "core",
+          "text": "Device PX-51 requires inspection every 7 months. Device PX-510 requires inspection every 15 months."
+        }
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "id": "nova_duration",
+      "stratum": "core",
+      "question": "How long may I rent a portable projector from Nova Studio?",
+      "scope": [],
+      "answerable": true,
+      "relevant": [
+        [
+          "nova",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "8 calendar days"
+        ]
+      ]
+    },
+    {
+      "id": "delta_duration",
+      "stratum": "core",
+      "question": "For how many days does Delta Studio rent portable projectors?",
+      "scope": [],
+      "answerable": true,
+      "relevant": [
+        [
+          "delta",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "3 calendar days"
+        ]
+      ]
+    },
+    {
+      "id": "nova_deposit",
+      "stratum": "core",
+      "question": "What deposit is required for a projector at Nova Studio?",
+      "scope": [],
+      "answerable": true,
+      "relevant": [
+        [
+          "nova",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "55 credits"
+        ]
+      ]
+    },
+    {
+      "id": "accessory_return",
+      "stratum": "core",
+      "question": "What accessory must accompany a returned projector?",
+      "scope": [
+        "nova"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "nova",
+          2
+        ]
+      ],
+      "expected_facts": [
+        [
+          "power cable"
+        ]
+      ]
+    },
+    {
+      "id": "extension_rule",
+      "stratum": "core",
+      "question": "Under what condition can I extend my projector rental?",
+      "scope": [
+        "nova"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "nova",
+          2
+        ]
+      ],
+      "expected_facts": [
+        [
+          "only when no later booking exists"
+        ]
+      ]
+    },
+    {
+      "id": "gallery_hours",
+      "stratum": "core",
+      "question": "When may I visit Quartz Gallery on Fridays?",
+      "scope": [
+        "quartz"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "quartz",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "11:00 until 18:00"
+        ]
+      ]
+    },
+    {
+      "id": "food_rule",
+      "stratum": "core",
+      "question": "Can I bring food into the exhibition rooms?",
+      "scope": [
+        "quartz"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "quartz",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "Food is not permitted"
+        ]
+      ]
+    },
+    {
+      "id": "sketch_rule",
+      "stratum": "core",
+      "question": "What may I use to sketch at Quartz Gallery?",
+      "scope": [
+        "quartz"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "quartz",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "only with pencils"
+        ]
+      ]
+    },
+    {
+      "id": "retention",
+      "stratum": "core",
+      "question": "How long does Elm Records keep application forms?",
+      "scope": [
+        "elm"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "elm",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "30 months"
+        ]
+      ]
+    },
+    {
+      "id": "permission",
+      "stratum": "core",
+      "question": "Whose permission is required to view original plans?",
+      "scope": [
+        "elm"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "elm",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "written permission from the curator"
+        ]
+      ]
+    },
+    {
+      "id": "refund",
+      "stratum": "core",
+      "question": "On what date was rental N-637's deposit refunded?",
+      "scope": [
+        "rental"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "rental",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "20 October 2026"
+        ]
+      ]
+    },
+    {
+      "id": "collector",
+      "stratum": "core",
+      "question": "Who collected rental N-637?",
+      "scope": [
+        "rental"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "rental",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "Ravi Sen"
+        ]
+      ]
+    },
+    {
+      "id": "exact_device",
+      "stratum": "core",
+      "question": "How often must device PX-51 be inspected?",
+      "scope": [
+        "devices"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "devices",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "7 months"
+        ]
+      ]
+    },
+    {
+      "id": "missing_rental",
+      "stratum": "core",
+      "question": "When was the deposit for rental N-638 refunded?",
+      "scope": [
+        "rental"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "missing_company",
+      "stratum": "core",
+      "question": "How long may I rent a projector from Sol Studio?",
+      "scope": [
+        "nova",
+        "delta"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "scope_company",
+      "stratum": "core",
+      "question": "What deposit is required by Delta Studio?",
+      "scope": [
+        "nova"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "lowercase_company",
+      "stratum": "core",
+      "question": "What deposit is required by delta studio?",
+      "scope": [
+        "nova"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "wrong_person",
+      "stratum": "core",
+      "question": "On what date did Lila Roy collect rental N-637?",
+      "scope": [
+        "rental"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "unrecorded_booking",
+      "stratum": "core",
+      "question": "Has anyone made a later booking for my Nova Studio projector?",
+      "scope": [
+        "nova"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "unrecorded_permission",
+      "stratum": "core",
+      "question": "Has the curator given me written permission to view original plans?",
+      "scope": [
+        "elm"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "missing_fee",
+      "stratum": "core",
+      "question": "What does Elm Records charge for viewing original plans?",
+      "scope": [
+        "elm"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "missing_day",
+      "stratum": "core",
+      "question": "When does Quartz Gallery open on Mondays?",
+      "scope": [
+        "quartz"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "missing_device",
+      "stratum": "core",
+      "question": "How often must device PX-511 be inspected?",
+      "scope": [
+        "devices"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "missing_record",
+      "stratum": "core",
+      "question": "What exact date is my Nova Studio projector due back?",
+      "scope": [
+        "nova"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    }
+  ]
+}

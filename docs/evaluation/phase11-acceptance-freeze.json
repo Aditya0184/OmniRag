@@ -1,0 +1,6 @@
+{
+  "frozen_at": "2026-10-27T20:03:47.362201+00:00",
+  "fixture_sha256": "359df88268566e1eff763057e6a2ddbadd19b12c09e4938b62d5585091681249",
+  "generation_sha256": "523a4140d69b5309f390e3e6385549896fd3c69998b7e3d196ca352d353c8d42",
+  "gate": "24 hybrid contracts pass, all unsupported refuse, no errors; old regression passes retained; do not tune on this set"
+}

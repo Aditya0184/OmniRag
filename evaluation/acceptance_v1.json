@@ -1,0 +1,441 @@
+{
+  "version": 1,
+  "description": "Fresh authored Phase 10 acceptance set, frozen before its first model run. New entities, values and questions; not used to tune Phase 9. Authored by the same assistant, not an external benchmark or independent human evaluation.",
+  "documents": [
+    {
+      "id": "alder",
+      "pages": [
+        {
+          "kind": "native",
+          "stratum": "core",
+          "text": "Alder Workshop hires cordless drills for 6 calendar days. Drill hire requires a refundable deposit of 45 credits."
+        },
+        {
+          "kind": "native",
+          "stratum": "core",
+          "text": "Alder Workshop accepts drill returns only before 17:00 on weekdays. Batteries must be returned with the drill."
+        }
+      ]
+    },
+    {
+      "id": "birch",
+      "pages": [
+        {
+          "kind": "native",
+          "stratum": "core",
+          "text": "Birch Workshop hires cordless drills for 9 calendar days. Drill hire requires a refundable deposit of 70 credits."
+        }
+      ]
+    },
+    {
+      "id": "museum",
+      "pages": [
+        {
+          "kind": "scan",
+          "stratum": "core",
+          "text": "Linden Museum admits visitors from 10:00 until 16:00 on Saturdays. Photography is permitted only without flash. Tripods are not permitted inside the galleries."
+        }
+      ]
+    },
+    {
+      "id": "archive",
+      "pages": [
+        {
+          "kind": "header_scan",
+          "header": "Marsh Archive visitor information",
+          "stratum": "core",
+          "text": "Marsh Archive keeps visitor registration forms for 18 months. Access to original maps requires a reservation made 3 working days in advance."
+        }
+      ]
+    },
+    {
+      "id": "record",
+      "pages": [
+        {
+          "kind": "native",
+          "stratum": "core",
+          "text": "Alder Workshop rental R-482 was collected by Mina Patel on 8 September 2026. The deposit for rental R-482 was refunded on 15 September 2026."
+        }
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "id": "hire_duration",
+      "stratum": "core",
+      "question": "How many days may I keep an Alder Workshop cordless drill?",
+      "scope": [],
+      "answerable": true,
+      "relevant": [
+        [
+          "alder",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "6 calendar days"
+        ]
+      ]
+    },
+    {
+      "id": "hire_paraphrase",
+      "stratum": "core",
+      "question": "What is the permitted borrowing period for the power tool?",
+      "scope": [
+        "alder"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "alder",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "6 calendar days"
+        ]
+      ]
+    },
+    {
+      "id": "deposit",
+      "stratum": "core",
+      "question": "How much is the refundable drill deposit at Alder Workshop?",
+      "scope": [],
+      "answerable": true,
+      "relevant": [
+        [
+          "alder",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "45 credits"
+        ]
+      ]
+    },
+    {
+      "id": "other_company",
+      "stratum": "core",
+      "question": "How long can I hire a cordless drill from Birch Workshop?",
+      "scope": [],
+      "answerable": true,
+      "relevant": [
+        [
+          "birch",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "9 calendar days"
+        ]
+      ]
+    },
+    {
+      "id": "return_deadline",
+      "stratum": "core",
+      "question": "When does Alder Workshop accept drill returns?",
+      "scope": [
+        "alder"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "alder",
+          2
+        ]
+      ],
+      "expected_facts": [
+        [
+          "before 17:00 on weekdays"
+        ]
+      ]
+    },
+    {
+      "id": "included_battery",
+      "stratum": "core",
+      "question": "What must I return along with the drill?",
+      "scope": [
+        "alder"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "alder",
+          2
+        ]
+      ],
+      "expected_facts": [
+        [
+          "Batteries must be returned with the drill"
+        ]
+      ]
+    },
+    {
+      "id": "photo_condition",
+      "stratum": "core",
+      "question": "Can I take photographs in Linden Museum?",
+      "scope": [
+        "museum"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "museum",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "only without flash"
+        ]
+      ]
+    },
+    {
+      "id": "tripod_prohibition",
+      "stratum": "core",
+      "question": "May I bring a tripod inside the galleries?",
+      "scope": [
+        "museum"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "museum",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "Tripods are not permitted"
+        ]
+      ]
+    },
+    {
+      "id": "opening_hours",
+      "stratum": "core",
+      "question": "What are the Saturday visiting hours at Linden Museum?",
+      "scope": [
+        "museum"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "museum",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "10:00 until 16:00"
+        ]
+      ]
+    },
+    {
+      "id": "form_retention",
+      "stratum": "core",
+      "question": "For how long does Marsh Archive retain visitor registration forms?",
+      "scope": [
+        "archive"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "archive",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "18 months"
+        ]
+      ]
+    },
+    {
+      "id": "advance_booking",
+      "stratum": "core",
+      "question": "How far ahead must I reserve access to original maps?",
+      "scope": [
+        "archive"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "archive",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "3 working days in advance"
+        ]
+      ]
+    },
+    {
+      "id": "refund_record",
+      "stratum": "core",
+      "question": "When was the deposit for rental R-482 refunded?",
+      "scope": [
+        "record"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "record",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "15 September 2026"
+        ]
+      ]
+    },
+    {
+      "id": "collection_record",
+      "stratum": "core",
+      "question": "Who collected rental R-482?",
+      "scope": [
+        "record"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "record",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "Mina Patel"
+        ]
+      ]
+    },
+    {
+      "id": "absent_rental",
+      "stratum": "core",
+      "question": "Has my Alder Workshop rental R-999 been returned?",
+      "scope": [
+        "alder",
+        "record"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "absent_refund",
+      "stratum": "core",
+      "question": "When was the deposit for rental R-999 refunded?",
+      "scope": [
+        "record"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "absent_reservation",
+      "stratum": "core",
+      "question": "Has Marsh Archive confirmed my map reservation?",
+      "scope": [
+        "archive"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "absent_fee",
+      "stratum": "core",
+      "question": "How much does Marsh Archive charge to view original maps?",
+      "scope": [
+        "archive"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "wrong_scope",
+      "stratum": "core",
+      "question": "What deposit does Birch Workshop require for drill hire?",
+      "scope": [
+        "alder"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "lowercase_entity",
+      "stratum": "core",
+      "question": "How long does birch workshop hire out cordless drills?",
+      "scope": [
+        "alder"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "unknown_company",
+      "stratum": "core",
+      "question": "What is the drill hire period at Cedar Workshop?",
+      "scope": [
+        "alder",
+        "birch"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "missing_sunday",
+      "stratum": "core",
+      "question": "What time does Linden Museum open on Sundays?",
+      "scope": [
+        "museum"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "missing_damage",
+      "stratum": "core",
+      "question": "What penalty does Alder Workshop charge for a damaged drill?",
+      "scope": [
+        "alder"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "missing_personal_due",
+      "stratum": "core",
+      "question": "What is the exact return date for my current drill rental?",
+      "scope": [
+        "alder"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    },
+    {
+      "id": "different_person",
+      "stratum": "core",
+      "question": "On which date did Omar Khan collect rental R-482?",
+      "scope": [
+        "record"
+      ],
+      "answerable": false,
+      "relevant": [],
+      "expected_facts": []
+    }
+  ]
+}

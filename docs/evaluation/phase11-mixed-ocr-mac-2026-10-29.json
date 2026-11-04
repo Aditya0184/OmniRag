@@ -1,0 +1,1460 @@
+{
+  "format": 1,
+  "started_at": "2026-10-29T10:26:18.305976+00:00",
+  "status": "completed",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.11.17",
+  "with_model": true,
+  "modes": [
+    "bm25",
+    "hybrid_rerank"
+  ],
+  "repeats": 1,
+  "documents": [
+    {
+      "id": "willow",
+      "pdf_sha256": "53fefbc6235f4f34b0d0cabce8b21142b6e2d7f2edae38e01a143b8c1bcca87e",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 824.28
+    },
+    {
+      "id": "aspen",
+      "pdf_sha256": "1604e9b44e33f2ee11db8d1becce23a1e8241588eb69342990a0506b975842b4",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 535.07
+    }
+  ],
+  "pages": [
+    {
+      "document": "willow",
+      "page": 1,
+      "kind": "header_scan",
+      "stratum": "core",
+      "reference": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days.",
+      "observed": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days.",
+      "metadata": {
+        "page": 1,
+        "method": "ocr",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 33,
+        "largest_image_fraction": 1.0,
+        "ocr_trigger": "sparse_text_large_image",
+        "engine": "tesseract 5.5.1",
+        "language": "eng",
+        "language_sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+        "renderer": "5.14.0",
+        "pdfium": "156.0.8076.0",
+        "page_segmentation_mode": 3,
+        "render_dpi": 200.0,
+        "mean_word_confidence": 95.87,
+        "characters": 135
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 135,
+        "reference_words": 20,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "aspen",
+      "page": 1,
+      "kind": "header_scan",
+      "stratum": "core",
+      "reference": "ASPEN SERVICES - REPAIR POLICY Aspen Services repairs portable pumps within 9 business days. Customers must provide the equipment serial number.",
+      "observed": "ASPEN SERVICES - REPAIR POLICY Aspen Services repairs portable pumps within 9 business days. Customers must provide the equipment serial number.",
+      "metadata": {
+        "page": 1,
+        "method": "ocr",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 30,
+        "largest_image_fraction": 1.0,
+        "ocr_trigger": "sparse_text_large_image",
+        "engine": "tesseract 5.5.1",
+        "language": "eng",
+        "language_sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+        "renderer": "5.14.0",
+        "pdfium": "156.0.8076.0",
+        "page_segmentation_mode": 3,
+        "render_dpi": 200.0,
+        "mean_word_confidence": 95.98,
+        "characters": 144
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 144,
+        "reference_words": 21,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "aspen",
+      "page": 2,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Aspen Services accepts repair requests by email. Requests without the equipment serial number are returned to the sender for correction before a technician can schedule an inspection. This policy covers portable pumps only.",
+      "observed": "Aspen Services accepts repair requests by email. Requests without the equipment serial number are returned to the sender for correction before a technician can schedule an inspection. This policy covers portable pumps only.",
+      "metadata": {
+        "page": 2,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 223,
+        "characters": 223
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 223,
+        "reference_words": 33,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    }
+  ],
+  "queries": [
+    {
+      "query": "willow_retention",
+      "question": "For how many years does Willow Records retain signed agreements?",
+      "repeat": 1,
+      "mode": "bm25",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "draft": {
+          "answerable": true,
+          "claims": [
+            {
+              "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years.",
+              "citations": [
+                {
+                  "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+                  "quote": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 712,
+          "output_tokens": 82,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 2,
+          "selected_source_ids": [
+            "S1"
+          ],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 1,
+          "retry_status": "not_needed"
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+            "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+            "page": 1,
+            "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days.",
+            "document_name": "willow.pdf",
+            "extraction_method": "ocr",
+            "score": -3.1674585313035037
+          }
+        ],
+        "retrieval_mode": "bm25",
+        "retrieval_ms": 6.83,
+        "collection": null
+      },
+      "response": {
+        "id": "c72775cc-0be4-49d0-8462-13cc529ad35d",
+        "question": "For how many years does Willow Records retain signed agreements?",
+        "status": "answered",
+        "reason": "Selected source excerpts; compare them with the original document.",
+        "claims": [
+          {
+            "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years.",
+            "citations": [
+              {
+                "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+                "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+                "document_name": "willow.pdf",
+                "extraction_method": "ocr",
+                "page": 1,
+                "quote": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+            "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+            "page": 1,
+            "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days.",
+            "document_name": "willow.pdf",
+            "extraction_method": "ocr",
+            "score": -3.1674585313035037
+          }
+        ],
+        "verification": "extractive_source_binding",
+        "retrieval_mode": "bm25",
+        "retrieval_collection": null,
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 2.05,
+          "generation_ms": 2963.97,
+          "total_ms": 2966.35
+        },
+        "usage": {
+          "input_tokens": 712,
+          "output_tokens": 82,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 2,
+          "selected_source_ids": [
+            "S1"
+          ],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 1,
+          "retry_status": "not_needed"
+        }
+      },
+      "http_status": 200,
+      "elapsed_ms": 2990.67
+    },
+    {
+      "query": "willow_retention",
+      "question": "For how many years does Willow Records retain signed agreements?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "draft": {
+          "answerable": true,
+          "claims": [
+            {
+              "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years.",
+              "citations": [
+                {
+                  "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+                  "quote": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 712,
+          "output_tokens": 82,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 2,
+          "selected_source_ids": [
+            "S1"
+          ],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 1,
+          "retry_status": "not_needed"
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+            "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+            "page": 1,
+            "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days.",
+            "document_name": "willow.pdf",
+            "extraction_method": "ocr",
+            "score": 10.435683250427246,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 63.01,
+        "collection": "chunks_97afa178af9bdeece42f"
+      },
+      "response": {
+        "id": "02cb46e4-e890-4d08-9e92-416186a53b8e",
+        "question": "For how many years does Willow Records retain signed agreements?",
+        "status": "answered",
+        "reason": "Selected source excerpts; compare them with the original document.",
+        "claims": [
+          {
+            "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years.",
+            "citations": [
+              {
+                "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+                "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+                "document_name": "willow.pdf",
+                "extraction_method": "ocr",
+                "page": 1,
+                "quote": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+            "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+            "page": 1,
+            "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days.",
+            "document_name": "willow.pdf",
+            "extraction_method": "ocr",
+            "score": 10.435683250427246,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "verification": "extractive_source_binding",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 20.64,
+          "generation_ms": 2376.88,
+          "total_ms": 2397.72
+        },
+        "usage": {
+          "input_tokens": 712,
+          "output_tokens": 82,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 2,
+          "selected_source_ids": [
+            "S1"
+          ],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 1,
+          "retry_status": "not_needed"
+        }
+      },
+      "http_status": 200,
+      "elapsed_ms": 2470.14
+    },
+    {
+      "query": "willow_review",
+      "question": "How often are access permissions reviewed at Willow Records?",
+      "repeat": 1,
+      "mode": "bm25",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "draft": {
+          "answerable": true,
+          "claims": [
+            {
+              "text": "Access permissions are reviewed every 60 days.",
+              "citations": [
+                {
+                  "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+                  "quote": "Access permissions are reviewed every 60 days."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 711,
+          "output_tokens": 81,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 2,
+          "selected_source_ids": [
+            "S2"
+          ],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 1,
+          "retry_status": "not_needed"
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+            "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+            "page": 1,
+            "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days.",
+            "document_name": "willow.pdf",
+            "extraction_method": "ocr",
+            "score": -3.1674585313035037
+          }
+        ],
+        "retrieval_mode": "bm25",
+        "retrieval_ms": 3.72,
+        "collection": null
+      },
+      "response": {
+        "id": "ec15d1c7-6287-472b-a514-ced3e50fcbc3",
+        "question": "How often are access permissions reviewed at Willow Records?",
+        "status": "answered",
+        "reason": "Selected source excerpts; compare them with the original document.",
+        "claims": [
+          {
+            "text": "Access permissions are reviewed every 60 days.",
+            "citations": [
+              {
+                "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+                "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+                "document_name": "willow.pdf",
+                "extraction_method": "ocr",
+                "page": 1,
+                "quote": "Access permissions are reviewed every 60 days."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+            "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+            "page": 1,
+            "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days.",
+            "document_name": "willow.pdf",
+            "extraction_method": "ocr",
+            "score": -3.1674585313035037
+          }
+        ],
+        "verification": "extractive_source_binding",
+        "retrieval_mode": "bm25",
+        "retrieval_collection": null,
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 3.6,
+          "generation_ms": 3897.89,
+          "total_ms": 3901.54
+        },
+        "usage": {
+          "input_tokens": 711,
+          "output_tokens": 81,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 2,
+          "selected_source_ids": [
+            "S2"
+          ],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 1,
+          "retry_status": "not_needed"
+        }
+      },
+      "http_status": 200,
+      "elapsed_ms": 3912.63
+    },
+    {
+      "query": "willow_review",
+      "question": "How often are access permissions reviewed at Willow Records?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "draft": {
+          "answerable": true,
+          "claims": [
+            {
+              "text": "Access permissions are reviewed every 60 days.",
+              "citations": [
+                {
+                  "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+                  "quote": "Access permissions are reviewed every 60 days."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 711,
+          "output_tokens": 81,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 2,
+          "selected_source_ids": [
+            "S2"
+          ],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 1,
+          "retry_status": "not_needed"
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+            "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+            "page": 1,
+            "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days.",
+            "document_name": "willow.pdf",
+            "extraction_method": "ocr",
+            "score": 9.283408164978027,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 38.67,
+        "collection": "chunks_97afa178af9bdeece42f"
+      },
+      "response": {
+        "id": "32948461-31dc-4a05-b98f-fcb2bcee845e",
+        "question": "How often are access permissions reviewed at Willow Records?",
+        "status": "answered",
+        "reason": "Selected source excerpts; compare them with the original document.",
+        "claims": [
+          {
+            "text": "Access permissions are reviewed every 60 days.",
+            "citations": [
+              {
+                "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+                "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+                "document_name": "willow.pdf",
+                "extraction_method": "ocr",
+                "page": 1,
+                "quote": "Access permissions are reviewed every 60 days."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+            "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+            "page": 1,
+            "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days.",
+            "document_name": "willow.pdf",
+            "extraction_method": "ocr",
+            "score": 9.283408164978027,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "verification": "extractive_source_binding",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 20.31,
+          "generation_ms": 2345.55,
+          "total_ms": 2365.97
+        },
+        "usage": {
+          "input_tokens": 711,
+          "output_tokens": 81,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 2,
+          "selected_source_ids": [
+            "S2"
+          ],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 1,
+          "retry_status": "not_needed"
+        }
+      },
+      "http_status": 200,
+      "elapsed_ms": 2414.01
+    },
+    {
+      "query": "aspen_repair",
+      "question": "How long does Aspen Services take to repair portable pumps?",
+      "repeat": 1,
+      "mode": "bm25",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "draft": {
+          "answerable": true,
+          "claims": [
+            {
+              "text": "ASPEN SERVICES - REPAIR POLICY Aspen Services repairs portable pumps within 9 business days.",
+              "citations": [
+                {
+                  "chunk_id": "33cd8328-59f7-5d18-b457-bee25e108a1b:1:0",
+                  "quote": "ASPEN SERVICES - REPAIR POLICY Aspen Services repairs portable pumps within 9 business days."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 805,
+          "output_tokens": 77,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 5,
+          "selected_source_ids": [
+            "S1"
+          ],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 1,
+          "retry_status": "not_needed"
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "33cd8328-59f7-5d18-b457-bee25e108a1b:1:0",
+            "document_id": "33cd8328-59f7-5d18-b457-bee25e108a1b",
+            "page": 1,
+            "text": "ASPEN SERVICES - REPAIR POLICY Aspen Services repairs portable pumps within 9 business days. Customers must provide the equipment serial number.",
+            "document_name": "aspen.pdf",
+            "extraction_method": "ocr",
+            "score": -6.104758096761296e-06
+          },
+          {
+            "chunk_id": "33cd8328-59f7-5d18-b457-bee25e108a1b:2:0",
+            "document_id": "33cd8328-59f7-5d18-b457-bee25e108a1b",
+            "page": 2,
+            "text": "Aspen Services accepts repair requests by email. Requests without the equipment serial number are returned to the sender for correction before a technician can schedule an inspection. This policy covers portable pumps only.",
+            "document_name": "aspen.pdf",
+            "extraction_method": "native",
+            "score": -4.334975369458129e-06
+          }
+        ],
+        "retrieval_mode": "bm25",
+        "retrieval_ms": 3.02,
+        "collection": null
+      },
+      "response": {
+        "id": "871157d7-0174-40e3-a237-93c9ba4eb91e",
+        "question": "How long does Aspen Services take to repair portable pumps?",
+        "status": "answered",
+        "reason": "Selected source excerpts; compare them with the original document.",
+        "claims": [
+          {
+            "text": "ASPEN SERVICES - REPAIR POLICY Aspen Services repairs portable pumps within 9 business days.",
+            "citations": [
+              {
+                "chunk_id": "33cd8328-59f7-5d18-b457-bee25e108a1b:1:0",
+                "document_id": "33cd8328-59f7-5d18-b457-bee25e108a1b",
+                "document_name": "aspen.pdf",
+                "extraction_method": "ocr",
+                "page": 1,
+                "quote": "ASPEN SERVICES - REPAIR POLICY Aspen Services repairs portable pumps within 9 business days."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "33cd8328-59f7-5d18-b457-bee25e108a1b:1:0",
+            "document_id": "33cd8328-59f7-5d18-b457-bee25e108a1b",
+            "page": 1,
+            "text": "ASPEN SERVICES - REPAIR POLICY Aspen Services repairs portable pumps within 9 business days. Customers must provide the equipment serial number.",
+            "document_name": "aspen.pdf",
+            "extraction_method": "ocr",
+            "score": -6.104758096761296e-06
+          },
+          {
+            "chunk_id": "33cd8328-59f7-5d18-b457-bee25e108a1b:2:0",
+            "document_id": "33cd8328-59f7-5d18-b457-bee25e108a1b",
+            "page": 2,
+            "text": "Aspen Services accepts repair requests by email. Requests without the equipment serial number are returned to the sender for correction before a technician can schedule an inspection. This policy covers portable pumps only.",
+            "document_name": "aspen.pdf",
+            "extraction_method": "native",
+            "score": -4.334975369458129e-06
+          }
+        ],
+        "verification": "extractive_source_binding",
+        "retrieval_mode": "bm25",
+        "retrieval_collection": null,
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 2.96,
+          "generation_ms": 2803.74,
+          "total_ms": 2806.8
+        },
+        "usage": {
+          "input_tokens": 805,
+          "output_tokens": 77,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 5,
+          "selected_source_ids": [
+            "S1"
+          ],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 1,
+          "retry_status": "not_needed"
+        }
+      },
+      "http_status": 200,
+      "elapsed_ms": 2816.81
+    },
+    {
+      "query": "aspen_repair",
+      "question": "How long does Aspen Services take to repair portable pumps?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "draft": {
+          "answerable": true,
+          "claims": [
+            {
+              "text": "ASPEN SERVICES - REPAIR POLICY Aspen Services repairs portable pumps within 9 business days.",
+              "citations": [
+                {
+                  "chunk_id": "33cd8328-59f7-5d18-b457-bee25e108a1b:1:0",
+                  "quote": "ASPEN SERVICES - REPAIR POLICY Aspen Services repairs portable pumps within 9 business days."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 805,
+          "output_tokens": 77,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 5,
+          "selected_source_ids": [
+            "S1"
+          ],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 1,
+          "retry_status": "not_needed"
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "33cd8328-59f7-5d18-b457-bee25e108a1b:1:0",
+            "document_id": "33cd8328-59f7-5d18-b457-bee25e108a1b",
+            "page": 1,
+            "text": "ASPEN SERVICES - REPAIR POLICY Aspen Services repairs portable pumps within 9 business days. Customers must provide the equipment serial number.",
+            "document_name": "aspen.pdf",
+            "extraction_method": "ocr",
+            "score": 10.023893356323242,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "33cd8328-59f7-5d18-b457-bee25e108a1b:2:0",
+            "document_id": "33cd8328-59f7-5d18-b457-bee25e108a1b",
+            "page": 2,
+            "text": "Aspen Services accepts repair requests by email. Requests without the equipment serial number are returned to the sender for correction before a technician can schedule an inspection. This policy covers portable pumps only.",
+            "document_name": "aspen.pdf",
+            "extraction_method": "native",
+            "score": 3.1843667030334473,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 41.59,
+        "collection": "chunks_97afa178af9bdeece42f"
+      },
+      "response": {
+        "id": "2681484d-4bf5-4ef8-98aa-1b0f7f15670a",
+        "question": "How long does Aspen Services take to repair portable pumps?",
+        "status": "answered",
+        "reason": "Selected source excerpts; compare them with the original document.",
+        "claims": [
+          {
+            "text": "ASPEN SERVICES - REPAIR POLICY Aspen Services repairs portable pumps within 9 business days.",
+            "citations": [
+              {
+                "chunk_id": "33cd8328-59f7-5d18-b457-bee25e108a1b:1:0",
+                "document_id": "33cd8328-59f7-5d18-b457-bee25e108a1b",
+                "document_name": "aspen.pdf",
+                "extraction_method": "ocr",
+                "page": 1,
+                "quote": "ASPEN SERVICES - REPAIR POLICY Aspen Services repairs portable pumps within 9 business days."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "33cd8328-59f7-5d18-b457-bee25e108a1b:1:0",
+            "document_id": "33cd8328-59f7-5d18-b457-bee25e108a1b",
+            "page": 1,
+            "text": "ASPEN SERVICES - REPAIR POLICY Aspen Services repairs portable pumps within 9 business days. Customers must provide the equipment serial number.",
+            "document_name": "aspen.pdf",
+            "extraction_method": "ocr",
+            "score": 10.023893356323242,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "33cd8328-59f7-5d18-b457-bee25e108a1b:2:0",
+            "document_id": "33cd8328-59f7-5d18-b457-bee25e108a1b",
+            "page": 2,
+            "text": "Aspen Services accepts repair requests by email. Requests without the equipment serial number are returned to the sender for correction before a technician can schedule an inspection. This policy covers portable pumps only.",
+            "document_name": "aspen.pdf",
+            "extraction_method": "native",
+            "score": 3.1843667030334473,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "verification": "extractive_source_binding",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 31.44,
+          "generation_ms": 2192.57,
+          "total_ms": 2224.15
+        },
+        "usage": {
+          "input_tokens": 805,
+          "output_tokens": 77,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 5,
+          "selected_source_ids": [
+            "S1"
+          ],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 1,
+          "retry_status": "not_needed"
+        }
+      },
+      "http_status": 200,
+      "elapsed_ms": 2275.2
+    },
+    {
+      "query": "willow_missing_fee",
+      "question": "What fee does Willow Records charge for storing an agreement?",
+      "repeat": 1,
+      "mode": "bm25",
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "model": {
+        "called": true,
+        "draft": {
+          "answerable": false,
+          "claims": []
+        },
+        "usage": {
+          "input_tokens": 1247,
+          "output_tokens": 170,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 2,
+          "selected_source_ids": [],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 2,
+          "retry_status": "attempted"
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+            "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+            "page": 1,
+            "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days.",
+            "document_name": "willow.pdf",
+            "extraction_method": "ocr",
+            "score": -1.4922043117479564
+          }
+        ],
+        "retrieval_mode": "bm25",
+        "retrieval_ms": 1.68,
+        "collection": null
+      },
+      "response": {
+        "id": "e1ba3756-928d-4ad8-8b38-22699ecd582e",
+        "question": "What fee does Willow Records charge for storing an agreement?",
+        "status": "insufficient_evidence",
+        "reason": "The model could not answer from the retrieved evidence.",
+        "claims": [],
+        "evidence": [
+          {
+            "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+            "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+            "page": 1,
+            "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days.",
+            "document_name": "willow.pdf",
+            "extraction_method": "ocr",
+            "score": -1.4922043117479564
+          }
+        ],
+        "verification": "extractive_source_binding",
+        "retrieval_mode": "bm25",
+        "retrieval_collection": null,
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 1.41,
+          "generation_ms": 6335.07,
+          "total_ms": 6337.59
+        },
+        "usage": {
+          "input_tokens": 1247,
+          "output_tokens": 170,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 2,
+          "selected_source_ids": [],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 2,
+          "retry_status": "attempted"
+        }
+      },
+      "http_status": 200,
+      "elapsed_ms": 6349.62
+    },
+    {
+      "query": "willow_missing_fee",
+      "question": "What fee does Willow Records charge for storing an agreement?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "model": {
+        "called": true,
+        "draft": {
+          "answerable": false,
+          "claims": []
+        },
+        "usage": {
+          "input_tokens": 1247,
+          "output_tokens": 163,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 2,
+          "selected_source_ids": [],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 2,
+          "retry_status": "attempted"
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+            "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+            "page": 1,
+            "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days.",
+            "document_name": "willow.pdf",
+            "extraction_method": "ocr",
+            "score": 0.5166467428207397,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 71.75,
+        "collection": "chunks_97afa178af9bdeece42f"
+      },
+      "response": {
+        "id": "ad972add-522c-4a08-93cf-8f4c3c4638c7",
+        "question": "What fee does Willow Records charge for storing an agreement?",
+        "status": "insufficient_evidence",
+        "reason": "The model could not answer from the retrieved evidence.",
+        "claims": [],
+        "evidence": [
+          {
+            "chunk_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1:1:0",
+            "document_id": "8616fbf1-3e13-5a05-bba1-8213037fc1e1",
+            "page": 1,
+            "text": "WILLOW RECORDS - RETENTION POLICY Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days.",
+            "document_name": "willow.pdf",
+            "extraction_method": "ocr",
+            "score": 0.5166467428207397,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "verification": "extractive_source_binding",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 17.59,
+          "generation_ms": 5634.96,
+          "total_ms": 5652.91
+        },
+        "usage": {
+          "input_tokens": 1247,
+          "output_tokens": 163,
+          "model_called": true,
+          "scope_excluded_chunks": 0,
+          "subject_scope_withheld": false,
+          "candidate_excerpts": 2,
+          "selected_source_ids": [],
+          "record_gate_withheld": false,
+          "selection_policy": "subject_scoped_policy_v3",
+          "selection_attempts": 2,
+          "retry_status": "attempted"
+        }
+      },
+      "http_status": 200,
+      "elapsed_ms": 5739.7
+    }
+  ],
+  "limitations": "Authored development fixture, not held-out. Fact-span and page checks are lexical proxies, not semantic entailment; negation, extra false claims and valid unlisted paraphrases require human review. CER/WER normalize NFKC and whitespace, preserve case/punctuation and may exceed 1. Failed extraction is scored as empty. Latency includes a search probe plus the query path, no warmup, sequential calls. No browser or throughput benchmark. Repeated runs do not guarantee identical outputs.",
+  "fixture_sha256": "32ae961600425014f070eb0654287f02e1b7d08ab3063614825aca7e9f199ef3",
+  "fixture": {
+    "version": 1,
+    "description": "Additional authored mixed-content OCR regression, fixed before evaluation. Fictional policies with native headers over raster bodies; not a held-out benchmark.",
+    "documents": [
+      {
+        "id": "willow",
+        "pages": [
+          {
+            "kind": "header_scan",
+            "stratum": "core",
+            "header": "WILLOW RECORDS - RETENTION POLICY",
+            "text": "Willow Records retains signed agreements for 13 years. Access permissions are reviewed every 60 days."
+          }
+        ]
+      },
+      {
+        "id": "aspen",
+        "pages": [
+          {
+            "kind": "header_scan",
+            "stratum": "core",
+            "header": "ASPEN SERVICES - REPAIR POLICY",
+            "text": "Aspen Services repairs portable pumps within 9 business days. Customers must provide the equipment serial number."
+          },
+          {
+            "kind": "native",
+            "stratum": "core",
+            "text": "Aspen Services accepts repair requests by email. Requests without the equipment serial number are returned to the sender for correction before a technician can schedule an inspection. This policy covers portable pumps only."
+          }
+        ]
+      }
+    ],
+    "queries": [
+      {
+        "id": "willow_retention",
+        "stratum": "core",
+        "question": "For how many years does Willow Records retain signed agreements?",
+        "scope": [
+          "willow"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "willow",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "13 years",
+            "thirteen years"
+          ]
+        ]
+      },
+      {
+        "id": "willow_review",
+        "stratum": "core",
+        "question": "How often are access permissions reviewed at Willow Records?",
+        "scope": [
+          "willow"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "willow",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "60 days",
+            "sixty days"
+          ]
+        ]
+      },
+      {
+        "id": "aspen_repair",
+        "stratum": "core",
+        "question": "How long does Aspen Services take to repair portable pumps?",
+        "scope": [
+          "aspen"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "aspen",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "9 business days",
+            "nine business days"
+          ]
+        ]
+      },
+      {
+        "id": "willow_missing_fee",
+        "stratum": "core",
+        "question": "What fee does Willow Records charge for storing an agreement?",
+        "scope": [
+          "willow"
+        ],
+        "answerable": false,
+        "relevant": [],
+        "expected_facts": []
+      }
+    ]
+  },
+  "source_sha256": {
+    "scripts/evaluate_quality.py": "e2f6ed3abf62676dc37386b615ff7709dcd75ce4119a7469a6330fa0375af9a7",
+    "backend/omnirag/__init__.py": "ce0a823bc257930b33c71e77ab8e2b8a6b3f556377aa22b5ff517e526ffb0f0f",
+    "backend/omnirag/auth.py": "69f1a5ee0dc066339c99586889b7ed3d2cafb6a4c65417cb6a99e55b10d1698d",
+    "backend/omnirag/config.py": "e4e330bf841c423224d39f0a2923d759a626b3750c59e6a3d58763366bfddc50",
+    "backend/omnirag/db.py": "a536dbf91375af8b7dbda1c2d25bbc7acc53b0e255c5931b07951bcb543ddc4f",
+    "backend/omnirag/encoders.py": "f825f465b83bac479957fc51fdfe9d28041eb8432fb78922dd66ee4a8860d4a2",
+    "backend/omnirag/evaluation.py": "fd9879b67e2a2dc370ff0b94efd5648e979c66b76e85a38d5db8bf4986a8d8eb",
+    "backend/omnirag/generation.py": "0fe7ef6b854481f237f7a042f40e8561c7cd18c8800818845d213a370e6243c9",
+    "backend/omnirag/hybrid.py": "b1c4aebe03ecbee7770ecce4bb04d34e2d9ac51efa35325819afc50d5defce3a",
+    "backend/omnirag/ingestion.py": "e8deefdc8bbdb40d45f0391faac3de203dee4ff36275538ba1b00841d047f03a",
+    "backend/omnirag/main.py": "9f63ffa5ad400eb416c59832f1ef284c9968fa82d189275047df54bc28853e82",
+    "backend/omnirag/ocr.py": "088feab138c62e6d8abbc785e6c7d222c23ebcbbc05fc540a8cb3f96adee23f1",
+    "backend/omnirag/retrieval.py": "f919c631b02adbfaa7734db94f92ce8faca1c02f7d325cf197ba573d9f4329d6",
+    "backend/omnirag/security.py": "3acbccfff553b89db4f8065f2ef99866a03a4ec08317b5bdc9cee1ef61064ae4",
+    "backend/omnirag/worker.py": "9a1af5229afc6bb67e3b7fe29bae35b1c6736809d5952944226d721b98aec745"
+  },
+  "packages": {
+    "fastapi": "0.158.1",
+    "httpx": "0.28.1",
+    "pypdf": "6.21.2",
+    "pypdfium2": "5.14.0",
+    "pillow": "12.3.0",
+    "reportlab": "4.5.1",
+    "fastembed": "0.9.0",
+    "qdrant-client": "1.20.0",
+    "onnxruntime": "1.31.0",
+    "tokenizers": "0.23.3"
+  },
+  "settings": {
+    "auth_enabled": false,
+    "serve_frontend": false,
+    "frontend_dist": "frontend/dist",
+    "ollama_base_url": "http://127.0.0.1:11434/",
+    "ollama_model": "qwen3-vl:2b-instruct",
+    "model_timeout_seconds": 120,
+    "context_tokens": 4096,
+    "max_output_tokens": 768,
+    "top_k": 4,
+    "upload_max_mb": 10,
+    "max_pages": 100,
+    "ingest_timeout_seconds": 90,
+    "ocr_enabled": true,
+    "ocr_max_pages": 20,
+    "ocr_page_timeout_seconds": 20,
+    "retrieval_enabled": true,
+    "default_retrieval_mode": "bm25",
+    "retrieval_models_dir": "data/models",
+    "retrieval_manifest": "models/retrieval.lock.json",
+    "retrieval_candidates": 12,
+    "retrieval_threads": 2
+  },
+  "ollama": {
+    "version": "0.40.8",
+    "model": {
+      "name": "qwen3-vl:2b-instruct",
+      "model": "qwen3-vl:2b-instruct",
+      "modified_at": "2026-10-22T21:54:30.016546638+05:30",
+      "size": 1930568531,
+      "digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+      "details": {
+        "parent_model": "dhiltgen/qwen3-vl:2b-instruct-q4_K_M-llamacpp",
+        "format": "gguf",
+        "family": "qwen3vl",
+        "families": [
+          "qwen3vl",
+          "clip"
+        ],
+        "parameter_size": "1.7B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 262144,
+        "embedding_length": 2048,
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools"
+      ]
+    }
+  },
+  "retrieval_manifest": {
+    "format": 1,
+    "models": {
+      "embedding": {
+        "name": "BAAI/bge-small-en-v1.5",
+        "repo": "Qdrant/bge-small-en-v1.5-onnx-Q",
+        "revision": "aa8f8b060edb00e03bfdd08813a2949946c8ba55",
+        "license": "mit",
+        "files": {
+          "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+          "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a"
+        }
+      },
+      "reranker": {
+        "name": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "repo": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "revision": "a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+        "license": "apache-2.0",
+        "files": {
+          "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+          "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+        }
+      }
+    }
+  },
+  "summary": {
+    "transcription": {
+      "core/native": {
+        "pages": 1,
+        "errors": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      },
+      "core/header_scan": {
+        "pages": 2,
+        "errors": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    "answers": {
+      "core/bm25": {
+        "scheduled": 4,
+        "scored": 4,
+        "errors": 0,
+        "answerable": 3,
+        "unsupported": 1,
+        "answer_fact_match_rate": 1.0,
+        "unsupported_abstention_rate": 1.0,
+        "contract_pass_rate": 1.0,
+        "answered_with_citations": 3,
+        "mean_citation_page_precision_when_answered": 1.0,
+        "mean_retrieval_page_recall": 1.0,
+        "median_elapsed_ms": 3451.65
+      },
+      "core/hybrid_rerank": {
+        "scheduled": 4,
+        "scored": 4,
+        "errors": 0,
+        "answerable": 3,
+        "unsupported": 1,
+        "answer_fact_match_rate": 1.0,
+        "unsupported_abstention_rate": 1.0,
+        "contract_pass_rate": 1.0,
+        "answered_with_citations": 3,
+        "mean_citation_page_precision_when_answered": 1.0,
+        "mean_retrieval_page_recall": 1.0,
+        "median_elapsed_ms": 2442.075
+      },
+      "challenge/bm25": {
+        "scheduled": 0,
+        "scored": 0,
+        "errors": 0,
+        "answerable": 0,
+        "unsupported": 0,
+        "answer_fact_match_rate": null,
+        "unsupported_abstention_rate": null,
+        "contract_pass_rate": null,
+        "answered_with_citations": 0,
+        "mean_citation_page_precision_when_answered": null,
+        "mean_retrieval_page_recall": null,
+        "median_elapsed_ms": null
+      },
+      "challenge/hybrid_rerank": {
+        "scheduled": 0,
+        "scored": 0,
+        "errors": 0,
+        "answerable": 0,
+        "unsupported": 0,
+        "answer_fact_match_rate": null,
+        "unsupported_abstention_rate": null,
+        "contract_pass_rate": null,
+        "answered_with_citations": 0,
+        "mean_citation_page_precision_when_answered": null,
+        "mean_retrieval_page_recall": null,
+        "median_elapsed_ms": null
+      }
+    }
+  },
+  "finished_at": "2026-10-29T10:26:49.548556+00:00",
+  "exit_code": 0,
+  "raw_report_path": "data/local/phase11-mixed-ocr-2026-10-29.json",
+  "raw_report_sha256": "63ab3e138aedfb601c7de7b2fac010629190b15c06641d49318d4d529d059825"
+}

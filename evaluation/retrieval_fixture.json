@@ -1,0 +1,39 @@
+{
+  "description": "Authored English engineering fixture. Development smoke evaluation, not a held-out benchmark. One passage per PDF page.",
+  "documents": [
+    {"id": "procurement", "pages": [
+      "Orion Supplies delivers standard orders within 14 calendar days after approval of the purchase order. Express shipping requires written authorization from the purchasing manager.",
+      "The acceptance review must be completed within 5 business days. Inspect delivered quantities against the purchase order and record damaged items in the acceptance report.",
+      "Zephyr components carry a warranty lasting 77 months. A defective component is replaced without a repair fee during this period.",
+      "The Orion customer support desk answers email within 2 business days. This response target does not change the shipping deadline."
+    ]},
+    {"id": "operations", "pages": [
+      "When equipment overheats, disconnect electrical power immediately and allow the unit to cool. A technician must inspect the ventilation fan before the equipment is switched on again.",
+      "Database backups are retained for 30 days. A restore drill runs every Friday at 18:00 UTC. Verify the restored database checksum before returning it to service.",
+      "The code AX-742 indicates a pressure sensor fault. Inspect the cable connection and replace the sensor if the code persists.",
+      "The code AX-724 indicates a low battery. Recharge the battery before continuing operation."
+    ]},
+    {"id": "staff", "pages": [
+      "Employees who cannot attend work because of illness must notify their supervisor before the shift begins. Submit a medical certificate after three consecutive days of absence.",
+      "Travel reimbursement requests must be submitted within 21 days after the trip ends. Attach itemized receipts for transport and accommodation expenses.",
+      "Office visitors must sign the reception register and wear a temporary badge. An employee must accompany visitors throughout the building.",
+      "Unused annual leave can be carried forward for up to 10 days into the next year. The carried balance expires on March 31."
+    ]}
+  ],
+  "queries": [
+    {"id": "delivery_exact", "question": "What is Orion's standard delivery deadline?", "relevant": [["procurement", 1]]},
+    {"id": "delivery_paraphrase", "question": "How long until my purchased goods arrive?", "relevant": [["procurement", 1]]},
+    {"id": "inspection", "question": "How much time is allowed to check received items?", "relevant": [["procurement", 2]]},
+    {"id": "warranty", "question": "For how many months are broken Zephyr parts replaced free?", "relevant": [["procurement", 3]]},
+    {"id": "safety", "question": "What should I do if the machine gets too hot?", "relevant": [["operations", 1]]},
+    {"id": "backup", "question": "When do we rehearse recovering stored records?", "relevant": [["operations", 2]]},
+    {"id": "code", "question": "What does AX-742 mean?", "relevant": [["operations", 3]]},
+    {"id": "illness", "question": "I am sick and cannot come in. Who do I tell?", "relevant": [["staff", 1]]},
+    {"id": "expenses", "question": "What is the deadline to claim money back after a business journey?", "relevant": [["staff", 2]]},
+    {"id": "visitor", "question": "Can a guest walk around the workplace alone?", "relevant": [["staff", 3]]},
+    {"id": "leave", "question": "When do saved vacation days become invalid?", "relevant": [["staff", 4]]},
+    {"id": "scope", "question": "What is the deadline?", "scope": ["staff"], "relevant": [["staff", 2]]},
+    {"id": "no_match", "question": "Quasizorb nebular xenobiology?", "relevant": []},
+    {"id": "unsupported_overlap", "question": "What is the birthday of the Orion chief executive?", "relevant": []}
+  ]
+}

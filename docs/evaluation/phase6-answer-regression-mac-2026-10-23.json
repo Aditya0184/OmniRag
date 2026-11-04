@@ -1,0 +1,1173 @@
+{
+  "format": 1,
+  "started_at": "2026-10-23T18:29:26.192383+00:00",
+  "finished_at": "2026-10-23T18:29:39.375091+00:00",
+  "status": "completed",
+  "exit_code": 0,
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.11.17",
+  "with_model": true,
+  "modes": [
+    "bm25",
+    "hybrid_rerank"
+  ],
+  "repeats": 1,
+  "fixture_sha256": "cbac2425bd30b11f3c068582114ea8639029ecb772f4c3259e35f577ee0fddf6",
+  "source_sha256": {
+    "scripts/evaluate_quality.py": "e2f6ed3abf62676dc37386b615ff7709dcd75ce4119a7469a6330fa0375af9a7",
+    "backend/omnirag/__init__.py": "ce0a823bc257930b33c71e77ab8e2b8a6b3f556377aa22b5ff517e526ffb0f0f",
+    "backend/omnirag/config.py": "15022ea7fe6e9943bd4cd58b6ac00c2ecf44a17ff82fdb9284aec6516e5af0cb",
+    "backend/omnirag/db.py": "a536dbf91375af8b7dbda1c2d25bbc7acc53b0e255c5931b07951bcb543ddc4f",
+    "backend/omnirag/encoders.py": "f825f465b83bac479957fc51fdfe9d28041eb8432fb78922dd66ee4a8860d4a2",
+    "backend/omnirag/evaluation.py": "fd9879b67e2a2dc370ff0b94efd5648e979c66b76e85a38d5db8bf4986a8d8eb",
+    "backend/omnirag/generation.py": "4a9d1e2943148c9805f9768960d24478e2ffc245ec552517f90ad0fe45803edf",
+    "backend/omnirag/hybrid.py": "b1c4aebe03ecbee7770ecce4bb04d34e2d9ac51efa35325819afc50d5defce3a",
+    "backend/omnirag/ingestion.py": "e8deefdc8bbdb40d45f0391faac3de203dee4ff36275538ba1b00841d047f03a",
+    "backend/omnirag/main.py": "3a3bfc9022d7d658b52dd22ddc467416e32b4d4ba0449d097bfd27502ac576ec",
+    "backend/omnirag/ocr.py": "088feab138c62e6d8abbc785e6c7d222c23ebcbbc05fc540a8cb3f96adee23f1",
+    "backend/omnirag/retrieval.py": "f919c631b02adbfaa7734db94f92ce8faca1c02f7d325cf197ba573d9f4329d6",
+    "backend/omnirag/security.py": "3acbccfff553b89db4f8065f2ef99866a03a4ec08317b5bdc9cee1ef61064ae4",
+    "backend/omnirag/worker.py": "9a1af5229afc6bb67e3b7fe29bae35b1c6736809d5952944226d721b98aec745"
+  },
+  "packages": {
+    "fastapi": "0.158.1",
+    "httpx": "0.28.1",
+    "pypdf": "6.21.2",
+    "pypdfium2": "5.14.0",
+    "pillow": "12.3.0",
+    "reportlab": "4.5.1",
+    "fastembed": "0.9.0",
+    "qdrant-client": "1.20.0",
+    "onnxruntime": "1.31.0",
+    "tokenizers": "0.23.3"
+  },
+  "settings": {
+    "ollama_base_url": "http://127.0.0.1:11434/",
+    "ollama_model": "qwen3-vl:2b-instruct",
+    "model_timeout_seconds": 120,
+    "context_tokens": 4096,
+    "max_output_tokens": 768,
+    "top_k": 4,
+    "upload_max_mb": 10,
+    "max_pages": 100,
+    "ingest_timeout_seconds": 90,
+    "ocr_enabled": true,
+    "ocr_max_pages": 20,
+    "ocr_page_timeout_seconds": 20,
+    "retrieval_enabled": true,
+    "default_retrieval_mode": "bm25",
+    "retrieval_models_dir": "data/models",
+    "retrieval_manifest": "models/retrieval.lock.json",
+    "retrieval_candidates": 12,
+    "retrieval_threads": 2
+  },
+  "ollama": {
+    "version": "0.40.8",
+    "model": {
+      "name": "qwen3-vl:2b-instruct",
+      "model": "qwen3-vl:2b-instruct",
+      "modified_at": "2026-10-22T21:54:30.016546638+05:30",
+      "size": 1930568531,
+      "digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+      "details": {
+        "parent_model": "dhiltgen/qwen3-vl:2b-instruct-q4_K_M-llamacpp",
+        "format": "gguf",
+        "family": "qwen3vl",
+        "families": [
+          "qwen3vl",
+          "clip"
+        ],
+        "parameter_size": "1.7B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 262144,
+        "embedding_length": 2048,
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools"
+      ]
+    }
+  },
+  "retrieval_manifest": {
+    "format": 1,
+    "models": {
+      "embedding": {
+        "name": "BAAI/bge-small-en-v1.5",
+        "repo": "Qdrant/bge-small-en-v1.5-onnx-Q",
+        "revision": "aa8f8b060edb00e03bfdd08813a2949946c8ba55",
+        "license": "mit",
+        "files": {
+          "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+          "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a"
+        }
+      },
+      "reranker": {
+        "name": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "repo": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "revision": "a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+        "license": "apache-2.0",
+        "files": {
+          "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+          "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+        }
+      }
+    }
+  },
+  "documents": [
+    {
+      "id": "lantern",
+      "pdf_sha256": "7bf535000b7289930fcea76a77c420cb00d25cf3b7554ff4b93f25c77d5d119e",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 330.79
+    },
+    {
+      "id": "basalt",
+      "pdf_sha256": "1d55ba83e6773ebd31bd44282d14663948775187082cf0e985cb362e085e2c57",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 106.45
+    },
+    {
+      "id": "summit",
+      "pdf_sha256": "dd23733eb58e1dfa5b6fa1f9c303649229ca661fd3daedd8f53a342e341d5dcf",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 105.07
+    }
+  ],
+  "pages": [
+    {
+      "document": "lantern",
+      "page": 1,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+      "observed": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+      "metadata": {
+        "page": 1,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 124,
+        "largest_image_fraction": 0.0,
+        "characters": 124
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 124,
+        "reference_words": 18,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "lantern",
+      "page": 2,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+      "observed": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+      "metadata": {
+        "page": 2,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 129,
+        "largest_image_fraction": 0.0,
+        "characters": 129
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 129,
+        "reference_words": 19,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "basalt",
+      "page": 1,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests.",
+      "observed": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests.",
+      "metadata": {
+        "page": 1,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 142,
+        "largest_image_fraction": 0.0,
+        "characters": 142
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 142,
+        "reference_words": 22,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "summit",
+      "page": 1,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Summit Kits dispatches standard orders within 6 calendar days. Summit Kits accepts returns only with written authorization from the store manager.",
+      "observed": "Summit Kits dispatches standard orders within 6 calendar days. Summit Kits accepts returns only with written authorization from the store manager.",
+      "metadata": {
+        "page": 1,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 146,
+        "largest_image_fraction": 0.0,
+        "characters": 146
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 146,
+        "reference_words": 21,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    }
+  ],
+  "summary": {
+    "transcription": {
+      "core/native": {
+        "pages": 4,
+        "errors": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    "answers": {
+      "core/bm25": {
+        "scheduled": 8,
+        "scored": 8,
+        "errors": 0,
+        "answerable": 6,
+        "unsupported": 2,
+        "answer_fact_match_rate": 1.0,
+        "unsupported_abstention_rate": 1.0,
+        "contract_pass_rate": 1.0,
+        "answered_with_citations": 6,
+        "mean_citation_page_precision_when_answered": 1.0,
+        "mean_retrieval_page_recall": 1.0,
+        "median_elapsed_ms": 835.98
+      },
+      "core/hybrid_rerank": {
+        "scheduled": 8,
+        "scored": 8,
+        "errors": 0,
+        "answerable": 6,
+        "unsupported": 2,
+        "answer_fact_match_rate": 1.0,
+        "unsupported_abstention_rate": 1.0,
+        "contract_pass_rate": 1.0,
+        "answered_with_citations": 6,
+        "mean_citation_page_precision_when_answered": 1.0,
+        "mean_retrieval_page_recall": 1.0,
+        "median_elapsed_ms": 622.865
+      },
+      "challenge/bm25": {
+        "scheduled": 0,
+        "scored": 0,
+        "errors": 0,
+        "answerable": 0,
+        "unsupported": 0,
+        "answer_fact_match_rate": null,
+        "unsupported_abstention_rate": null,
+        "contract_pass_rate": null,
+        "answered_with_citations": 0,
+        "mean_citation_page_precision_when_answered": null,
+        "mean_retrieval_page_recall": null,
+        "median_elapsed_ms": null
+      },
+      "challenge/hybrid_rerank": {
+        "scheduled": 0,
+        "scored": 0,
+        "errors": 0,
+        "answerable": 0,
+        "unsupported": 0,
+        "answer_fact_match_rate": null,
+        "unsupported_abstention_rate": null,
+        "contract_pass_rate": null,
+        "answered_with_citations": 0,
+        "mean_citation_page_precision_when_answered": null,
+        "mean_retrieval_page_recall": null,
+        "median_elapsed_ms": null
+      }
+    }
+  },
+  "limitations": "Authored development fixture, not held-out. Fact-span and page checks are lexical proxies, not semantic entailment; negation, extra false claims and valid unlisted paraphrases require human review. CER/WER normalize NFKC and whitespace, preserve case/punctuation and may exceed 1. Failed extraction is scored as empty. Latency includes a search probe plus the query path, no warmup, sequential calls. No browser or throughput benchmark. Repeated runs do not guarantee identical outputs.",
+  "raw_report_path": "data/local/phase6-answer-regression-2026-10-23.json",
+  "raw_report_sha256": "806cfd1c92ab71ee240f305e3cac4c7f9d2a4997198eda8a6f18fa9f3b55dfeb",
+  "preservation": {
+    "checked_at": "2026-10-23T18:29:38.119027+00:00",
+    "unchanged": true,
+    "tables": {
+      "documents": {
+        "count": 28,
+        "sha256": "e7b6839582a4d23a5d84a3ac7c94ca12b5bc837e4ff90c1e02807963f9d7298d"
+      },
+      "chunks": {
+        "count": 41,
+        "sha256": "478294325840da07b43dfb831e55b5cc5cf066f53972e59e9e00f6aad2bf9768"
+      },
+      "query_runs": {
+        "count": 31,
+        "sha256": "dfd7d46413594ca8e2a9840b198d919a947755a5bea41450d0bf6d92be6c489d"
+      },
+      "vector_jobs": {
+        "count": 22,
+        "sha256": "7fd4fdbc1fe7bfd8fad7f6a23bd52193d501c932c6227f93ba30909ef514c688"
+      },
+      "page_extractions": {
+        "count": 41,
+        "sha256": "583acfeef03446ec17b293d01f1290019840e72eb8c8a257154dffd2b069dcc3"
+      }
+    },
+    "services": {
+      "ollama": 1607,
+      "api": 15645,
+      "worker": 4119,
+      "frontend": 1610
+    },
+    "worker_command": "/Users/aditya/Desktop/OmniRAG/omnirag-ai/.venv/bin/python -m omnirag.worker",
+    "worker_cwd": "/Users/aditya/Desktop/OmniRAG/omnirag-ai",
+    "readiness": {
+      "model": {
+        "reachable": true,
+        "model_available": true,
+        "model": "qwen3-vl:2b-instruct"
+      },
+      "worker_active": true,
+      "local_only": true,
+      "retrieval": {
+        "enabled": true,
+        "loaded": true,
+        "error": null,
+        "documents": {
+          "ready": 22
+        },
+        "collection": "chunks_97afa178af9bdeece42f"
+      },
+      "default_retrieval_mode": "hybrid_rerank",
+      "ocr": {
+        "enabled": true,
+        "language": "eng"
+      }
+    },
+    "frontend_http": 200,
+    "restarts": 0
+  },
+  "checks": {
+    "backend": {
+      "passed": 80,
+      "skipped": 0,
+      "seconds": 12.08
+    },
+    "ruff": "passed",
+    "frontend_build": "passed",
+    "browser": {
+      "passed": 9,
+      "skipped": 0,
+      "seconds": 46.6
+    },
+    "changed_runtime_sources_from_phase5": [
+      "backend/omnirag/ingestion.py",
+      "backend/omnirag/ocr.py"
+    ]
+  },
+  "queries": [
+    {
+      "query": "different_entity_values",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 1127.32,
+      "status": "answered",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Lantern Kits dispatches standard orders within 9 business days.",
+          "citations": [
+            {
+              "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+              "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+              "document_name": "lantern.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Lantern Kits dispatches standard orders within 9 business days."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 576,
+        "output_tokens": 19,
+        "model_called": true,
+        "candidate_excerpts": 7,
+        "selected_source_ids": [
+          "S1"
+        ]
+      }
+    },
+    {
+      "query": "different_entity_values",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 860.29,
+      "status": "answered",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Lantern Kits dispatches standard orders within 9 business days.",
+          "citations": [
+            {
+              "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+              "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+              "document_name": "lantern.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Lantern Kits dispatches standard orders within 9 business days."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 667,
+        "output_tokens": 19,
+        "model_called": true,
+        "candidate_excerpts": 10,
+        "selected_source_ids": [
+          "S1"
+        ]
+      }
+    },
+    {
+      "query": "entity_paraphrase",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 851.82,
+      "status": "answered",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Lantern Kits dispatches standard orders within 9 business days.",
+          "citations": [
+            {
+              "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+              "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+              "document_name": "lantern.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Lantern Kits dispatches standard orders within 9 business days."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 509,
+        "output_tokens": 16,
+        "model_called": true,
+        "candidate_excerpts": 5,
+        "selected_source_ids": [
+          "S1"
+        ]
+      }
+    },
+    {
+      "query": "entity_paraphrase",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 463.35,
+      "status": "answered",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Lantern Kits dispatches standard orders within 9 business days.",
+          "citations": [
+            {
+              "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+              "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+              "document_name": "lantern.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Lantern Kits dispatches standard orders within 9 business days."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 509,
+        "output_tokens": 16,
+        "model_called": true,
+        "candidate_excerpts": 5,
+        "selected_source_ids": [
+          "S1"
+        ]
+      }
+    },
+    {
+      "query": "different_code",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 647.95,
+      "status": "answered",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "The code BT-306 indicates a battery fault.",
+          "citations": [
+            {
+              "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+              "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+              "document_name": "lantern.pdf",
+              "extraction_method": "native",
+              "page": 2,
+              "quote": "The code BT-306 indicates a battery fault."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 442,
+        "output_tokens": 16,
+        "model_called": true,
+        "candidate_excerpts": 3,
+        "selected_source_ids": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "query": "different_code",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 643.8,
+      "status": "answered",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "The code BT-306 indicates a battery fault.",
+          "citations": [
+            {
+              "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+              "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+              "document_name": "lantern.pdf",
+              "extraction_method": "native",
+              "page": 2,
+              "quote": "The code BT-306 indicates a battery fault."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 508,
+        "output_tokens": 16,
+        "model_called": true,
+        "candidate_excerpts": 5,
+        "selected_source_ids": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "query": "negation",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 677.58,
+      "status": "answered",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Basalt Studio does not email backups to customers.",
+          "citations": [
+            {
+              "chunk_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80:1:0",
+              "document_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80",
+              "document_name": "basalt.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Basalt Studio does not email backups to customers."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 439,
+        "output_tokens": 16,
+        "model_called": true,
+        "candidate_excerpts": 3,
+        "selected_source_ids": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "query": "negation",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 461.43,
+      "status": "answered",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Basalt Studio does not email backups to customers.",
+          "citations": [
+            {
+              "chunk_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80:1:0",
+              "document_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80",
+              "document_name": "basalt.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Basalt Studio does not email backups to customers."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 439,
+        "output_tokens": 16,
+        "model_called": true,
+        "candidate_excerpts": 3,
+        "selected_source_ids": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "query": "condition",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 956.81,
+      "status": "answered",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Lantern Kits accepts returns only with the original receipt.",
+          "citations": [
+            {
+              "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+              "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+              "document_name": "lantern.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Lantern Kits accepts returns only with the original receipt."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 574,
+        "output_tokens": 16,
+        "model_called": true,
+        "candidate_excerpts": 7,
+        "selected_source_ids": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "query": "condition",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 1076.44,
+      "status": "answered",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Lantern Kits accepts returns only with the original receipt.",
+          "citations": [
+            {
+              "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+              "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+              "document_name": "lantern.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Lantern Kits accepts returns only with the original receipt."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 665,
+        "output_tokens": 16,
+        "model_called": true,
+        "candidate_excerpts": 10,
+        "selected_source_ids": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "query": "two_facts",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true,
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 1042.68,
+      "status": "answered",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Lantern Kits dispatches standard orders within 9 business days.",
+          "citations": [
+            {
+              "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+              "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+              "document_name": "lantern.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Lantern Kits dispatches standard orders within 9 business days."
+            }
+          ]
+        },
+        {
+          "text": "Lantern Kits accepts returns only with the original receipt.",
+          "citations": [
+            {
+              "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+              "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+              "document_name": "lantern.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Lantern Kits accepts returns only with the original receipt."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 514,
+        "output_tokens": 20,
+        "model_called": true,
+        "candidate_excerpts": 5,
+        "selected_source_ids": [
+          "S1",
+          "S2"
+        ]
+      }
+    },
+    {
+      "query": "two_facts",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true,
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 620.19,
+      "status": "answered",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Lantern Kits dispatches standard orders within 9 business days.",
+          "citations": [
+            {
+              "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+              "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+              "document_name": "lantern.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Lantern Kits dispatches standard orders within 9 business days."
+            }
+          ]
+        },
+        {
+          "text": "Lantern Kits accepts returns only with the original receipt.",
+          "citations": [
+            {
+              "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+              "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+              "document_name": "lantern.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Lantern Kits accepts returns only with the original receipt."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 514,
+        "output_tokens": 20,
+        "model_called": true,
+        "candidate_excerpts": 5,
+        "selected_source_ids": [
+          "S1",
+          "S2"
+        ]
+      }
+    },
+    {
+      "query": "wrong_entity_scope",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 820.14,
+      "status": "insufficient_evidence",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 507,
+        "output_tokens": 13,
+        "model_called": true,
+        "candidate_excerpts": 5,
+        "selected_source_ids": []
+      }
+    },
+    {
+      "query": "wrong_entity_scope",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 625.54,
+      "status": "insufficient_evidence",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 507,
+        "output_tokens": 13,
+        "model_called": true,
+        "candidate_excerpts": 5,
+        "selected_source_ids": []
+      }
+    },
+    {
+      "query": "missing_attribute",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 689.51,
+      "status": "insufficient_evidence",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 438,
+        "output_tokens": 13,
+        "model_called": true,
+        "candidate_excerpts": 3,
+        "selected_source_ids": []
+      }
+    },
+    {
+      "query": "missing_attribute",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 493.15,
+      "status": "insufficient_evidence",
+      "model_called": true,
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 438,
+        "output_tokens": 13,
+        "model_called": true,
+        "candidate_excerpts": 3,
+        "selected_source_ids": []
+      }
+    }
+  ]
+}

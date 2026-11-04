@@ -1,0 +1,1396 @@
+{
+  "format": 1,
+  "started_at": "2026-10-25T19:22:19.511702+00:00",
+  "status": "completed",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.11.17",
+  "with_model": true,
+  "modes": [
+    "bm25",
+    "hybrid_rerank"
+  ],
+  "repeats": 1,
+  "documents": [
+    {
+      "id": "harbor",
+      "pdf_sha256": "15faa9e38865420b6a3d4aa4a6862efee6df27b1f01007f40599681ff7b31673",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 336.67
+    },
+    {
+      "id": "meadow",
+      "pdf_sha256": "f0597c9beab603e512c20b51683fbc659f4e2286e45a9541f74f5aa4e696d9bb",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 117.11
+    },
+    {
+      "id": "cobalt",
+      "pdf_sha256": "da0e8945617888d2ae5b70d5366433715f8cde895a0331c6a76dcb5cec3f71f8",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 124.75
+    }
+  ],
+  "pages": [
+    {
+      "document": "harbor",
+      "page": 1,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+      "observed": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+      "metadata": {
+        "page": 1,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 149,
+        "largest_image_fraction": 0.0,
+        "characters": 149
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 149,
+        "reference_words": 21,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "harbor",
+      "page": 2,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+      "observed": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+      "metadata": {
+        "page": 2,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 122,
+        "largest_image_fraction": 0.0,
+        "characters": 122
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 122,
+        "reference_words": 18,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "meadow",
+      "page": 1,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book.",
+      "observed": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book.",
+      "metadata": {
+        "page": 1,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 133,
+        "largest_image_fraction": 0.0,
+        "characters": 133
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 133,
+        "reference_words": 24,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "cobalt",
+      "page": 1,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Cobalt Stores delivers standard orders within 4 business days after the warehouse confirms stock. This document does not describe any individual customer's shipment.",
+      "observed": "Cobalt Stores delivers standard orders within 4 business days after the warehouse confirms stock. This document does not describe any individual customer's shipment.",
+      "metadata": {
+        "page": 1,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 165,
+        "largest_image_fraction": 0.0,
+        "characters": 165
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 165,
+        "reference_words": 23,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    }
+  ],
+  "limitations": "Authored development fixture, not held-out. Fact-span and page checks are lexical proxies, not semantic entailment; negation, extra false claims and valid unlisted paraphrases require human review. CER/WER normalize NFKC and whitespace, preserve case/punctuation and may exceed 1. Failed extraction is scored as empty. Latency includes a search probe plus the query path, no warmup, sequential calls. No browser or throughput benchmark. Repeated runs do not guarantee identical outputs.",
+  "fixture_sha256": "cb8bc7943ff80d84be4aee89fcdb9d6c2e744a2cefa4ef65c7a291c1a590dc74",
+  "source_sha256": {
+    "scripts/evaluate_quality.py": "e2f6ed3abf62676dc37386b615ff7709dcd75ce4119a7469a6330fa0375af9a7",
+    "backend/omnirag/__init__.py": "ce0a823bc257930b33c71e77ab8e2b8a6b3f556377aa22b5ff517e526ffb0f0f",
+    "backend/omnirag/config.py": "15022ea7fe6e9943bd4cd58b6ac00c2ecf44a17ff82fdb9284aec6516e5af0cb",
+    "backend/omnirag/db.py": "a536dbf91375af8b7dbda1c2d25bbc7acc53b0e255c5931b07951bcb543ddc4f",
+    "backend/omnirag/encoders.py": "f825f465b83bac479957fc51fdfe9d28041eb8432fb78922dd66ee4a8860d4a2",
+    "backend/omnirag/evaluation.py": "fd9879b67e2a2dc370ff0b94efd5648e979c66b76e85a38d5db8bf4986a8d8eb",
+    "backend/omnirag/generation.py": "523a4140d69b5309f390e3e6385549896fd3c69998b7e3d196ca352d353c8d42",
+    "backend/omnirag/hybrid.py": "b1c4aebe03ecbee7770ecce4bb04d34e2d9ac51efa35325819afc50d5defce3a",
+    "backend/omnirag/ingestion.py": "e8deefdc8bbdb40d45f0391faac3de203dee4ff36275538ba1b00841d047f03a",
+    "backend/omnirag/main.py": "237bba5b1abcbeabe4c4e82be595638f9552a950ff9b9ad65ce3a3f48b4a423f",
+    "backend/omnirag/ocr.py": "088feab138c62e6d8abbc785e6c7d222c23ebcbbc05fc540a8cb3f96adee23f1",
+    "backend/omnirag/retrieval.py": "f919c631b02adbfaa7734db94f92ce8faca1c02f7d325cf197ba573d9f4329d6",
+    "backend/omnirag/security.py": "3acbccfff553b89db4f8065f2ef99866a03a4ec08317b5bdc9cee1ef61064ae4",
+    "backend/omnirag/worker.py": "9a1af5229afc6bb67e3b7fe29bae35b1c6736809d5952944226d721b98aec745"
+  },
+  "packages": {
+    "fastapi": "0.158.1",
+    "httpx": "0.28.1",
+    "pypdf": "6.21.2",
+    "pypdfium2": "5.14.0",
+    "pillow": "12.3.0",
+    "reportlab": "4.5.1",
+    "fastembed": "0.9.0",
+    "qdrant-client": "1.20.0",
+    "onnxruntime": "1.31.0",
+    "tokenizers": "0.23.3"
+  },
+  "settings": {
+    "ollama_base_url": "http://127.0.0.1:11434/",
+    "ollama_model": "qwen3-vl:2b-instruct",
+    "model_timeout_seconds": 120,
+    "context_tokens": 4096,
+    "max_output_tokens": 768,
+    "top_k": 4,
+    "upload_max_mb": 10,
+    "max_pages": 100,
+    "ingest_timeout_seconds": 90,
+    "ocr_enabled": true,
+    "ocr_max_pages": 20,
+    "ocr_page_timeout_seconds": 20,
+    "retrieval_enabled": true,
+    "default_retrieval_mode": "bm25",
+    "retrieval_models_dir": "data/models",
+    "retrieval_manifest": "models/retrieval.lock.json",
+    "retrieval_candidates": 12,
+    "retrieval_threads": 2
+  },
+  "ollama": {
+    "version": "0.40.8",
+    "model": {
+      "name": "qwen3-vl:2b-instruct",
+      "model": "qwen3-vl:2b-instruct",
+      "modified_at": "2026-10-22T21:54:30.016546638+05:30",
+      "size": 1930568531,
+      "digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+      "details": {
+        "parent_model": "dhiltgen/qwen3-vl:2b-instruct-q4_K_M-llamacpp",
+        "format": "gguf",
+        "family": "qwen3vl",
+        "families": [
+          "qwen3vl",
+          "clip"
+        ],
+        "parameter_size": "1.7B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 262144,
+        "embedding_length": 2048,
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools"
+      ]
+    }
+  },
+  "retrieval_manifest": {
+    "format": 1,
+    "models": {
+      "embedding": {
+        "name": "BAAI/bge-small-en-v1.5",
+        "repo": "Qdrant/bge-small-en-v1.5-onnx-Q",
+        "revision": "aa8f8b060edb00e03bfdd08813a2949946c8ba55",
+        "license": "mit",
+        "files": {
+          "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+          "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a"
+        }
+      },
+      "reranker": {
+        "name": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "repo": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "revision": "a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+        "license": "apache-2.0",
+        "files": {
+          "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+          "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+        }
+      }
+    }
+  },
+  "summary": {
+    "transcription": {
+      "core/native": {
+        "pages": 4,
+        "errors": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    "answers": {
+      "core/bm25": {
+        "scheduled": 12,
+        "scored": 12,
+        "errors": 0,
+        "answerable": 6,
+        "unsupported": 6,
+        "answer_fact_match_rate": 0.6666666666666666,
+        "unsupported_abstention_rate": 1.0,
+        "contract_pass_rate": 0.8333333333333334,
+        "answered_with_citations": 4,
+        "mean_citation_page_precision_when_answered": 1.0,
+        "mean_retrieval_page_recall": 0.6666666666666666,
+        "median_elapsed_ms": 3073.0299999999997
+      },
+      "core/hybrid_rerank": {
+        "scheduled": 12,
+        "scored": 12,
+        "errors": 0,
+        "answerable": 6,
+        "unsupported": 6,
+        "answer_fact_match_rate": 1.0,
+        "unsupported_abstention_rate": 1.0,
+        "contract_pass_rate": 1.0,
+        "answered_with_citations": 6,
+        "mean_citation_page_precision_when_answered": 1.0,
+        "mean_retrieval_page_recall": 1.0,
+        "median_elapsed_ms": 3091.9449999999997
+      },
+      "challenge/bm25": {
+        "scheduled": 0,
+        "scored": 0,
+        "errors": 0,
+        "answerable": 0,
+        "unsupported": 0,
+        "answer_fact_match_rate": null,
+        "unsupported_abstention_rate": null,
+        "contract_pass_rate": null,
+        "answered_with_citations": 0,
+        "mean_citation_page_precision_when_answered": null,
+        "mean_retrieval_page_recall": null,
+        "median_elapsed_ms": null
+      },
+      "challenge/hybrid_rerank": {
+        "scheduled": 0,
+        "scored": 0,
+        "errors": 0,
+        "answerable": 0,
+        "unsupported": 0,
+        "answer_fact_match_rate": null,
+        "unsupported_abstention_rate": null,
+        "contract_pass_rate": null,
+        "answered_with_citations": 0,
+        "mean_citation_page_precision_when_answered": null,
+        "mean_retrieval_page_recall": null,
+        "median_elapsed_ms": null
+      }
+    }
+  },
+  "finished_at": "2026-10-25T19:23:45.589222+00:00",
+  "exit_code": 2,
+  "raw_report_path": "data/local/phase9-paraphrase-2026-10-26.json",
+  "raw_report_sha256": "ed5f6eecb73b92cbe1647984bf3d88c0c119b1c0feff56a7de3aa604958902cc",
+  "queries": [
+    {
+      "query": "unnamed_delivery",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": false,
+        "fact_matches": [
+          false,
+          false
+        ],
+        "facts_cite_reference_pages": false,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": 0.0,
+        "correct_abstention": null,
+        "contract_pass": false
+      },
+      "retrieval_page_recall": 0.0,
+      "elapsed_ms": 11.74,
+      "status": "insufficient_evidence",
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {},
+      "model_called": false
+    },
+    {
+      "query": "unnamed_delivery",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true,
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 2735.24,
+      "status": "answered",
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Harbor Tools delivers standard orders within 12 working days after payment clears.",
+          "citations": [
+            {
+              "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+              "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+              "document_name": "harbor.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Harbor Tools delivers standard orders within 12 working days after payment clears."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 770,
+        "output_tokens": 91,
+        "model_called": true,
+        "candidate_excerpts": 4,
+        "selected_source_ids": [
+          "S1"
+        ],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 1,
+        "retry_status": "not_needed"
+      },
+      "model_called": true
+    },
+    {
+      "query": "named_delivery",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true,
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 2725.46,
+      "status": "answered",
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Harbor Tools delivers standard orders within 12 working days after payment clears.",
+          "citations": [
+            {
+              "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+              "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+              "document_name": "harbor.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Harbor Tools delivers standard orders within 12 working days after payment clears."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 771,
+        "output_tokens": 92,
+        "model_called": true,
+        "candidate_excerpts": 4,
+        "selected_source_ids": [
+          "S1"
+        ],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 1,
+        "retry_status": "not_needed"
+      },
+      "model_called": true
+    },
+    {
+      "query": "named_delivery",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true,
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 6912.93,
+      "status": "answered",
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Harbor Tools delivers standard orders within 12 working days after payment clears.",
+          "citations": [
+            {
+              "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+              "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+              "document_name": "harbor.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Harbor Tools delivers standard orders within 12 working days after payment clears."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 1582,
+        "output_tokens": 179,
+        "model_called": true,
+        "candidate_excerpts": 8,
+        "selected_source_ids": [
+          "S1"
+        ],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 2,
+        "retry_status": "attempted"
+      },
+      "model_called": true
+    },
+    {
+      "query": "loan_paraphrase",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 2884.19,
+      "status": "answered",
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Meadow Library lends reference books for 21 calendar days.",
+          "citations": [
+            {
+              "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+              "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+              "document_name": "meadow.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Meadow Library lends reference books for 21 calendar days."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 710,
+        "output_tokens": 90,
+        "model_called": true,
+        "candidate_excerpts": 2,
+        "selected_source_ids": [
+          "S1"
+        ],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 1,
+        "retry_status": "not_needed"
+      },
+      "model_called": true
+    },
+    {
+      "query": "loan_paraphrase",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 2570.66,
+      "status": "answered",
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Meadow Library lends reference books for 21 calendar days.",
+          "citations": [
+            {
+              "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+              "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+              "document_name": "meadow.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Meadow Library lends reference books for 21 calendar days."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 710,
+        "output_tokens": 90,
+        "model_called": true,
+        "candidate_excerpts": 2,
+        "selected_source_ids": [
+          "S1"
+        ],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 1,
+        "retry_status": "not_needed"
+      },
+      "model_called": true
+    },
+    {
+      "query": "renewal_condition",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 6396.97,
+      "status": "answered",
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Meadow Library lends reference books for 21 calendar days.",
+          "citations": [
+            {
+              "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+              "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+              "document_name": "meadow.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Meadow Library lends reference books for 21 calendar days."
+            }
+          ]
+        },
+        {
+          "text": "A borrower may renew a loan only if no other reader has reserved the book.",
+          "citations": [
+            {
+              "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+              "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+              "document_name": "meadow.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "A borrower may renew a loan only if no other reader has reserved the book."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 1182,
+        "output_tokens": 193,
+        "model_called": true,
+        "candidate_excerpts": 2,
+        "selected_source_ids": [
+          "S1",
+          "S2"
+        ],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 2,
+        "retry_status": "attempted"
+      },
+      "model_called": true
+    },
+    {
+      "query": "renewal_condition",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 6150.65,
+      "status": "answered",
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Meadow Library lends reference books for 21 calendar days.",
+          "citations": [
+            {
+              "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+              "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+              "document_name": "meadow.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "Meadow Library lends reference books for 21 calendar days."
+            }
+          ]
+        },
+        {
+          "text": "A borrower may renew a loan only if no other reader has reserved the book.",
+          "citations": [
+            {
+              "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+              "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+              "document_name": "meadow.pdf",
+              "extraction_method": "native",
+              "page": 1,
+              "quote": "A borrower may renew a loan only if no other reader has reserved the book."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 1182,
+        "output_tokens": 193,
+        "model_called": true,
+        "candidate_excerpts": 2,
+        "selected_source_ids": [
+          "S1",
+          "S2"
+        ],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 2,
+        "retry_status": "attempted"
+      },
+      "model_called": true
+    },
+    {
+      "query": "return_condition",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": false,
+        "fact_matches": [
+          false
+        ],
+        "facts_cite_reference_pages": false,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": 0.0,
+        "correct_abstention": null,
+        "contract_pass": false
+      },
+      "retrieval_page_recall": 0.0,
+      "elapsed_ms": 9.34,
+      "status": "insufficient_evidence",
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {},
+      "model_called": false
+    },
+    {
+      "query": "return_condition",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 3399.92,
+      "status": "answered",
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "Harbor Tools accepts returns only with an original receipt.",
+          "citations": [
+            {
+              "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+              "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+              "document_name": "harbor.pdf",
+              "extraction_method": "native",
+              "page": 2,
+              "quote": "Harbor Tools accepts returns only with an original receipt."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 769,
+        "output_tokens": 90,
+        "model_called": true,
+        "candidate_excerpts": 4,
+        "selected_source_ids": [
+          "S3"
+        ],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 1,
+        "retry_status": "not_needed"
+      },
+      "model_called": true
+    },
+    {
+      "query": "personalized_return",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 5847.41,
+      "status": "answered",
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "The company does not accept returns of personalized equipment.",
+          "citations": [
+            {
+              "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+              "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+              "document_name": "harbor.pdf",
+              "extraction_method": "native",
+              "page": 2,
+              "quote": "The company does not accept returns of personalized equipment."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 1294,
+        "output_tokens": 172,
+        "model_called": true,
+        "candidate_excerpts": 4,
+        "selected_source_ids": [
+          "S4"
+        ],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 2,
+        "retry_status": "attempted"
+      },
+      "model_called": true
+    },
+    {
+      "query": "personalized_return",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "elapsed_ms": 5191.29,
+      "status": "answered",
+      "verification": "extractive_source_binding",
+      "claims": [
+        {
+          "text": "The company does not accept returns of personalized equipment.",
+          "citations": [
+            {
+              "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+              "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+              "document_name": "harbor.pdf",
+              "extraction_method": "native",
+              "page": 2,
+              "quote": "The company does not accept returns of personalized equipment."
+            }
+          ]
+        }
+      ],
+      "usage": {
+        "input_tokens": 1294,
+        "output_tokens": 172,
+        "model_called": true,
+        "candidate_excerpts": 4,
+        "selected_source_ids": [
+          "S4"
+        ],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 2,
+        "retry_status": "attempted"
+      },
+      "model_called": true
+    },
+    {
+      "query": "personal_arrival",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 3181.79,
+      "status": "insufficient_evidence",
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 770,
+        "output_tokens": 90,
+        "model_called": true,
+        "candidate_excerpts": 4,
+        "selected_source_ids": [],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 1,
+        "retry_status": "event_question"
+      },
+      "model_called": true
+    },
+    {
+      "query": "personal_arrival",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 2777.92,
+      "status": "insufficient_evidence",
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 770,
+        "output_tokens": 90,
+        "model_called": true,
+        "candidate_excerpts": 4,
+        "selected_source_ids": [],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 1,
+        "retry_status": "event_question"
+      },
+      "model_called": true
+    },
+    {
+      "query": "personal_payment",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 2964.27,
+      "status": "insufficient_evidence",
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 771,
+        "output_tokens": 84,
+        "model_called": true,
+        "candidate_excerpts": 4,
+        "selected_source_ids": [],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 1,
+        "retry_status": "event_question"
+      },
+      "model_called": true
+    },
+    {
+      "query": "personal_payment",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 2717.97,
+      "status": "insufficient_evidence",
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 771,
+        "output_tokens": 84,
+        "model_called": true,
+        "candidate_excerpts": 4,
+        "selected_source_ids": [],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 1,
+        "retry_status": "event_question"
+      },
+      "model_called": true
+    },
+    {
+      "query": "personal_due_date",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 5572.01,
+      "status": "insufficient_evidence",
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 1186,
+        "output_tokens": 162,
+        "model_called": true,
+        "candidate_excerpts": 2,
+        "selected_source_ids": [],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 2,
+        "retry_status": "attempted"
+      },
+      "model_called": true
+    },
+    {
+      "query": "personal_due_date",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 2668.81,
+      "status": "insufficient_evidence",
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 712,
+        "output_tokens": 88,
+        "model_called": true,
+        "candidate_excerpts": 2,
+        "selected_source_ids": [],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 1,
+        "retry_status": "individual_record"
+      },
+      "model_called": true
+    },
+    {
+      "query": "wrong_entity",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 6.56,
+      "status": "insufficient_evidence",
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {},
+      "model_called": false
+    },
+    {
+      "query": "wrong_entity",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 3150.67,
+      "status": "insufficient_evidence",
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 771,
+        "output_tokens": 86,
+        "model_called": true,
+        "candidate_excerpts": 4,
+        "selected_source_ids": [],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 1,
+        "retry_status": "missing_named_term"
+      },
+      "model_called": true
+    },
+    {
+      "query": "missing_cost",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 5671.05,
+      "status": "insufficient_evidence",
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 1298,
+        "output_tokens": 158,
+        "model_called": true,
+        "candidate_excerpts": 4,
+        "selected_source_ids": [],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 2,
+        "retry_status": "attempted"
+      },
+      "model_called": true
+    },
+    {
+      "query": "missing_cost",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 4695.71,
+      "status": "insufficient_evidence",
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 1298,
+        "output_tokens": 158,
+        "model_called": true,
+        "candidate_excerpts": 4,
+        "selected_source_ids": [],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 2,
+        "retry_status": "attempted"
+      },
+      "model_called": true
+    },
+    {
+      "query": "missing_reservation",
+      "mode": "bm25",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 3501.82,
+      "status": "insufficient_evidence",
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 709,
+        "output_tokens": 88,
+        "model_called": true,
+        "candidate_excerpts": 2,
+        "selected_source_ids": [],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 1,
+        "retry_status": "event_question"
+      },
+      "model_called": true
+    },
+    {
+      "query": "missing_reservation",
+      "mode": "hybrid_rerank",
+      "repeat": 1,
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "elapsed_ms": 3033.22,
+      "status": "insufficient_evidence",
+      "verification": "extractive_source_binding",
+      "claims": [],
+      "usage": {
+        "input_tokens": 709,
+        "output_tokens": 88,
+        "model_called": true,
+        "candidate_excerpts": 2,
+        "selected_source_ids": [],
+        "record_gate_withheld": false,
+        "selection_policy": "guarded_policy_retry_v2",
+        "selection_attempts": 1,
+        "retry_status": "event_question"
+      },
+      "model_called": true
+    }
+  ]
+}

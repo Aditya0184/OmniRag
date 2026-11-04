@@ -1,0 +1,29 @@
+{
+  "activated_at": "2026-11-03T22:55:38.954897+00:00",
+  "pre_activation_backup": "data/local/backups/phase12-before-schema4-20261104-042510",
+  "preservation_snapshot": "data/local/backups/preservation-phase12-pre-activation.json",
+  "preservation_result": {
+    "problems": [],
+    "schema_before": 3,
+    "schema_after": 4,
+    "tables": {
+      "documents": 30,
+      "chunks": 50,
+      "query_runs": 43,
+      "page_extractions": 49
+    },
+    "original_pdfs_verified": "all sha256 unchanged"
+  },
+  "health": {
+    "phase": 12,
+    "authentication": true,
+    "answer_mode": "grounded",
+    "default_retrieval_mode": "hybrid_rerank"
+  },
+  "live_checks": {
+    "frontend_200": true,
+    "private_routes_401_unauthenticated": true,
+    "documents_history_preserved": true
+  },
+  "notes": "Authenticated end-to-end checks require the owner's session and were not performed; see docs/REVIEW_CHECKLIST.md. No credential was read, printed or reset. The first sign-in after activation generates overviews for newly uploaded documents; older documents get one via the Summarize document button."
+}

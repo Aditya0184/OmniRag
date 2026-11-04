@@ -1,0 +1,1858 @@
+{
+  "format": 1,
+  "started_at": "2026-11-03T21:58:50.719893+00:00",
+  "status": "completed",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.11.17",
+  "with_model": true,
+  "modes": [
+    "hybrid_rerank"
+  ],
+  "repeats": 1,
+  "documents": [
+    {
+      "id": "lantern",
+      "pdf_sha256": "7bf535000b7289930fcea76a77c420cb00d25cf3b7554ff4b93f25c77d5d119e",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 8897.62
+    },
+    {
+      "id": "basalt",
+      "pdf_sha256": "1d55ba83e6773ebd31bd44282d14663948775187082cf0e985cb362e085e2c57",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 8021.66
+    },
+    {
+      "id": "summit",
+      "pdf_sha256": "dd23733eb58e1dfa5b6fa1f9c303649229ca661fd3daedd8f53a342e341d5dcf",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 6400.28
+    }
+  ],
+  "pages": [
+    {
+      "document": "lantern",
+      "page": 1,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+      "observed": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+      "metadata": {
+        "page": 1,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 124,
+        "largest_image_fraction": 0.0,
+        "characters": 124
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 124,
+        "reference_words": 18,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "lantern",
+      "page": 2,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+      "observed": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+      "metadata": {
+        "page": 2,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 129,
+        "largest_image_fraction": 0.0,
+        "characters": 129
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 129,
+        "reference_words": 19,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "basalt",
+      "page": 1,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests.",
+      "observed": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests.",
+      "metadata": {
+        "page": 1,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 142,
+        "largest_image_fraction": 0.0,
+        "characters": 142
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 142,
+        "reference_words": 22,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "summit",
+      "page": 1,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Summit Kits dispatches standard orders within 6 calendar days. Summit Kits accepts returns only with written authorization from the store manager.",
+      "observed": "Summit Kits dispatches standard orders within 6 calendar days. Summit Kits accepts returns only with written authorization from the store manager.",
+      "metadata": {
+        "page": 1,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 146,
+        "largest_image_fraction": 0.0,
+        "characters": 146
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 146,
+        "reference_words": 21,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    }
+  ],
+  "queries": [
+    {
+      "query": "different_entity_values",
+      "question": "How long does Lantern Kits take to dispatch standard orders?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Lantern Kits dispatches standard orders within 9 business days.",
+              "citations": [
+                {
+                  "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+                  "quote": "Lantern Kits dispatches standard orders within 9 business days."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 840,
+          "output_tokens": 120,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": false,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 1,
+            "text": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": 10.328153610229492,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "161ea3c0-ed2a-5dd7-9f0b-ac4e2be2f119:1:0",
+            "document_id": "161ea3c0-ed2a-5dd7-9f0b-ac4e2be2f119",
+            "page": 1,
+            "text": "Summit Kits dispatches standard orders within 6 calendar days. Summit Kits accepts returns only with written authorization from the store manager.",
+            "document_name": "summit.pdf",
+            "extraction_method": "native",
+            "score": 6.28801155090332,
+            "fusion_score": 0.03225806451612903
+          },
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 2,
+            "text": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": -4.445152759552002,
+            "fusion_score": 0.031746031746031744
+          },
+          {
+            "chunk_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80:1:0",
+            "document_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80",
+            "page": 1,
+            "text": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests.",
+            "document_name": "basalt.pdf",
+            "extraction_method": "native",
+            "score": -10.926365852355957,
+            "fusion_score": 0.015625
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 85.32,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "7b1e2d55-a110-49a2-b4b6-37de12b31c1a",
+        "question": "How long does Lantern Kits take to dispatch standard orders?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "Lantern Kits dispatches standard orders within 9 business days.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+                "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+                "document_name": "lantern.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "Lantern Kits dispatches standard orders within 9 business days."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 1,
+            "text": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": 10.328153610229492,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "161ea3c0-ed2a-5dd7-9f0b-ac4e2be2f119:1:0",
+            "document_id": "161ea3c0-ed2a-5dd7-9f0b-ac4e2be2f119",
+            "page": 1,
+            "text": "Summit Kits dispatches standard orders within 6 calendar days. Summit Kits accepts returns only with written authorization from the store manager.",
+            "document_name": "summit.pdf",
+            "extraction_method": "native",
+            "score": 6.28801155090332,
+            "fusion_score": 0.03225806451612903
+          },
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 2,
+            "text": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": -4.445152759552002,
+            "fusion_score": 0.031746031746031744
+          },
+          {
+            "chunk_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80:1:0",
+            "document_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80",
+            "page": 1,
+            "text": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests.",
+            "document_name": "basalt.pdf",
+            "extraction_method": "native",
+            "score": -10.926365852355957,
+            "fusion_score": 0.015625
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 75.18,
+          "generation_ms": 3908.12,
+          "total_ms": 3983.94
+        },
+        "usage": {
+          "input_tokens": 840,
+          "output_tokens": 120,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": false,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 4092.04
+    },
+    {
+      "query": "entity_paraphrase",
+      "question": "How much time before Lantern Kits sends my ordinary purchase?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Lantern Kits dispatches standard orders within 9 business days.",
+              "citations": [
+                {
+                  "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+                  "quote": "Lantern Kits dispatches standard orders within 9 business days."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 840,
+          "output_tokens": 120,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 1,
+            "text": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": 6.575810432434082,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 2,
+            "text": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": -7.0166916847229,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 101.48,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "e7864b35-765b-403d-af5a-7cb50e4fdf05",
+        "question": "How much time before Lantern Kits sends my ordinary purchase?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "Lantern Kits dispatches standard orders within 9 business days.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+                "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+                "document_name": "lantern.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "Lantern Kits dispatches standard orders within 9 business days."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 1,
+            "text": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": 6.575810432434082,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 2,
+            "text": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": -7.0166916847229,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 61.93,
+          "generation_ms": 3854.2,
+          "total_ms": 3916.56
+        },
+        "usage": {
+          "input_tokens": 840,
+          "output_tokens": 120,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "c079be8d-10bb-5c2f-9197-0da3f08fde2f"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 4038.43
+    },
+    {
+      "query": "different_code",
+      "question": "What does code BT-306 indicate?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "The code BT-306 indicates a battery fault.",
+              "citations": [
+                {
+                  "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+                  "quote": "The code BT-306 indicates a battery fault."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 839,
+          "output_tokens": 116,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 2,
+            "text": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": 9.215802192687988,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 1,
+            "text": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": -11.250804901123047,
+            "fusion_score": 0.016129032258064516
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 105.59,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "38108e03-cd6f-44e2-96cb-8978b44a7ecf",
+        "question": "What does code BT-306 indicate?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "The code BT-306 indicates a battery fault.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+                "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+                "document_name": "lantern.pdf",
+                "extraction_method": "native",
+                "page": 2,
+                "quote": "The code BT-306 indicates a battery fault."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 2,
+            "text": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": 9.215802192687988,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 1,
+            "text": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": -11.250804901123047,
+            "fusion_score": 0.016129032258064516
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 56.87,
+          "generation_ms": 3901.45,
+          "total_ms": 3958.68
+        },
+        "usage": {
+          "input_tokens": 839,
+          "output_tokens": 116,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "c079be8d-10bb-5c2f-9197-0da3f08fde2f"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 4088.91
+    },
+    {
+      "query": "negation",
+      "question": "Does Basalt Studio email backups to customers?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Basalt Studio does not email backups to customers.",
+              "citations": [
+                {
+                  "chunk_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80:1:0",
+                  "quote": "Basalt Studio does not email backups to customers."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 753,
+          "output_tokens": 105,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80:1:0",
+            "document_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80",
+            "page": 1,
+            "text": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests.",
+            "document_name": "basalt.pdf",
+            "extraction_method": "native",
+            "score": 9.546819686889648,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 92.01,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "d54df46d-75ac-4667-b19a-3c4d224b349c",
+        "question": "Does Basalt Studio email backups to customers?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "Basalt Studio does not email backups to customers.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80:1:0",
+                "document_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80",
+                "document_name": "basalt.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "Basalt Studio does not email backups to customers."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80:1:0",
+            "document_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80",
+            "page": 1,
+            "text": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests.",
+            "document_name": "basalt.pdf",
+            "extraction_method": "native",
+            "score": 9.546819686889648,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 43.62,
+          "generation_ms": 3214.41,
+          "total_ms": 3258.41
+        },
+        "usage": {
+          "input_tokens": 753,
+          "output_tokens": 105,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 3367.71
+    },
+    {
+      "query": "condition",
+      "question": "Under what condition does Lantern Kits accept returns?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Lantern Kits accepts returns only with the original receipt.",
+              "citations": [
+                {
+                  "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+                  "quote": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 838,
+          "output_tokens": 128,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": false,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 1,
+            "text": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": 5.934981346130371,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 2,
+            "text": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": 0.2162308692932129,
+            "fusion_score": 0.03200204813108039
+          },
+          {
+            "chunk_id": "161ea3c0-ed2a-5dd7-9f0b-ac4e2be2f119:1:0",
+            "document_id": "161ea3c0-ed2a-5dd7-9f0b-ac4e2be2f119",
+            "page": 1,
+            "text": "Summit Kits dispatches standard orders within 6 calendar days. Summit Kits accepts returns only with written authorization from the store manager.",
+            "document_name": "summit.pdf",
+            "extraction_method": "native",
+            "score": -0.009004376828670502,
+            "fusion_score": 0.03200204813108039
+          },
+          {
+            "chunk_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80:1:0",
+            "document_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80",
+            "page": 1,
+            "text": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests.",
+            "document_name": "basalt.pdf",
+            "extraction_method": "native",
+            "score": -11.449220657348633,
+            "fusion_score": 0.015625
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 152.18,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "c43a61be-094d-463f-aee4-325993025d1c",
+        "question": "Under what condition does Lantern Kits accept returns?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "Lantern Kits accepts returns only with the original receipt.",
+            "kind": "explanation",
+            "citations": [
+              {
+                "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+                "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+                "document_name": "lantern.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 1,
+            "text": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": 5.934981346130371,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 2,
+            "text": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": 0.2162308692932129,
+            "fusion_score": 0.03200204813108039
+          },
+          {
+            "chunk_id": "161ea3c0-ed2a-5dd7-9f0b-ac4e2be2f119:1:0",
+            "document_id": "161ea3c0-ed2a-5dd7-9f0b-ac4e2be2f119",
+            "page": 1,
+            "text": "Summit Kits dispatches standard orders within 6 calendar days. Summit Kits accepts returns only with written authorization from the store manager.",
+            "document_name": "summit.pdf",
+            "extraction_method": "native",
+            "score": -0.009004376828670502,
+            "fusion_score": 0.03200204813108039
+          },
+          {
+            "chunk_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80:1:0",
+            "document_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80",
+            "page": 1,
+            "text": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests.",
+            "document_name": "basalt.pdf",
+            "extraction_method": "native",
+            "score": -11.449220657348633,
+            "fusion_score": 0.015625
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 131.56,
+          "generation_ms": 3959.41,
+          "total_ms": 4091.2
+        },
+        "usage": {
+          "input_tokens": 838,
+          "output_tokens": 128,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": false,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 4261.41
+    },
+    {
+      "query": "two_facts",
+      "question": "What is Lantern Kits' standard dispatch deadline, and what is required for returns?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true,
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "The passage does not mention the standard dispatch deadline or the requirements for returns.",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Lantern Kits dispatches standard orders within 9 business days.",
+              "citations": [
+                {
+                  "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+                  "quote": "Lantern Kits dispatches standard orders within 9 business days."
+                }
+              ]
+            },
+            {
+              "text": "Lantern Kits accepts returns only with the original receipt.",
+              "citations": [
+                {
+                  "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+                  "quote": "Lantern Kits accepts returns only with the original receipt."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 845,
+          "output_tokens": 232,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 2,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 1,
+            "text": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": 6.330550193786621,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 2,
+            "text": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": -3.3255538940429688,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 59.9,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "fcc9f719-ac39-4828-a587-1035670d0d6c",
+        "question": "What is Lantern Kits' standard dispatch deadline, and what is required for returns?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "Lantern Kits dispatches standard orders within 9 business days.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+                "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+                "document_name": "lantern.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "Lantern Kits dispatches standard orders within 9 business days."
+              }
+            ]
+          },
+          {
+            "text": "Lantern Kits accepts returns only with the original receipt.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+                "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+                "document_name": "lantern.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "Lantern Kits accepts returns only with the original receipt."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 1,
+            "text": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": 6.330550193786621,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 2,
+            "text": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": -3.3255538940429688,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 66.78,
+          "generation_ms": 6861.76,
+          "total_ms": 6929.23
+        },
+        "usage": {
+          "input_tokens": 845,
+          "output_tokens": 232,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 2,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "c079be8d-10bb-5c2f-9197-0da3f08fde2f"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 7003.78
+    },
+    {
+      "query": "wrong_entity_scope",
+      "question": "What is Summit Kits' standard dispatch deadline?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Summit Kits' standard dispatch deadline is not mentioned in the provided passages.",
+              "citations": [
+                {
+                  "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+                  "quote": "Lantern Kits dispatches standard orders within 9 business days."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 838,
+          "output_tokens": 121,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": true,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 1,
+          "claims_kept": 0,
+          "invalid_citations_dropped": 1
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 1,
+            "text": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": 0.9323875308036804,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 2,
+            "text": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": -10.846183776855469,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 96.41,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "d02b4081-2ae5-410e-a2b2-7652e3d019c1",
+        "question": "What is Summit Kits' standard dispatch deadline?",
+        "status": "unsupported_question",
+        "reason": "The model's statements were not sufficiently supported by the cited passages, so the answer was withheld.",
+        "claims": [],
+        "evidence": [
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:1:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 1,
+            "text": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": 0.9323875308036804,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f:2:0",
+            "document_id": "c079be8d-10bb-5c2f-9197-0da3f08fde2f",
+            "page": 2,
+            "text": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault.",
+            "document_name": "lantern.pdf",
+            "extraction_method": "native",
+            "score": -10.846183776855469,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 63.86,
+          "generation_ms": 3779.51,
+          "total_ms": 3843.65
+        },
+        "usage": {
+          "input_tokens": 838,
+          "output_tokens": 121,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": true,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 1,
+          "claims_kept": 0,
+          "invalid_citations_dropped": 1,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "c079be8d-10bb-5c2f-9197-0da3f08fde2f"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual",
+        "suggestion": "Try rephrasing, or switch to keyword search to inspect exact excerpts yourself."
+      },
+      "http_status": 200,
+      "elapsed_ms": 3965.29
+    },
+    {
+      "query": "missing_attribute",
+      "question": "What is Dr. Chen's birthday?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "model": {
+        "called": true,
+        "summary_call": "Reconsider the question against the same passages.\nReturn JSON with answerable, ",
+        "draft": {
+          "answerable": false,
+          "missing_information": "The passage does not contain any information about Dr. Chen's birthday. It only mentions that Dr. Chen approves onsite access requests and that Basalt Studio stores project files for 24 months and does not email backups to customers. Therefore, the requested information is missing.",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Dr. Chen's birthday is mentioned in the passage.",
+              "citations": [
+                {
+                  "chunk_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80:1:0",
+                  "quote": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 959,
+          "output_tokens": 213,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 2,
+          "retry_status": "overlap_recheck",
+          "claims_dropped": 1,
+          "claims_kept": 0,
+          "abstention_with_claims": true
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80:1:0",
+            "document_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80",
+            "page": 1,
+            "text": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests.",
+            "document_name": "basalt.pdf",
+            "extraction_method": "native",
+            "score": -5.710838794708252,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 107.18,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "fbe56c3a-335e-455a-b2f2-352e5862d059",
+        "question": "What is Dr. Chen's birthday?",
+        "status": "unsupported_question",
+        "reason": "The passage does not contain any information about Dr. Chen's birthday. It only mentions that Dr. Chen approves onsite access requests and that Basalt Studio stores project files for 24 months and does not email backups to customers. Therefore, the requested information is missing.",
+        "claims": [],
+        "evidence": [
+          {
+            "chunk_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80:1:0",
+            "document_id": "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80",
+            "page": 1,
+            "text": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests.",
+            "document_name": "basalt.pdf",
+            "extraction_method": "native",
+            "score": -5.710838794708252,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 48.6,
+          "generation_ms": 6459.33,
+          "total_ms": 6508.34
+        },
+        "usage": {
+          "input_tokens": 959,
+          "output_tokens": 213,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 2,
+          "retry_status": "overlap_recheck",
+          "claims_dropped": 1,
+          "claims_kept": 0,
+          "abstention_with_claims": true,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "4ccaa02a-fe9e-5bc6-8ba4-bccc1ed9fa80"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual",
+        "missing_information": "The passage does not contain any information about Dr. Chen's birthday. It only mentions that Dr. Chen approves onsite access requests and that Basalt Studio stores project files for 24 months and does not email backups to customers. Therefore, the requested information is missing.",
+        "suggestion": "Check that the right document is selected, or open the original PDF; pages with extraction warnings may not be fully indexed."
+      },
+      "http_status": 200,
+      "elapsed_ms": 6632.87
+    }
+  ],
+  "limitations": "Authored development fixture, not held-out. Fact-span and page checks are lexical proxies, not semantic entailment; negation, extra false claims and valid unlisted paraphrases require human review. CER/WER normalize NFKC and whitespace, preserve case/punctuation and may exceed 1. Failed extraction is scored as empty. Latency includes a search probe plus the query path, no warmup, sequential calls. No browser or throughput benchmark. Repeated runs do not guarantee identical outputs.",
+  "fixture_sha256": "cbac2425bd30b11f3c068582114ea8639029ecb772f4c3259e35f577ee0fddf6",
+  "fixture": {
+    "version": 1,
+    "description": "Additional authored development cases for source selection: different values and entities, negation, similar codes and two-part questions. Not a held-out benchmark.",
+    "documents": [
+      {
+        "id": "lantern",
+        "pages": [
+          {
+            "kind": "native",
+            "stratum": "core",
+            "text": "Lantern Kits dispatches standard orders within 9 business days. Lantern Kits accepts returns only with the original receipt."
+          },
+          {
+            "kind": "native",
+            "stratum": "core",
+            "text": "Lantern Kits diagnostics. The code BT-306 indicates a battery fault. The different code BT-360 indicates a pressure sensor fault."
+          }
+        ]
+      },
+      {
+        "id": "basalt",
+        "pages": [
+          {
+            "kind": "native",
+            "stratum": "core",
+            "text": "Basalt Studio stores project files for 24 months. Basalt Studio does not email backups to customers. Dr. Chen approves onsite access requests."
+          }
+        ]
+      },
+      {
+        "id": "summit",
+        "pages": [
+          {
+            "kind": "native",
+            "stratum": "core",
+            "text": "Summit Kits dispatches standard orders within 6 calendar days. Summit Kits accepts returns only with written authorization from the store manager."
+          }
+        ]
+      }
+    ],
+    "queries": [
+      {
+        "id": "different_entity_values",
+        "stratum": "core",
+        "question": "How long does Lantern Kits take to dispatch standard orders?",
+        "scope": [],
+        "answerable": true,
+        "relevant": [
+          [
+            "lantern",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "9 business days"
+          ]
+        ]
+      },
+      {
+        "id": "entity_paraphrase",
+        "stratum": "core",
+        "question": "How much time before Lantern Kits sends my ordinary purchase?",
+        "scope": [
+          "lantern"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "lantern",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "9 business days"
+          ]
+        ]
+      },
+      {
+        "id": "different_code",
+        "stratum": "core",
+        "question": "What does code BT-306 indicate?",
+        "scope": [
+          "lantern"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "lantern",
+            2
+          ]
+        ],
+        "expected_facts": [
+          [
+            "battery fault"
+          ]
+        ],
+        "forbidden": [
+          "pressure sensor fault"
+        ]
+      },
+      {
+        "id": "negation",
+        "stratum": "core",
+        "question": "Does Basalt Studio email backups to customers?",
+        "scope": [
+          "basalt"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "basalt",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "does not email backups"
+          ]
+        ]
+      },
+      {
+        "id": "condition",
+        "stratum": "core",
+        "question": "Under what condition does Lantern Kits accept returns?",
+        "scope": [],
+        "answerable": true,
+        "relevant": [
+          [
+            "lantern",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "only with the original receipt"
+          ]
+        ]
+      },
+      {
+        "id": "two_facts",
+        "stratum": "core",
+        "question": "What is Lantern Kits' standard dispatch deadline, and what is required for returns?",
+        "scope": [
+          "lantern"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "lantern",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "9 business days"
+          ],
+          [
+            "original receipt"
+          ]
+        ]
+      },
+      {
+        "id": "wrong_entity_scope",
+        "stratum": "core",
+        "question": "What is Summit Kits' standard dispatch deadline?",
+        "scope": [
+          "lantern"
+        ],
+        "answerable": false,
+        "relevant": [],
+        "expected_facts": []
+      },
+      {
+        "id": "missing_attribute",
+        "stratum": "core",
+        "question": "What is Dr. Chen's birthday?",
+        "scope": [
+          "basalt"
+        ],
+        "answerable": false,
+        "relevant": [],
+        "expected_facts": []
+      }
+    ]
+  },
+  "source_sha256": {
+    "scripts/evaluate_quality.py": "a17522de1bc28cc253ae19bfb231d0805131b6132b7908e89577c7fa676698e5",
+    "backend/omnirag/__init__.py": "ce0a823bc257930b33c71e77ab8e2b8a6b3f556377aa22b5ff517e526ffb0f0f",
+    "backend/omnirag/auth.py": "69f1a5ee0dc066339c99586889b7ed3d2cafb6a4c65417cb6a99e55b10d1698d",
+    "backend/omnirag/config.py": "3377f55a74d5226e49ec024e6b686cf3e44a51f5de4ba707c5d52be383b5a557",
+    "backend/omnirag/db.py": "72b10a3a25b74e5eacf46870bc2478a933bf21bc4a45fede8dc0bb10f10ec5ce",
+    "backend/omnirag/encoders.py": "f825f465b83bac479957fc51fdfe9d28041eb8432fb78922dd66ee4a8860d4a2",
+    "backend/omnirag/evaluation.py": "7e1abcdf680fd45a2f54f0368be088c7e2dcd2e4ef933555d5a3b1058e48cb5a",
+    "backend/omnirag/generation.py": "42bf0a7cd873ebd26f660e64a80310bdd7dda11cf0ac95d43df5feca16bccae2",
+    "backend/omnirag/hybrid.py": "b1c4aebe03ecbee7770ecce4bb04d34e2d9ac51efa35325819afc50d5defce3a",
+    "backend/omnirag/ingestion.py": "e8deefdc8bbdb40d45f0391faac3de203dee4ff36275538ba1b00841d047f03a",
+    "backend/omnirag/intents.py": "43df9ab2981fa2e7bd752736782541f8fe4decbdbb7ca801b102cd26ed44e408",
+    "backend/omnirag/main.py": "1793d118da1db4560d47b68af68989d8c419908ca7105f547191e4e821be332e",
+    "backend/omnirag/ocr.py": "088feab138c62e6d8abbc785e6c7d222c23ebcbbc05fc540a8cb3f96adee23f1",
+    "backend/omnirag/retrieval.py": "ebf3aaff0b571c522e4b0f8b1178710178c599a6c674afc8b916a1b2ddc48d9d",
+    "backend/omnirag/security.py": "3acbccfff553b89db4f8065f2ef99866a03a4ec08317b5bdc9cee1ef61064ae4",
+    "backend/omnirag/summary.py": "060263830e0073c7aa811a183f2983cb961e87f6b4730801a63b0e0d8926a200",
+    "backend/omnirag/worker.py": "34aaa7373e0299fad0f0340bcf5e6b5f7c6e4690519180ad75d8c7219731eda4"
+  },
+  "packages": {
+    "fastapi": "0.158.1",
+    "httpx": "0.28.1",
+    "pypdf": "6.21.2",
+    "pypdfium2": "5.14.0",
+    "pillow": "12.3.0",
+    "reportlab": "4.5.1",
+    "fastembed": "0.9.0",
+    "qdrant-client": "1.20.0",
+    "onnxruntime": "1.31.0",
+    "tokenizers": "0.23.3"
+  },
+  "settings": {
+    "auth_enabled": false,
+    "serve_frontend": false,
+    "frontend_dist": "frontend/dist",
+    "ollama_base_url": "http://127.0.0.1:11434/",
+    "ollama_model": "qwen3-vl:2b-instruct",
+    "answer_mode": "grounded",
+    "model_timeout_seconds": 120,
+    "context_tokens": 4096,
+    "max_output_tokens": 768,
+    "top_k": 4,
+    "upload_max_mb": 10,
+    "max_pages": 100,
+    "ingest_timeout_seconds": 90,
+    "ocr_enabled": true,
+    "ocr_max_pages": 20,
+    "ocr_page_timeout_seconds": 20,
+    "retrieval_enabled": true,
+    "default_retrieval_mode": "hybrid_rerank",
+    "retrieval_models_dir": "data/models",
+    "retrieval_manifest": "models/retrieval.lock.json",
+    "retrieval_candidates": 12,
+    "retrieval_threads": 2
+  },
+  "ollama": {
+    "version": "0.40.8",
+    "model": {
+      "name": "qwen3-vl:2b-instruct",
+      "model": "qwen3-vl:2b-instruct",
+      "modified_at": "2026-10-22T21:54:30.016546638+05:30",
+      "size": 1930568531,
+      "digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+      "details": {
+        "parent_model": "dhiltgen/qwen3-vl:2b-instruct-q4_K_M-llamacpp",
+        "format": "gguf",
+        "family": "qwen3vl",
+        "families": [
+          "qwen3vl",
+          "clip"
+        ],
+        "parameter_size": "1.7B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 262144,
+        "embedding_length": 2048,
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools"
+      ]
+    }
+  },
+  "retrieval_manifest": {
+    "format": 1,
+    "models": {
+      "embedding": {
+        "name": "BAAI/bge-small-en-v1.5",
+        "repo": "Qdrant/bge-small-en-v1.5-onnx-Q",
+        "revision": "aa8f8b060edb00e03bfdd08813a2949946c8ba55",
+        "license": "mit",
+        "files": {
+          "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+          "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a"
+        }
+      },
+      "reranker": {
+        "name": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "repo": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "revision": "a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+        "license": "apache-2.0",
+        "files": {
+          "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+          "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+        }
+      }
+    }
+  },
+  "summary": {
+    "transcription": {
+      "core/native": {
+        "pages": 4,
+        "errors": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    "answers": {
+      "core/hybrid_rerank": {
+        "scheduled": 8,
+        "scored": 8,
+        "errors": 0,
+        "answerable": 6,
+        "unsupported": 2,
+        "answer_fact_match_rate": 1.0,
+        "unsupported_abstention_rate": 1.0,
+        "contract_pass_rate": 1.0,
+        "answered_with_citations": 6,
+        "mean_citation_page_precision_when_answered": 1.0,
+        "mean_retrieval_page_recall": 1.0,
+        "median_elapsed_ms": 4090.475
+      },
+      "challenge/hybrid_rerank": {
+        "scheduled": 0,
+        "scored": 0,
+        "errors": 0,
+        "answerable": 0,
+        "unsupported": 0,
+        "answer_fact_match_rate": null,
+        "unsupported_abstention_rate": null,
+        "contract_pass_rate": null,
+        "answered_with_citations": 0,
+        "mean_citation_page_precision_when_answered": null,
+        "mean_retrieval_page_recall": null,
+        "median_elapsed_ms": null
+      }
+    }
+  },
+  "finished_at": "2026-11-03T21:59:52.511763+00:00",
+  "exit_code": 0
+}

@@ -1,0 +1,67 @@
+{
+  "checked_at": "2026-10-27T19:24:47.481395+00:00",
+  "authentication": true,
+  "unauthenticated_routes": {
+    "/api/v1/documents": "unauthenticated 401",
+    "/api/v1/history": "unauthenticated 401",
+    "/api/v1/readiness": "unauthenticated 401",
+    "/docs": "unauthenticated 401",
+    "/openapi.json": "unauthenticated 401"
+  },
+  "authorized_document_count": 28,
+  "original_files_verified": 28,
+  "authorized_original_download": true,
+  "csrf_required": true,
+  "logout_revokes_session": true,
+  "tables_unchanged": true,
+  "tables": {
+    "documents": {
+      "count": 28,
+      "sha256": "e7b6839582a4d23a5d84a3ac7c94ca12b5bc837e4ff90c1e02807963f9d7298d"
+    },
+    "chunks": {
+      "count": 41,
+      "sha256": "478294325840da07b43dfb831e55b5cc5cf066f53972e59e9e00f6aad2bf9768"
+    },
+    "query_runs": {
+      "count": 31,
+      "sha256": "dfd7d46413594ca8e2a9840b198d919a947755a5bea41450d0bf6d92be6c489d"
+    },
+    "vector_jobs": {
+      "count": 22,
+      "sha256": "7fd4fdbc1fe7bfd8fad7f6a23bd52193d501c932c6227f93ba30909ef514c688"
+    },
+    "page_extractions": {
+      "count": 41,
+      "sha256": "583acfeef03446ec17b293d01f1290019840e72eb8c8a257154dffd2b069dcc3"
+    }
+  },
+  "readiness": {
+    "model": {
+      "reachable": true,
+      "model_available": true,
+      "model": "qwen3-vl:2b-instruct"
+    },
+    "worker_active": true,
+    "local_only": true,
+    "retrieval": {
+      "enabled": true,
+      "loaded": true,
+      "error": null,
+      "documents": {
+        "ready": 22
+      },
+      "collection": "chunks_97afa178af9bdeece42f"
+    },
+    "default_retrieval_mode": "hybrid_rerank",
+    "ocr": {
+      "enabled": true,
+      "language": "eng"
+    }
+  },
+  "services": {
+    "ollama": 1607,
+    "worker": 4119,
+    "api": 50547
+  }
+}
