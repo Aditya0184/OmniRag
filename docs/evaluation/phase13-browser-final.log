@@ -1,0 +1,17 @@
+
+Running 12 tests using 1 worker
+
+  ✓   1 tests/acceptance.spec.ts:41:1 › fresh browser upload, no-match abstention and saved history (10.5s)
+  ✓   2 tests/acceptance.spec.ts:74:1 › image-only PDF is indexed with OCR provenance (15.2s)
+  ✓   3 tests/acceptance.spec.ts:92:1 › actual Ollama answers, page citations and keyword-overlap abstention (32.8s)
+  ✓   4 tests/grounded.spec.ts:37:1 › overview question, summary and follow-up in the browser (1.3m)
+  ✓   5 tests/grounded.spec.ts:98:1 › clarification flow offers ready documents (2.4s)
+  ✓   6 tests/hybrid.spec.ts:6:1 › hybrid methods retrieve scoped evidence without generating an answer (1.8s)
+  ✓   7 tests/hybrid.spec.ts:48:1 › fresh PDF reaches hybrid indexing and produces a real cited answer (23.4s)
+  ✓   8 tests/hybrid.spec.ts:122:1 › policy paraphrase is answered while personal shipment status abstains (38.6s)
+  ✓   9 tests/ocr.spec.ts:32:3 › mixed_policy.pdf: live OCR answer, source and saved citation (38.0s)
+  ✓  10 tests/ocr.spec.ts:32:3 › mixed_content_policy.pdf: live OCR answer, source and saved citation (26.3s)
+  ✓  11 tests/workspace.spec.ts:4:1 › real upload, worker indexing and source viewer (2.4s)
+  ✓  12 tests/workspace.spec.ts:46:1 › mobile layout does not overflow (1.6s)
+
+  12 passed (4.6m)

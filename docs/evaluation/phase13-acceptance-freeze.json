@@ -1,0 +1,6 @@
+{
+  "frozen_at": "2026-11-04T17:46:41.360720+00:00",
+  "fixture_sha256": "2e5a1447db8c494a4a388456a2978486b01d4bcfd525e98acafa487fbaf9e707",
+  "note": "Phase 13 acceptance, frozen before any Phase 13 tuning run. The Phase 12 acceptance v3 became development evidence after its documented failures informed the Phase 13 repairs (attribute steering, requirement retry, quote discipline, subsequence fact scoring). This set uses entirely new entities, documents and questions.",
+  "gate": "Run once after implementation: core contracts pass in hybrid_rerank, unsupported/clarification/injection cases behave as specified, no execution errors. BM25 lexical misses are reported separately."
+}

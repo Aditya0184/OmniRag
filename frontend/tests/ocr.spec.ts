@@ -120,10 +120,14 @@ for (const sample of [
     await expect(viewer).toContainText(
       "OCR transcription. Recognition may contain errors",
     );
-    await expect(viewer.locator("iframe")).toHaveAttribute(
+    const preview = viewer.locator("img.page-preview");
+    await expect(preview).toHaveAttribute(
       "src",
-      `/api/v1/documents/${id}/file#page=${sample.sourcePage}`,
+      `/api/v1/documents/${id}/pages/${sample.sourcePage}/preview`,
     );
+    await expect
+      .poll(async () => preview.evaluate((node: HTMLImageElement) => node.naturalWidth))
+      .toBeGreaterThan(100);
     expect(
       await (await request.get(`/api/v1/documents/${id}/file`)).body(),
     ).toEqual(buffer);

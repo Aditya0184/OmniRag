@@ -1,0 +1,2473 @@
+{
+  "format": 1,
+  "started_at": "2026-11-04T20:26:28.748190+00:00",
+  "status": "completed",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.11.17",
+  "with_model": true,
+  "modes": [
+    "hybrid_rerank"
+  ],
+  "repeats": 1,
+  "documents": [
+    {
+      "id": "harbor",
+      "pdf_sha256": "15faa9e38865420b6a3d4aa4a6862efee6df27b1f01007f40599681ff7b31673",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 9955.04
+    },
+    {
+      "id": "meadow",
+      "pdf_sha256": "f0597c9beab603e512c20b51683fbc659f4e2286e45a9541f74f5aa4e696d9bb",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 7405.66
+    },
+    {
+      "id": "cobalt",
+      "pdf_sha256": "da0e8945617888d2ae5b70d5366433715f8cde895a0331c6a76dcb5cec3f71f8",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 7403.63
+    }
+  ],
+  "pages": [
+    {
+      "document": "harbor",
+      "page": 1,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+      "observed": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+      "metadata": {
+        "page": 1,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 149,
+        "largest_image_fraction": 0.0,
+        "characters": 149
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 149,
+        "reference_words": 21,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "harbor",
+      "page": 2,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+      "observed": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+      "metadata": {
+        "page": 2,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 122,
+        "largest_image_fraction": 0.0,
+        "characters": 122
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 122,
+        "reference_words": 18,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "meadow",
+      "page": 1,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book.",
+      "observed": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book.",
+      "metadata": {
+        "page": 1,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 133,
+        "largest_image_fraction": 0.0,
+        "characters": 133
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 133,
+        "reference_words": 24,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "cobalt",
+      "page": 1,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Cobalt Stores delivers standard orders within 4 business days after the warehouse confirms stock. This document does not describe any individual customer's shipment.",
+      "observed": "Cobalt Stores delivers standard orders within 4 business days after the warehouse confirms stock. This document does not describe any individual customer's shipment.",
+      "metadata": {
+        "page": 1,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 165,
+        "largest_image_fraction": 0.0,
+        "characters": 165
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 165,
+        "reference_words": 23,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    }
+  ],
+  "queries": [
+    {
+      "query": "unnamed_delivery",
+      "question": "How long should I allow for my bought items to turn up?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true,
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Harbor Tools delivers standard orders within 12 working days after payment clears.",
+              "citations": [
+                {
+                  "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+                  "quote": "Harbor Tools delivers standard orders within 12 working days after payment clears."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 827,
+          "output_tokens": 121,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -8.55894660949707,
+            "fusion_score": 0.01639344262295082
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -11.303428649902344,
+            "fusion_score": 0.016129032258064516
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 31.57,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "0ff7cd80-8fd2-4c6c-a6e6-751779c00a23",
+        "question": "How long should I allow for my bought items to turn up?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+                "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+                "document_name": "harbor.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "Harbor Tools delivers standard orders within 12 working days after payment clears."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -8.55894660949707,
+            "fusion_score": 0.01639344262295082
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -11.303428649902344,
+            "fusion_score": 0.016129032258064516
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 28.16,
+          "generation_ms": 5156.7,
+          "total_ms": 5185.09
+        },
+        "usage": {
+          "input_tokens": 827,
+          "output_tokens": 121,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "8cdff179-96eb-5c44-a812-872cccaa2617"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 5231.15
+    },
+    {
+      "query": "named_delivery",
+      "question": "How much time does Harbor Tools need to get my purchase to me?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true,
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Harbor Tools delivers standard orders within 12 working days after payment clears.",
+              "citations": [
+                {
+                  "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+                  "quote": "Harbor Tools delivers standard orders within 12 working days after payment clears."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 828,
+          "output_tokens": 121,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": 5.152565002441406,
+            "fusion_score": 0.03252247488101534
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -1.831139326095581,
+            "fusion_score": 0.03252247488101534
+          },
+          {
+            "chunk_id": "9a46cf6f-d862-5034-94e7-485869b17dd4:1:0",
+            "document_id": "9a46cf6f-d862-5034-94e7-485869b17dd4",
+            "page": 1,
+            "text": "Cobalt Stores delivers standard orders within 4 business days after the warehouse confirms stock. This document does not describe any individual customer's shipment.",
+            "document_name": "cobalt.pdf",
+            "extraction_method": "native",
+            "score": -8.680800437927246,
+            "fusion_score": 0.015873015873015872
+          },
+          {
+            "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+            "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+            "page": 1,
+            "text": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book.",
+            "document_name": "meadow.pdf",
+            "extraction_method": "native",
+            "score": -10.372833251953125,
+            "fusion_score": 0.015625
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 94.65,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "845260b2-19a7-4dd0-a5c0-cb99f9211788",
+        "question": "How much time does Harbor Tools need to get my purchase to me?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+                "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+                "document_name": "harbor.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "Harbor Tools delivers standard orders within 12 working days after payment clears."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": 5.152565002441406,
+            "fusion_score": 0.03252247488101534
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -1.831139326095581,
+            "fusion_score": 0.03252247488101534
+          },
+          {
+            "chunk_id": "9a46cf6f-d862-5034-94e7-485869b17dd4:1:0",
+            "document_id": "9a46cf6f-d862-5034-94e7-485869b17dd4",
+            "page": 1,
+            "text": "Cobalt Stores delivers standard orders within 4 business days after the warehouse confirms stock. This document does not describe any individual customer's shipment.",
+            "document_name": "cobalt.pdf",
+            "extraction_method": "native",
+            "score": -8.680800437927246,
+            "fusion_score": 0.015873015873015872
+          },
+          {
+            "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+            "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+            "page": 1,
+            "text": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book.",
+            "document_name": "meadow.pdf",
+            "extraction_method": "native",
+            "score": -10.372833251953125,
+            "fusion_score": 0.015625
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 59.74,
+          "generation_ms": 5224.52,
+          "total_ms": 5284.54
+        },
+        "usage": {
+          "input_tokens": 828,
+          "output_tokens": 121,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 5391.17
+    },
+    {
+      "query": "loan_paraphrase",
+      "question": "How long can I keep a borrowed reference volume?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Meadow Library lends reference books for 21 calendar days.",
+              "citations": [
+                {
+                  "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+                  "quote": "Meadow Library lends reference books for 21 calendar days."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 760,
+          "output_tokens": 119,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+            "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+            "page": 1,
+            "text": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book.",
+            "document_name": "meadow.pdf",
+            "extraction_method": "native",
+            "score": -0.07372315973043442,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 62.97,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "6fc775ae-ac12-43cd-b073-10de8c9b6d7a",
+        "question": "How long can I keep a borrowed reference volume?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "Meadow Library lends reference books for 21 calendar days.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+                "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+                "document_name": "meadow.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "Meadow Library lends reference books for 21 calendar days."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+            "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+            "page": 1,
+            "text": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book.",
+            "document_name": "meadow.pdf",
+            "extraction_method": "native",
+            "score": -0.07372315973043442,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 18.39,
+          "generation_ms": 4240.54,
+          "total_ms": 4259.22
+        },
+        "usage": {
+          "input_tokens": 760,
+          "output_tokens": 119,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "17ca1b94-ebb9-5d8b-ba3f-295eb9340649"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 4335.23
+    },
+    {
+      "query": "renewal_condition",
+      "question": "When am I allowed to extend my book loan?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Meadow Library lends reference books for 21 calendar days.",
+              "citations": [
+                {
+                  "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+                  "quote": "Meadow Library lends reference books for 21 calendar days."
+                }
+              ]
+            },
+            {
+              "text": "A borrower may renew a loan only if no other reader has reserved the book.",
+              "citations": [
+                {
+                  "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+                  "quote": "A borrower may renew a loan only if no other reader has reserved the book."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 760,
+          "output_tokens": 219,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 2,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+            "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+            "page": 1,
+            "text": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book.",
+            "document_name": "meadow.pdf",
+            "extraction_method": "native",
+            "score": -1.1843196153640747,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 57.43,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "41df32b3-fe22-4f52-9989-1916a159220b",
+        "question": "When am I allowed to extend my book loan?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "Meadow Library lends reference books for 21 calendar days.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+                "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+                "document_name": "meadow.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "Meadow Library lends reference books for 21 calendar days."
+              }
+            ]
+          },
+          {
+            "text": "A borrower may renew a loan only if no other reader has reserved the book.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+                "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+                "document_name": "meadow.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "A borrower may renew a loan only if no other reader has reserved the book."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+            "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+            "page": 1,
+            "text": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book.",
+            "document_name": "meadow.pdf",
+            "extraction_method": "native",
+            "score": -1.1843196153640747,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 18.95,
+          "generation_ms": 7600.54,
+          "total_ms": 7619.73
+        },
+        "usage": {
+          "input_tokens": 760,
+          "output_tokens": 219,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 2,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "17ca1b94-ebb9-5d8b-ba3f-295eb9340649"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 7693.2
+    },
+    {
+      "query": "return_condition",
+      "question": "What proof do I need to bring back something I bought?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "the passage does not mention what proof is required to bring back something purchased, nor does it specify the type of proof needed for returns.",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Harbor Tools accepts returns only with an original receipt.",
+              "citations": [
+                {
+                  "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+                  "quote": "Harbor Tools accepts returns only with an original receipt."
+                }
+              ]
+            },
+            {
+              "text": "Harbor Tools does not accept returns of personalized equipment.",
+              "citations": [
+                {
+                  "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+                  "quote": "The company does not accept returns of personalized equipment."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 833,
+          "output_tokens": 225,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "proof",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 2,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -9.578166961669922,
+            "fusion_score": 0.01639344262295082
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -11.391111373901367,
+            "fusion_score": 0.016129032258064516
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 70.26,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "ce8f41aa-4b7d-4db2-8b13-e0d8a66daaf3",
+        "question": "What proof do I need to bring back something I bought?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "Harbor Tools accepts returns only with an original receipt.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+                "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+                "document_name": "harbor.pdf",
+                "extraction_method": "native",
+                "page": 2,
+                "quote": "Harbor Tools accepts returns only with an original receipt."
+              }
+            ]
+          },
+          {
+            "text": "Harbor Tools does not accept returns of personalized equipment.",
+            "kind": "explanation",
+            "citations": [
+              {
+                "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+                "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+                "document_name": "harbor.pdf",
+                "extraction_method": "native",
+                "page": 2,
+                "quote": "The company does not accept returns of personalized equipment."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -9.578166961669922,
+            "fusion_score": 0.01639344262295082
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -11.391111373901367,
+            "fusion_score": 0.016129032258064516
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 24.95,
+          "generation_ms": 7976.24,
+          "total_ms": 8001.47
+        },
+        "usage": {
+          "input_tokens": 833,
+          "output_tokens": 225,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "proof",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 2,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "8cdff179-96eb-5c44-a812-872cccaa2617"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 8083.61
+    },
+    {
+      "query": "personalized_return",
+      "question": "Can I return personalized equipment to Harbor Tools?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": false,
+        "fact_matches": [
+          false
+        ],
+        "facts_cite_reference_pages": false,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": false
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Harbor Tools accepts returns only with an original receipt.",
+              "citations": [
+                {
+                  "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+                  "quote": "Harbor Tools accepts returns only with an original receipt."
+                }
+              ]
+            },
+            {
+              "text": "Harbor Tools does not accept returns of personalized equipment.",
+              "citations": [
+                {
+                  "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+                  "quote": "Harbor Tools does not accept returns of personalized equipment."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 823,
+          "output_tokens": 199,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 1,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 1
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": 9.039424896240234,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -1.7359081506729126,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 65.41,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "619da759-d9b2-4aab-9552-363eca065228",
+        "question": "Can I return personalized equipment to Harbor Tools?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text. 1 model statement(s) were withheld because the cited text did not support them.",
+        "claims": [
+          {
+            "text": "Harbor Tools accepts returns only with an original receipt.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+                "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+                "document_name": "harbor.pdf",
+                "extraction_method": "native",
+                "page": 2,
+                "quote": "Harbor Tools accepts returns only with an original receipt."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": 9.039424896240234,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -1.7359081506729126,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 23.42,
+          "generation_ms": 7056.11,
+          "total_ms": 7079.93
+        },
+        "usage": {
+          "input_tokens": 823,
+          "output_tokens": 199,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 1,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 1,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "8cdff179-96eb-5c44-a812-872cccaa2617"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 7157.76
+    },
+    {
+      "query": "personal_arrival",
+      "question": "Has my Harbor Tools order H-903 arrived today?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "model": {
+        "called": true,
+        "summary_call": "Reconsider the question against the same passages.\nReturn JSON with answerable, ",
+        "draft": {
+          "answerable": true,
+          "missing_information": "The passage does not provide information about whether the order H-903 has arrived today. It only provides information about delivery times and return policies.",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "The order H-903 has arrived today.",
+              "citations": [
+                {
+                  "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+                  "quote": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager."
+                },
+                {
+                  "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+                  "quote": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 1200,
+          "output_tokens": 317,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": true,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 2,
+          "retry_status": "overlap_recheck",
+          "claims_dropped": 1,
+          "claims_kept": 0,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": 1.273189663887024,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -0.4662444591522217,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 65.12,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "f23f3583-2854-41bf-a40f-c8a6569b6d92",
+        "question": "Has my Harbor Tools order H-903 arrived today?",
+        "status": "unsupported_question",
+        "reason": "The model's statements were not sufficiently supported by the cited passages, so the answer was withheld.",
+        "claims": [],
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": 1.273189663887024,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -0.4662444591522217,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 26.73,
+          "generation_ms": 11489.43,
+          "total_ms": 11517.2
+        },
+        "usage": {
+          "input_tokens": 1200,
+          "output_tokens": 317,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": true,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 2,
+          "retry_status": "overlap_recheck",
+          "claims_dropped": 1,
+          "claims_kept": 0,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "8cdff179-96eb-5c44-a812-872cccaa2617"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual",
+        "suggestion": "Try rephrasing, or switch to keyword search to inspect exact excerpts yourself."
+      },
+      "http_status": 200,
+      "elapsed_ms": 11593.54
+    },
+    {
+      "query": "personal_payment",
+      "question": "Has payment cleared for my Harbor Tools order H-903?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "no record of the payment status for order H-903",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Harbor Tools delivers standard orders within 12 working days after payment clears.",
+              "citations": [
+                {
+                  "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+                  "quote": "Harbor Tools delivers standard orders within 12 working days after payment clears."
+                }
+              ]
+            },
+            {
+              "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+              "citations": [
+                {
+                  "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+                  "quote": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 828,
+          "output_tokens": 243,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": true,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 2,
+          "invalid_citations_dropped": 0,
+          "asked_record_absent": true
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": 4.37591552734375,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -0.800991415977478,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 68.18,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "b470a549-83f5-4ec9-89cd-ea140eb88a1f",
+        "question": "Has payment cleared for my Harbor Tools order H-903?",
+        "status": "unsupported_question",
+        "reason": "The document has no record of that exact identifier; the retrieved passages concern other records.",
+        "claims": [],
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": 4.37591552734375,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -0.800991415977478,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 27.22,
+          "generation_ms": 8751.59,
+          "total_ms": 8779.11
+        },
+        "usage": {
+          "input_tokens": 828,
+          "output_tokens": 243,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": true,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 2,
+          "invalid_citations_dropped": 0,
+          "asked_record_absent": true,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "8cdff179-96eb-5c44-a812-872cccaa2617"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual",
+        "suggestion": "Check the identifier, or confirm the right document is selected."
+      },
+      "http_status": 200,
+      "elapsed_ms": 8861.46
+    },
+    {
+      "query": "personal_due_date",
+      "question": "On which exact date is my current Meadow Library loan due?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "model": {
+        "called": true,
+        "summary_call": "Reconsider the question against the same passages.\nReturn JSON with answerable, ",
+        "draft": {
+          "answerable": false,
+          "missing_information": "The passage does not provide the exact date on which the current Meadow Library loan is due. It only states that loans are for 21 calendar days and that renewals are possible under certain conditions, but no specific date is mentioned.",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Meadow Library lends reference books for 21 calendar days.",
+              "citations": [
+                {
+                  "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+                  "quote": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 1063,
+          "output_tokens": 257,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 2,
+          "retry_status": "overlap_recheck",
+          "claims_dropped": 1,
+          "claims_kept": 0,
+          "abstention_with_claims": true
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+            "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+            "page": 1,
+            "text": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book.",
+            "document_name": "meadow.pdf",
+            "extraction_method": "native",
+            "score": 2.527430534362793,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 63.26,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "0442957a-82bd-4145-9022-63992a8196bd",
+        "question": "On which exact date is my current Meadow Library loan due?",
+        "status": "unsupported_question",
+        "reason": "The passage does not provide the exact date on which the current Meadow Library loan is due. It only states that loans are for 21 calendar days and that renewals are possible under certain conditions, but no specific date is mentioned.",
+        "claims": [],
+        "evidence": [
+          {
+            "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+            "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+            "page": 1,
+            "text": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book.",
+            "document_name": "meadow.pdf",
+            "extraction_method": "native",
+            "score": 2.527430534362793,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 19.86,
+          "generation_ms": 8945.49,
+          "total_ms": 8966.18
+        },
+        "usage": {
+          "input_tokens": 1063,
+          "output_tokens": 257,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 2,
+          "retry_status": "overlap_recheck",
+          "claims_dropped": 1,
+          "claims_kept": 0,
+          "abstention_with_claims": true,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "17ca1b94-ebb9-5d8b-ba3f-295eb9340649"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual",
+        "missing_information": "The passage does not provide the exact date on which the current Meadow Library loan is due. It only states that loans are for 21 calendar days and that renewals are possible under certain conditions, but no specific date is mentioned.",
+        "suggestion": "Check that the right document is selected, or open the original PDF; pages with extraction warnings may not be fully indexed."
+      },
+      "http_status": 200,
+      "elapsed_ms": 9051.11
+    },
+    {
+      "query": "wrong_entity",
+      "question": "How long does Cobalt Stores need to get my purchase to me?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": false,
+          "missing_information": "The passages do not mention Cobalt Stores or provide information about the delivery time for a purchase. They only describe Harbor Tools' delivery policy, which is not relevant to Cobalt Stores. The question is about Cobalt Stores, but the passages do not contain information about their delivery process or timeframes for a purchase.",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": []
+        },
+        "usage": {
+          "input_tokens": 828,
+          "output_tokens": 85,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": true,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 0,
+          "abstention_with_claims": false
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -8.316922187805176,
+            "fusion_score": 0.01639344262295082
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -11.313444137573242,
+            "fusion_score": 0.016129032258064516
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 64.68,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "53f943a2-b39d-4c85-8d93-263e7ac5c062",
+        "question": "How long does Cobalt Stores need to get my purchase to me?",
+        "status": "unsupported_question",
+        "reason": "The passages do not mention Cobalt Stores or provide information about the delivery time for a purchase. They only describe Harbor Tools' delivery policy, which is not relevant to Cobalt Stores. The question is about Cobalt Stores, but the passages do not contain information about their delivery process or timeframes for a purchase.",
+        "claims": [],
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -8.316922187805176,
+            "fusion_score": 0.01639344262295082
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -11.313444137573242,
+            "fusion_score": 0.016129032258064516
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 32.63,
+          "generation_ms": 4405.71,
+          "total_ms": 4438.6
+        },
+        "usage": {
+          "input_tokens": 828,
+          "output_tokens": 85,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": true,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 0,
+          "abstention_with_claims": false,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "8cdff179-96eb-5c44-a812-872cccaa2617"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual",
+        "missing_information": "The passages do not mention Cobalt Stores or provide information about the delivery time for a purchase. They only describe Harbor Tools' delivery policy, which is not relevant to Cobalt Stores. The question is about Cobalt Stores, but the passages do not contain information about their delivery process or timeframes for a purchase.",
+        "suggestion": "Check that the right document is selected, or open the original PDF; pages with extraction warnings may not be fully indexed."
+      },
+      "http_status": 200,
+      "elapsed_ms": 4513.28
+    },
+    {
+      "query": "missing_cost",
+      "question": "How much does Harbor Tools charge to deliver standard orders?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "the passage does not mention the cost of delivering standard orders.",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Harbor Tools delivers standard orders within 12 working days after payment clears.",
+              "citations": [
+                {
+                  "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+                  "quote": "Harbor Tools delivers standard orders within 12 working days after payment clears."
+                }
+              ]
+            },
+            {
+              "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+              "citations": [
+                {
+                  "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+                  "quote": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 825,
+          "output_tokens": 241,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 1,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": 3.8213586807250977,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -2.666201591491699,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 61.93,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "7540e7c4-3bff-464c-b47f-61800cd4ac32",
+        "question": "How much does Harbor Tools charge to deliver standard orders?",
+        "status": "unsupported_question",
+        "reason": "The document does not state a cost or price for that; the retrieved text answers a different question.",
+        "claims": [],
+        "evidence": [
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:1:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 1,
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": 3.8213586807250977,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "8cdff179-96eb-5c44-a812-872cccaa2617:2:0",
+            "document_id": "8cdff179-96eb-5c44-a812-872cccaa2617",
+            "page": 2,
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment.",
+            "document_name": "harbor.pdf",
+            "extraction_method": "native",
+            "score": -2.666201591491699,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 26.22,
+          "generation_ms": 8603.39,
+          "total_ms": 8629.9
+        },
+        "usage": {
+          "input_tokens": 825,
+          "output_tokens": 241,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 1,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "8cdff179-96eb-5c44-a812-872cccaa2617"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual",
+        "suggestion": "Check whether the document really contains pricing information, or ask about what it does state."
+      },
+      "http_status": 200,
+      "elapsed_ms": 8708.06
+    },
+    {
+      "query": "missing_reservation",
+      "question": "Has another reader reserved my Meadow Library book?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "model": {
+        "called": true,
+        "summary_call": "Decide whether the passages contain an explicit record of the\nspecific case the "
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+            "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+            "page": 1,
+            "text": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book.",
+            "document_name": "meadow.pdf",
+            "extraction_method": "native",
+            "score": 7.702618598937988,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 59.78,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "e39b9f54-a496-45b3-9a73-86b4b75000dc",
+        "question": "Has another reader reserved my Meadow Library book?",
+        "status": "unsupported_question",
+        "reason": "The document has no explicit record of that specific case; the retrieved text only contains general rules.",
+        "claims": [],
+        "evidence": [
+          {
+            "chunk_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649:1:0",
+            "document_id": "17ca1b94-ebb9-5d8b-ba3f-295eb9340649",
+            "page": 1,
+            "text": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book.",
+            "document_name": "meadow.pdf",
+            "extraction_method": "native",
+            "score": 7.702618598937988,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 17.36,
+          "generation_ms": 9681.87,
+          "total_ms": 9699.43
+        },
+        "usage": {
+          "input_tokens": 1057,
+          "output_tokens": 257,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 2,
+          "retry_status": "overlap_recheck",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "17ca1b94-ebb9-5d8b-ba3f-295eb9340649"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual",
+        "suggestion": "If a record of this case exists, check that the right document is selected."
+      },
+      "http_status": 200,
+      "elapsed_ms": 9767.62
+    }
+  ],
+  "limitations": "Authored development fixture, not held-out. Fact-span and page checks are lexical proxies, not semantic entailment; negation, extra false claims and valid unlisted paraphrases require human review. CER/WER normalize NFKC and whitespace, preserve case/punctuation and may exceed 1. Failed extraction is scored as empty. Latency includes a search probe plus the query path, no warmup, sequential calls. No browser or throughput benchmark. Repeated runs do not guarantee identical outputs.",
+  "fixture_sha256": "cb8bc7943ff80d84be4aee89fcdb9d6c2e744a2cefa4ef65c7a291c1a590dc74",
+  "fixture": {
+    "version": 1,
+    "description": "Authored Phase 7 development regression fixed before prompt experiments. General-policy paraphrases versus missing personal status, named-entity scope and unsupported attributes. Not held out.",
+    "documents": [
+      {
+        "id": "harbor",
+        "pages": [
+          {
+            "kind": "native",
+            "stratum": "core",
+            "text": "Harbor Tools delivers standard orders within 12 working days after payment clears. Express orders require written approval from the dispatch manager."
+          },
+          {
+            "kind": "native",
+            "stratum": "core",
+            "text": "Harbor Tools accepts returns only with an original receipt. The company does not accept returns of personalized equipment."
+          }
+        ]
+      },
+      {
+        "id": "meadow",
+        "pages": [
+          {
+            "kind": "native",
+            "stratum": "core",
+            "text": "Meadow Library lends reference books for 21 calendar days. A borrower may renew a loan only if no other reader has reserved the book."
+          }
+        ]
+      },
+      {
+        "id": "cobalt",
+        "pages": [
+          {
+            "kind": "native",
+            "stratum": "core",
+            "text": "Cobalt Stores delivers standard orders within 4 business days after the warehouse confirms stock. This document does not describe any individual customer's shipment."
+          }
+        ]
+      }
+    ],
+    "queries": [
+      {
+        "id": "unnamed_delivery",
+        "stratum": "core",
+        "question": "How long should I allow for my bought items to turn up?",
+        "scope": [
+          "harbor"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "harbor",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "12 working days"
+          ],
+          [
+            "after payment clears"
+          ]
+        ]
+      },
+      {
+        "id": "named_delivery",
+        "stratum": "core",
+        "question": "How much time does Harbor Tools need to get my purchase to me?",
+        "scope": [],
+        "answerable": true,
+        "relevant": [
+          [
+            "harbor",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "12 working days"
+          ],
+          [
+            "after payment clears"
+          ]
+        ]
+      },
+      {
+        "id": "loan_paraphrase",
+        "stratum": "core",
+        "question": "How long can I keep a borrowed reference volume?",
+        "scope": [
+          "meadow"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "meadow",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "21 calendar days"
+          ]
+        ]
+      },
+      {
+        "id": "renewal_condition",
+        "stratum": "core",
+        "question": "When am I allowed to extend my book loan?",
+        "scope": [
+          "meadow"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "meadow",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "only if no other reader has reserved the book"
+          ]
+        ]
+      },
+      {
+        "id": "return_condition",
+        "stratum": "core",
+        "question": "What proof do I need to bring back something I bought?",
+        "scope": [
+          "harbor"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "harbor",
+            2
+          ]
+        ],
+        "expected_facts": [
+          [
+            "only with an original receipt"
+          ]
+        ]
+      },
+      {
+        "id": "personalized_return",
+        "stratum": "core",
+        "question": "Can I return personalized equipment to Harbor Tools?",
+        "scope": [
+          "harbor"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "harbor",
+            2
+          ]
+        ],
+        "expected_facts": [
+          [
+            "does not accept returns of personalized equipment"
+          ]
+        ]
+      },
+      {
+        "id": "personal_arrival",
+        "stratum": "core",
+        "question": "Has my Harbor Tools order H-903 arrived today?",
+        "scope": [
+          "harbor"
+        ],
+        "answerable": false,
+        "relevant": [],
+        "expected_facts": []
+      },
+      {
+        "id": "personal_payment",
+        "stratum": "core",
+        "question": "Has payment cleared for my Harbor Tools order H-903?",
+        "scope": [
+          "harbor"
+        ],
+        "answerable": false,
+        "relevant": [],
+        "expected_facts": []
+      },
+      {
+        "id": "personal_due_date",
+        "stratum": "core",
+        "question": "On which exact date is my current Meadow Library loan due?",
+        "scope": [
+          "meadow"
+        ],
+        "answerable": false,
+        "relevant": [],
+        "expected_facts": []
+      },
+      {
+        "id": "wrong_entity",
+        "stratum": "core",
+        "question": "How long does Cobalt Stores need to get my purchase to me?",
+        "scope": [
+          "harbor"
+        ],
+        "answerable": false,
+        "relevant": [],
+        "expected_facts": []
+      },
+      {
+        "id": "missing_cost",
+        "stratum": "core",
+        "question": "How much does Harbor Tools charge to deliver standard orders?",
+        "scope": [
+          "harbor"
+        ],
+        "answerable": false,
+        "relevant": [],
+        "expected_facts": []
+      },
+      {
+        "id": "missing_reservation",
+        "stratum": "core",
+        "question": "Has another reader reserved my Meadow Library book?",
+        "scope": [
+          "meadow"
+        ],
+        "answerable": false,
+        "relevant": [],
+        "expected_facts": []
+      }
+    ]
+  },
+  "source_sha256": {
+    "scripts/evaluate_quality.py": "a17522de1bc28cc253ae19bfb231d0805131b6132b7908e89577c7fa676698e5",
+    "backend/omnirag/__init__.py": "ce0a823bc257930b33c71e77ab8e2b8a6b3f556377aa22b5ff517e526ffb0f0f",
+    "backend/omnirag/auth.py": "69f1a5ee0dc066339c99586889b7ed3d2cafb6a4c65417cb6a99e55b10d1698d",
+    "backend/omnirag/config.py": "3377f55a74d5226e49ec024e6b686cf3e44a51f5de4ba707c5d52be383b5a557",
+    "backend/omnirag/db.py": "72b10a3a25b74e5eacf46870bc2478a933bf21bc4a45fede8dc0bb10f10ec5ce",
+    "backend/omnirag/encoders.py": "f825f465b83bac479957fc51fdfe9d28041eb8432fb78922dd66ee4a8860d4a2",
+    "backend/omnirag/evaluation.py": "c8ea0e587482346d075a42fd59ab92a308cfac3a1bf4f1f69511c70d813004b9",
+    "backend/omnirag/generation.py": "facdfa8ac413928d2676dedbfb03a655ed02d82c9be69c64c21bff5ae7ed3077",
+    "backend/omnirag/hybrid.py": "b1c4aebe03ecbee7770ecce4bb04d34e2d9ac51efa35325819afc50d5defce3a",
+    "backend/omnirag/ingestion.py": "e8deefdc8bbdb40d45f0391faac3de203dee4ff36275538ba1b00841d047f03a",
+    "backend/omnirag/intents.py": "ce546407f5854cc378b99f1cba06165c333d27a1882513bdb6180b019e10c99d",
+    "backend/omnirag/main.py": "239ec55393caa2ff6222e7a7fc2e1286023945ebd7092205374af87e9c783cb3",
+    "backend/omnirag/ocr.py": "088feab138c62e6d8abbc785e6c7d222c23ebcbbc05fc540a8cb3f96adee23f1",
+    "backend/omnirag/retrieval.py": "3d90b320184da504f23eb0dfe0c0c41b1cd57a6e41e92f4e0edc71232a60dedd",
+    "backend/omnirag/security.py": "3acbccfff553b89db4f8065f2ef99866a03a4ec08317b5bdc9cee1ef61064ae4",
+    "backend/omnirag/summary.py": "060263830e0073c7aa811a183f2983cb961e87f6b4730801a63b0e0d8926a200",
+    "backend/omnirag/worker.py": "34aaa7373e0299fad0f0340bcf5e6b5f7c6e4690519180ad75d8c7219731eda4"
+  },
+  "packages": {
+    "fastapi": "0.158.1",
+    "httpx": "0.28.1",
+    "pypdf": "6.21.2",
+    "pypdfium2": "5.14.0",
+    "pillow": "12.3.0",
+    "reportlab": "4.5.1",
+    "fastembed": "0.9.0",
+    "qdrant-client": "1.20.0",
+    "onnxruntime": "1.31.0",
+    "tokenizers": "0.23.3"
+  },
+  "settings": {
+    "auth_enabled": false,
+    "serve_frontend": false,
+    "frontend_dist": "frontend/dist",
+    "ollama_base_url": "http://127.0.0.1:11434/",
+    "ollama_model": "qwen3-vl:2b-instruct",
+    "answer_mode": "grounded",
+    "model_timeout_seconds": 120,
+    "context_tokens": 4096,
+    "max_output_tokens": 768,
+    "top_k": 4,
+    "upload_max_mb": 10,
+    "max_pages": 100,
+    "ingest_timeout_seconds": 90,
+    "ocr_enabled": true,
+    "ocr_max_pages": 20,
+    "ocr_page_timeout_seconds": 20,
+    "retrieval_enabled": true,
+    "default_retrieval_mode": "hybrid_rerank",
+    "retrieval_models_dir": "data/models",
+    "retrieval_manifest": "models/retrieval.lock.json",
+    "retrieval_candidates": 12,
+    "retrieval_threads": 2
+  },
+  "ollama": {
+    "version": "0.40.8",
+    "model": {
+      "name": "qwen3-vl:2b-instruct",
+      "model": "qwen3-vl:2b-instruct",
+      "modified_at": "2026-10-22T21:54:30.016546638+05:30",
+      "size": 1930568531,
+      "digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+      "details": {
+        "parent_model": "dhiltgen/qwen3-vl:2b-instruct-q4_K_M-llamacpp",
+        "format": "gguf",
+        "family": "qwen3vl",
+        "families": [
+          "qwen3vl",
+          "clip"
+        ],
+        "parameter_size": "1.7B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 262144,
+        "embedding_length": 2048,
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools"
+      ]
+    }
+  },
+  "retrieval_manifest": {
+    "format": 1,
+    "models": {
+      "embedding": {
+        "name": "BAAI/bge-small-en-v1.5",
+        "repo": "Qdrant/bge-small-en-v1.5-onnx-Q",
+        "revision": "aa8f8b060edb00e03bfdd08813a2949946c8ba55",
+        "license": "mit",
+        "files": {
+          "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+          "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a"
+        }
+      },
+      "reranker": {
+        "name": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "repo": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "revision": "a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+        "license": "apache-2.0",
+        "files": {
+          "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+          "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+        }
+      }
+    }
+  },
+  "summary": {
+    "transcription": {
+      "core/native": {
+        "pages": 4,
+        "errors": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    "answers": {
+      "core/hybrid_rerank": {
+        "scheduled": 12,
+        "scored": 12,
+        "errors": 0,
+        "answerable": 6,
+        "unsupported": 6,
+        "answer_fact_match_rate": 0.8333333333333334,
+        "unsupported_abstention_rate": 1.0,
+        "contract_pass_rate": 0.9166666666666666,
+        "answered_with_citations": 6,
+        "mean_citation_page_precision_when_answered": 1.0,
+        "mean_retrieval_page_recall": 1.0,
+        "median_elapsed_ms": 7888.405
+      },
+      "challenge/hybrid_rerank": {
+        "scheduled": 0,
+        "scored": 0,
+        "errors": 0,
+        "answerable": 0,
+        "unsupported": 0,
+        "answer_fact_match_rate": null,
+        "unsupported_abstention_rate": null,
+        "contract_pass_rate": null,
+        "answered_with_citations": 0,
+        "mean_citation_page_precision_when_answered": null,
+        "mean_retrieval_page_recall": null,
+        "median_elapsed_ms": null
+      }
+    }
+  },
+  "finished_at": "2026-11-04T20:28:24.670646+00:00",
+  "exit_code": 0
+}

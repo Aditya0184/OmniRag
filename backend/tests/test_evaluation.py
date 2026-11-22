@@ -8,6 +8,7 @@ from pathlib import Path
 
 import pytest
 from omnirag.evaluation import (
+    contains_fact,
     contains_phrase,
     edit_distance,
     score_answer,
@@ -90,6 +91,26 @@ def test_withheld_citation_failure_is_not_successful_abstention():
         scored = score_answer(case(False), withheld, {}, error=error)
         assert not scored["correct_abstention"] and not scored["contract_pass"]
     assert not score_answer(case(False), response(), {})["correct_abstention"]
+
+
+def test_fact_matching_accepts_identifiers_and_rejects_order_or_values():
+    """Positive and negative examples for the subsequence fact rule."""
+    claim = "Payment for Ridge Parts order R-517 cleared on 18 September 2025."
+    # Positive: an inserted identifier does not change the fact.
+    assert contains_fact(claim, "payment cleared on 18 September 2025")
+    assert contains_fact(claim, "order R-517 cleared")
+    assert contains_fact(
+        "Orders may be cancelled for a full refund within 21 days.", "refund within 21 days"
+    )
+    # Negative: changed values, changed order, missing tokens.
+    assert not contains_fact(claim, "payment cleared on 19 September 2025")
+    assert not contains_fact(claim, "18 September 2025 payment cleared on")
+    assert not contains_fact(claim, "payment cleared on 18 September 2025 in full")
+    assert not contains_fact("The fee is 118 credits.", "14 credits")
+    assert not contains_fact("No payment was made.", "payment cleared")
+    # Consecutive matching is unchanged for quotes and forbidden phrases.
+    assert contains_phrase(claim, "cleared on 18 September")
+    assert not contains_phrase(claim, "payment cleared on 18 September 2025")
 
 
 def test_answer_contract_rejects_wrong_fact_pages_and_reports_precision():

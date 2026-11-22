@@ -22,7 +22,7 @@ import {
   Upload,
   X,
 } from "lucide-react";
-import { fileUrl, request } from "./api";
+import { fileUrl, pagePreviewUrl, request } from "./api";
 import type {
   Citation,
   Document,
@@ -59,7 +59,8 @@ export default function App({ authenticated = false }: { authenticated?: boolean
   const [readiness, setReadiness] = useState<Readiness | null>(null);
   const [history, setHistory] = useState<QueryResult[]>([]);
   const [question, setQuestion] = useState("");
-  const [scope, setScope] = useState("");
+  const [scope, setScopeState] = useState("");
+  const scopeState = useRef({ id: "", revision: 0 });
   const [retrievalMode, setRetrievalMode] = useState("");
   const [result, setResult] = useState<QueryResult | null>(null);
   const [source, setSource] = useState<Citation | null>(null);
@@ -75,6 +76,7 @@ export default function App({ authenticated = false }: { authenticated?: boolean
   const [detailed, setDetailed] = useState<SummaryResponse | null>(null);
   const [showKeyPoints, setShowKeyPoints] = useState(false);
   const input = useRef<HTMLInputElement>(null);
+  const lastSnapshot = useRef("");
   const ready = documents.filter((d) => d.status === "ready");
   const pages = ready.reduce((total, d) => total + (d.page_count ?? 0), 0);
   const scopedDoc = ready.find((d) => d.id === scope);
@@ -89,8 +91,14 @@ export default function App({ authenticated = false }: { authenticated?: boolean
           request<Readiness>("/readiness"),
         ]);
         if (active) {
-          setDocuments(docs);
-          setReadiness(state);
+          // Update only on real changes: re-rendering identical data every three
+          // seconds detaches buttons and selects mid-interaction.
+          const signature = JSON.stringify([docs, state]);
+          if (signature !== lastSnapshot.current) {
+            lastSnapshot.current = signature;
+            setDocuments(docs);
+            setReadiness(state);
+          }
           setConnectionError("");
         }
       } catch (e) {
@@ -110,13 +118,26 @@ export default function App({ authenticated = false }: { authenticated?: boolean
     };
   }, []);
 
+  function setScope(id: string) {
+    if (scopeState.current.id === id) return;
+    scopeState.current = { id, revision: scopeState.current.revision + 1 };
+    setScopeState(id);
+    setOverview(null);
+    setDetailed(null);
+    setShowKeyPoints(false);
+    setThread([]);
+    setResult(null);
+    setSource(null);
+    setError("");
+    setNotice("");
+    setBusy(false);
+    setOverviewBusy(false);
+  }
+
   // Load the selected document's cached overview; a missing one is generated on demand.
   useEffect(() => {
     let active = true;
     let loadedAt = 0;
-    setOverview(null);
-    setDetailed(null);
-    setShowKeyPoints(false);
     if (!scope) return;
     const pull = () => {
       request<SummaryResponse>(`/documents/${scope}/summary?kind=overview`)
@@ -134,7 +155,7 @@ export default function App({ authenticated = false }: { authenticated?: boolean
       active = false;
       clearInterval(timer);
     };
-  }, [scope, documents]);
+  }, [scope]);
 
   async function upload(file?: File) {
     if (!file || uploading) return;
@@ -169,10 +190,11 @@ export default function App({ authenticated = false }: { authenticated?: boolean
     }
   }
 
-  async function ask(event?: FormEvent, overrideQuestion?: string) {
+  async function ask(event?: FormEvent, overrideQuestion?: string, selectedScope = scope) {
     event?.preventDefault();
     const asked = (overrideQuestion ?? question).trim();
     if (!asked || busy) return;
+    const revision = scopeState.current.revision;
     setBusy(true);
     setError("");
     setNotice("");
@@ -184,18 +206,19 @@ export default function App({ authenticated = false }: { authenticated?: boolean
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           question: asked,
-          document_ids: scope ? [scope] : [],
+          document_ids: selectedScope ? [selectedScope] : [],
           retrieval_mode:
             retrievalMode || readiness?.default_retrieval_mode || "bm25",
-          conversation: thread.slice(-2).map((turn) => ({
+          conversation: (selectedScope === scope ? thread : []).slice(-2).map((turn) => ({
             question: turn.question,
             answer: turn.answer,
             document_ids: turn.documentIds,
           })),
         }),
       });
-      setResult(answer);
       setHistory((h) => [answer, ...h].slice(0, 20));
+      if (revision !== scopeState.current.revision) return;
+      setResult(answer);
       if (overrideQuestion !== undefined) setQuestion(overrideQuestion);
       const answerText = answer.claims
         .map((claim) => claim.text)
@@ -207,19 +230,20 @@ export default function App({ authenticated = false }: { authenticated?: boolean
           {
             question: asked,
             answer: answerText,
-            documentIds: answer.scope?.document_ids ?? (scope ? [scope] : []),
+            documentIds: answer.scope?.document_ids ?? (selectedScope ? [selectedScope] : []),
           },
         ].slice(-2),
       );
     } catch (e) {
-      setError((e as Error).message);
+      if (revision === scopeState.current.revision) setError((e as Error).message);
     } finally {
-      setBusy(false);
+      if (revision === scopeState.current.revision) setBusy(false);
     }
   }
 
   async function generateSummary(kind: "overview" | "detailed") {
     if (!scope || overviewBusy) return;
+    const revision = scopeState.current.revision;
     setOverviewBusy(true);
     setError("");
     try {
@@ -232,6 +256,7 @@ export default function App({ authenticated = false }: { authenticated?: boolean
         },
         600_000,
       );
+      if (revision !== scopeState.current.revision) return;
       if (row.status === "ready") {
         if (kind === "overview") {
           setOverview(row);
@@ -247,9 +272,9 @@ export default function App({ authenticated = false }: { authenticated?: boolean
         );
       }
     } catch (e) {
-      setError((e as Error).message);
+      if (revision === scopeState.current.revision) setError((e as Error).message);
     } finally {
-      setOverviewBusy(false);
+      if (revision === scopeState.current.revision) setOverviewBusy(false);
     }
   }
 
@@ -263,7 +288,7 @@ export default function App({ authenticated = false }: { authenticated?: boolean
 
   function selectCandidate(id: string) {
     setScope(id);
-    void ask(undefined, question);
+    void ask(undefined, result?.question ?? question, id);
   }
 
   const renderAnswerCard = (item: QueryResult, isHistory = false) => (
@@ -1024,14 +1049,16 @@ export default function App({ authenticated = false }: { authenticated?: boolean
                   quote with the original page.
                 </p>
               )}
-              <iframe
+              <img
                 key={`${source.document_id}:${source.page}`}
-                title="Original PDF"
-                src={fileUrl(source.document_id, source.page)}
+                className="page-preview"
+                title={`Page ${source.page} rendered locally from the original PDF`}
+                alt={`Page ${source.page} of ${source.document_name}`}
+                src={pagePreviewUrl(source.document_id, source.page)}
               />
               <p className="source-footnote">
-                The quote is shown above. If the preview stays blank, use “Open
-                PDF” to view the original page in a new tab.
+                The quote is shown above; the page image is rendered locally from
+                the original PDF. Use “Open PDF” for the full document.
               </p>
             </aside>
           )}

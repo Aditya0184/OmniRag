@@ -1,0 +1,1589 @@
+{
+  "format": 1,
+  "started_at": "2026-11-04T20:28:27.184437+00:00",
+  "status": "completed",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.11.17",
+  "with_model": true,
+  "modes": [
+    "hybrid_rerank"
+  ],
+  "repeats": 1,
+  "documents": [
+    {
+      "id": "ridge",
+      "pdf_sha256": "2f36593de767ffdc248d5c138787fb333012debb41497a0e02e0dea4d37f8bad",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 11456.86
+    },
+    {
+      "id": "elm",
+      "pdf_sha256": "d686572dc5150d7b3382794290489523363a574e79103c3828b0e64e9faca572",
+      "status": "ready",
+      "error": null,
+      "ingestion_ms": 9431.94
+    }
+  ],
+  "pages": [
+    {
+      "document": "ridge",
+      "page": 1,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Ridge Parts delivers orders within 8 working days after payment clears. A general delivery policy does not establish an individual shipment's status.",
+      "observed": "Ridge Parts delivers orders within 8 working days after payment clears. A general delivery policy does not establish an individual shipment's status.",
+      "metadata": {
+        "page": 1,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 149,
+        "largest_image_fraction": 0.0,
+        "characters": 149
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 149,
+        "reference_words": 22,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "ridge",
+      "page": 2,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025. These records concern only order R-517.",
+      "observed": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025. These records concern only order R-517.",
+      "metadata": {
+        "page": 2,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 150,
+        "largest_image_fraction": 0.0,
+        "characters": 150
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 150,
+        "reference_words": 24,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    {
+      "document": "elm",
+      "page": 1,
+      "kind": "native",
+      "stratum": "core",
+      "reference": "Elm Library loan L-28: The return due date is 7 November 2025. Another reader has reserved the book on loan L-28. Elm Library loans can be renewed only if no other reader has reserved the book.",
+      "observed": "Elm Library loan L-28: The return due date is 7 November 2025. Another reader has reserved the book on loan L-28. Elm Library loans can be renewed only if no other reader has reserved the book.",
+      "metadata": {
+        "page": 1,
+        "method": "native",
+        "extractor_version": "pdf_text_ocr_v2",
+        "native_characters": 193,
+        "largest_image_fraction": 0.0,
+        "characters": 193
+      },
+      "error": null,
+      "metrics": {
+        "reference_characters": 193,
+        "reference_words": 36,
+        "character_edits": 0,
+        "word_edits": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    }
+  ],
+  "queries": [
+    {
+      "query": "payment_record",
+      "question": "Has payment cleared for Ridge Parts order R-517?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 0.5,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Payment for Ridge Parts order R-517 cleared on 18 September 2025.",
+              "citations": [
+                {
+                  "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+                  "quote": "Payment cleared on 18 September 2025."
+                }
+              ]
+            },
+            {
+              "text": "Ridge Parts order R-517 was delivered on 29 September 2025.",
+              "citations": [
+                {
+                  "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+                  "quote": "Order R-517 was delivered on 29 September 2025."
+                }
+              ]
+            },
+            {
+              "text": "Ridge Parts delivers orders within 8 working days after payment clears.",
+              "citations": [
+                {
+                  "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:1:0",
+                  "quote": "Ridge Parts delivers orders within 8 working days after payment clears."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 870,
+          "output_tokens": 340,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 3,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 2,
+            "text": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025. These records concern only order R-517.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 9.89173412322998,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:1:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 1,
+            "text": "Ridge Parts delivers orders within 8 working days after payment clears. A general delivery policy does not establish an individual shipment's status.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 4.487840175628662,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 35.99,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "3d48819a-f81a-4fe1-85aa-cfb3db533d6a",
+        "question": "Has payment cleared for Ridge Parts order R-517?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "Payment for Ridge Parts order R-517 cleared on 18 September 2025.",
+            "kind": "explanation",
+            "citations": [
+              {
+                "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+                "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+                "document_name": "ridge.pdf",
+                "extraction_method": "native",
+                "page": 2,
+                "quote": "Payment cleared on 18 September 2025."
+              }
+            ]
+          },
+          {
+            "text": "Ridge Parts order R-517 was delivered on 29 September 2025.",
+            "kind": "explanation",
+            "citations": [
+              {
+                "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+                "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+                "document_name": "ridge.pdf",
+                "extraction_method": "native",
+                "page": 2,
+                "quote": "Order R-517 was delivered on 29 September 2025."
+              }
+            ]
+          },
+          {
+            "text": "Ridge Parts delivers orders within 8 working days after payment clears.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:1:0",
+                "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+                "document_name": "ridge.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "Ridge Parts delivers orders within 8 working days after payment clears."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 2,
+            "text": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025. These records concern only order R-517.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 9.89173412322998,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:1:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 1,
+            "text": "Ridge Parts delivers orders within 8 working days after payment clears. A general delivery policy does not establish an individual shipment's status.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 4.487840175628662,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 31.11,
+          "generation_ms": 13064.93,
+          "total_ms": 13096.81
+        },
+        "usage": {
+          "input_tokens": 870,
+          "output_tokens": 340,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 3,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "d422fc4a-9e63-514f-836b-c31c60926f91"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 13152.23
+    },
+    {
+      "query": "arrival_record",
+      "question": "Was Ridge Parts order R-517 delivered?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Ridge Parts order R-517 was delivered on 29 September 2025.",
+              "citations": [
+                {
+                  "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+                  "quote": "Order R-517 was delivered on 29 September 2025."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 868,
+          "output_tokens": 135,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 2,
+            "text": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025. These records concern only order R-517.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 10.420002937316895,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:1:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 1,
+            "text": "Ridge Parts delivers orders within 8 working days after payment clears. A general delivery policy does not establish an individual shipment's status.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 4.7995452880859375,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 68.16,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "ca76a5bd-854d-4b0f-b600-0477267ab5e1",
+        "question": "Was Ridge Parts order R-517 delivered?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "Ridge Parts order R-517 was delivered on 29 September 2025.",
+            "kind": "explanation",
+            "citations": [
+              {
+                "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+                "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+                "document_name": "ridge.pdf",
+                "extraction_method": "native",
+                "page": 2,
+                "quote": "Order R-517 was delivered on 29 September 2025."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 2,
+            "text": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025. These records concern only order R-517.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 10.420002937316895,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:1:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 1,
+            "text": "Ridge Parts delivers orders within 8 working days after payment clears. A general delivery policy does not establish an individual shipment's status.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 4.7995452880859375,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 28.35,
+          "generation_ms": 4792.48,
+          "total_ms": 4821.0
+        },
+        "usage": {
+          "input_tokens": 868,
+          "output_tokens": 135,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "d422fc4a-9e63-514f-836b-c31c60926f91"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 4899.94
+    },
+    {
+      "query": "missing_order",
+      "question": "Has payment cleared for Ridge Parts order R-518?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Ridge Parts delivers orders within 8 working days after payment clears.",
+              "citations": [
+                {
+                  "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:1:0",
+                  "quote": "Ridge Parts delivers orders within 8 working days after payment clears."
+                }
+              ]
+            },
+            {
+              "text": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025.",
+              "citations": [
+                {
+                  "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+                  "quote": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 870,
+          "output_tokens": 277,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": true,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 1,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "asked_record_absent": true
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 2,
+            "text": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025. These records concern only order R-517.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 9.455674171447754,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:1:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 1,
+            "text": "Ridge Parts delivers orders within 8 working days after payment clears. A general delivery policy does not establish an individual shipment's status.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 4.421816825866699,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 51.68,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "368c0287-60c9-46e6-ba24-d4e13b3183f5",
+        "question": "Has payment cleared for Ridge Parts order R-518?",
+        "status": "unsupported_question",
+        "reason": "The document has no record of that exact identifier; the retrieved passages concern other records.",
+        "claims": [],
+        "evidence": [
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 2,
+            "text": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025. These records concern only order R-517.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 9.455674171447754,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:1:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 1,
+            "text": "Ridge Parts delivers orders within 8 working days after payment clears. A general delivery policy does not establish an individual shipment's status.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 4.421816825866699,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 33.09,
+          "generation_ms": 9911.28,
+          "total_ms": 9945.35
+        },
+        "usage": {
+          "input_tokens": 870,
+          "output_tokens": 277,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 2,
+          "scope_relaxed": true,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 1,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "asked_record_absent": true,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "d422fc4a-9e63-514f-836b-c31c60926f91"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual",
+        "suggestion": "Check the identifier, or confirm the right document is selected."
+      },
+      "http_status": 200,
+      "elapsed_ms": 10007.17
+    },
+    {
+      "query": "general_delivery",
+      "question": "How long does Ridge Parts normally take to deliver after payment clears?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true,
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Ridge Parts delivers orders within 8 working days after payment clears.",
+              "citations": [
+                {
+                  "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:1:0",
+                  "quote": "Ridge Parts delivers orders within 8 working days after payment clears."
+                }
+              ]
+            },
+            {
+              "text": "The delivery of order R-517, which was placed on 18 September 2025 and delivered on 29 September 2025, confirms the 8-day delivery time.",
+              "citations": [
+                {
+                  "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+                  "quote": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025. These records concern only order R-517."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 870,
+          "output_tokens": 290,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 1,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:1:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 1,
+            "text": "Ridge Parts delivers orders within 8 working days after payment clears. A general delivery policy does not establish an individual shipment's status.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 9.474042892456055,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 2,
+            "text": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025. These records concern only order R-517.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 3.8975963592529297,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 116.71,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "3fd74639-4b4f-4d3a-bec1-0c1d6818ea2a",
+        "question": "How long does Ridge Parts normally take to deliver after payment clears?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text. 1 model statement(s) were withheld because the cited text did not support them.",
+        "claims": [
+          {
+            "text": "Ridge Parts delivers orders within 8 working days after payment clears.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:1:0",
+                "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+                "document_name": "ridge.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "Ridge Parts delivers orders within 8 working days after payment clears."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:1:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 1,
+            "text": "Ridge Parts delivers orders within 8 working days after payment clears. A general delivery policy does not establish an individual shipment's status.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 9.474042892456055,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "chunk_id": "d422fc4a-9e63-514f-836b-c31c60926f91:2:0",
+            "document_id": "d422fc4a-9e63-514f-836b-c31c60926f91",
+            "page": 2,
+            "text": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025. These records concern only order R-517.",
+            "document_name": "ridge.pdf",
+            "extraction_method": "native",
+            "score": 3.8975963592529297,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 38.05,
+          "generation_ms": 10038.65,
+          "total_ms": 10076.95
+        },
+        "usage": {
+          "input_tokens": 870,
+          "output_tokens": 290,
+          "model_called": true,
+          "candidate_passages": 2,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 1,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "d422fc4a-9e63-514f-836b-c31c60926f91"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 10209.88
+    },
+    {
+      "query": "due_date_record",
+      "question": "What is the exact return due date for Elm Library loan L-28?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Elm Library loan L-28: The return due date is 7 November 2025.",
+              "citations": [
+                {
+                  "chunk_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02:1:0",
+                  "quote": "Elm Library loan L-28: The return due date is 7 November 2025."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 791,
+          "output_tokens": 140,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02:1:0",
+            "document_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02",
+            "page": 1,
+            "text": "Elm Library loan L-28: The return due date is 7 November 2025. Another reader has reserved the book on loan L-28. Elm Library loans can be renewed only if no other reader has reserved the book.",
+            "document_name": "elm.pdf",
+            "extraction_method": "native",
+            "score": 9.971105575561523,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 64.58,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "efa0b53d-2260-4de9-9828-e4da20a11b4c",
+        "question": "What is the exact return due date for Elm Library loan L-28?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "Elm Library loan L-28: The return due date is 7 November 2025.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02:1:0",
+                "document_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02",
+                "document_name": "elm.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "Elm Library loan L-28: The return due date is 7 November 2025."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02:1:0",
+            "document_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02",
+            "page": 1,
+            "text": "Elm Library loan L-28: The return due date is 7 November 2025. Another reader has reserved the book on loan L-28. Elm Library loans can be renewed only if no other reader has reserved the book.",
+            "document_name": "elm.pdf",
+            "extraction_method": "native",
+            "score": 9.971105575561523,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 27.17,
+          "generation_ms": 4977.22,
+          "total_ms": 5004.69
+        },
+        "usage": {
+          "input_tokens": 791,
+          "output_tokens": 140,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "0a919fbb-4a90-5365-a2f3-744d75f83c02"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 5084.27
+    },
+    {
+      "query": "reservation_record",
+      "question": "Has another reader reserved the book on Elm Library loan L-28?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": true,
+      "error": null,
+      "metrics": {
+        "answered": true,
+        "abstained": false,
+        "expected_facts_match": true,
+        "fact_matches": [
+          true
+        ],
+        "facts_cite_reference_pages": true,
+        "forbidden_absent": true,
+        "citation_page_precision": 1.0,
+        "citation_page_recall": 1.0,
+        "correct_abstention": null,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": 1.0,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Another reader has reserved the book on loan L-28.",
+              "citations": [
+                {
+                  "chunk_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02:1:0",
+                  "quote": "Another reader has reserved the book on loan L-28."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 790,
+          "output_tokens": 120,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02:1:0",
+            "document_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02",
+            "page": 1,
+            "text": "Elm Library loan L-28: The return due date is 7 November 2025. Another reader has reserved the book on loan L-28. Elm Library loans can be renewed only if no other reader has reserved the book.",
+            "document_name": "elm.pdf",
+            "extraction_method": "native",
+            "score": 10.066972732543945,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 61.16,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "e38bd9ea-0e06-4f7e-b88e-65b35fb59e31",
+        "question": "Has another reader reserved the book on Elm Library loan L-28?",
+        "status": "answered",
+        "reason": "Written from the cited passages; quotes were verified against the indexed text.",
+        "claims": [
+          {
+            "text": "Another reader has reserved the book on loan L-28.",
+            "kind": "quote",
+            "citations": [
+              {
+                "chunk_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02:1:0",
+                "document_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02",
+                "document_name": "elm.pdf",
+                "extraction_method": "native",
+                "page": 1,
+                "quote": "Another reader has reserved the book on loan L-28."
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "chunk_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02:1:0",
+            "document_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02",
+            "page": 1,
+            "text": "Elm Library loan L-28: The return due date is 7 November 2025. Another reader has reserved the book on loan L-28. Elm Library loans can be renewed only if no other reader has reserved the book.",
+            "document_name": "elm.pdf",
+            "extraction_method": "native",
+            "score": 10.066972732543945,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 25.58,
+          "generation_ms": 4405.5,
+          "total_ms": 4431.23
+        },
+        "usage": {
+          "input_tokens": 790,
+          "output_tokens": 120,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 0,
+          "scope_relaxed": false,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 0,
+          "claims_kept": 1,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "0a919fbb-4a90-5365-a2f3-744d75f83c02"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual"
+      },
+      "http_status": 200,
+      "elapsed_ms": 4501.63
+    },
+    {
+      "query": "missing_loan",
+      "question": "What is the exact return due date for Elm Library loan L-29?",
+      "repeat": 1,
+      "mode": "hybrid_rerank",
+      "stratum": "core",
+      "answerable": false,
+      "error": null,
+      "metrics": {
+        "answered": false,
+        "abstained": true,
+        "expected_facts_match": null,
+        "fact_matches": [],
+        "facts_cite_reference_pages": null,
+        "forbidden_absent": true,
+        "citation_page_precision": null,
+        "citation_page_recall": null,
+        "correct_abstention": true,
+        "status_matches_expected": null,
+        "contract_pass": true
+      },
+      "retrieval_page_recall": null,
+      "model": {
+        "called": true,
+        "summary_call": "You answer questions using only the provided document passages.\nReturn JSON with",
+        "draft": {
+          "answerable": true,
+          "missing_information": "",
+          "requires_individual_record": false,
+          "individual_record_present": false,
+          "claims": [
+            {
+              "text": "Elm Library loan L-28: The return due date is 7 November 2025.",
+              "citations": [
+                {
+                  "chunk_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02:1:0",
+                  "quote": "Elm Library loan L-28: The return due date is 7 November 2025."
+                }
+              ]
+            }
+          ]
+        },
+        "usage": {
+          "input_tokens": 791,
+          "output_tokens": 140,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 1,
+          "scope_relaxed": true,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 1,
+          "claims_kept": 0,
+          "invalid_citations_dropped": 0
+        },
+        "quote_provenance_valid": true
+      },
+      "search": {
+        "evidence": [
+          {
+            "chunk_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02:1:0",
+            "document_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02",
+            "page": 1,
+            "text": "Elm Library loan L-28: The return due date is 7 November 2025. Another reader has reserved the book on loan L-28. Elm Library loans can be renewed only if no other reader has reserved the book.",
+            "document_name": "elm.pdf",
+            "extraction_method": "native",
+            "score": 9.205985069274902,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_ms": 45.96,
+        "collection": "chunks_97afa178af9bdeece42f",
+        "intent": "factual"
+      },
+      "response": {
+        "id": "a03822b5-fcd8-4f72-8314-de9b783bf13c",
+        "question": "What is the exact return due date for Elm Library loan L-29?",
+        "status": "unsupported_question",
+        "reason": "The model's statements were not sufficiently supported by the cited passages, so the answer was withheld.",
+        "claims": [],
+        "evidence": [
+          {
+            "chunk_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02:1:0",
+            "document_id": "0a919fbb-4a90-5365-a2f3-744d75f83c02",
+            "page": 1,
+            "text": "Elm Library loan L-28: The return due date is 7 November 2025. Another reader has reserved the book on loan L-28. Elm Library loans can be renewed only if no other reader has reserved the book.",
+            "document_name": "elm.pdf",
+            "extraction_method": "native",
+            "score": 9.205985069274902,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "verification": "grounded_citation_v1",
+        "retrieval_mode": "hybrid_rerank",
+        "retrieval_collection": "chunks_97afa178af9bdeece42f",
+        "model": "qwen3-vl:2b-instruct",
+        "timings": {
+          "retrieval_ms": 25.01,
+          "generation_ms": 4967.88,
+          "total_ms": 4993.14
+        },
+        "usage": {
+          "input_tokens": 791,
+          "output_tokens": 140,
+          "model_called": true,
+          "candidate_passages": 1,
+          "scope_excluded_chunks": 1,
+          "scope_relaxed": true,
+          "asked_attribute": "",
+          "selection_policy": "grounded_written_v1",
+          "selection_attempts": 1,
+          "retry_status": "not_needed",
+          "claims_dropped": 1,
+          "claims_kept": 0,
+          "invalid_citations_dropped": 0,
+          "intent": "factual",
+          "scope_source": "selection",
+          "retrieval_expanded_from_conversation": false
+        },
+        "scope": {
+          "document_ids": [
+            "0a919fbb-4a90-5365-a2f3-744d75f83c02"
+          ],
+          "source": "selection"
+        },
+        "intent": "factual",
+        "suggestion": "Try rephrasing, or switch to keyword search to inspect exact excerpts yourself."
+      },
+      "http_status": 200,
+      "elapsed_ms": 5049.71
+    }
+  ],
+  "limitations": "Authored development fixture, not held-out. Fact-span and page checks are lexical proxies, not semantic entailment; negation, extra false claims and valid unlisted paraphrases require human review. CER/WER normalize NFKC and whitespace, preserve case/punctuation and may exceed 1. Failed extraction is scored as empty. Latency includes a search probe plus the query path, no warmup, sequential calls. No browser or throughput benchmark. Repeated runs do not guarantee identical outputs.",
+  "fixture_sha256": "1bdc342c3e23b6b87d3648f693032c821653d92a8d2b07766dbd3c725962aae4",
+  "fixture": {
+    "version": 1,
+    "description": "Authored explicit-record counterchecks for Phase 7. Fictional historical events and general policies; fixed before record-gate evaluation, not held out.",
+    "documents": [
+      {
+        "id": "ridge",
+        "pages": [
+          {
+            "kind": "native",
+            "stratum": "core",
+            "text": "Ridge Parts delivers orders within 8 working days after payment clears. A general delivery policy does not establish an individual shipment's status."
+          },
+          {
+            "kind": "native",
+            "stratum": "core",
+            "text": "Ridge Parts order R-517: Payment cleared on 18 September 2025. Order R-517 was delivered on 29 September 2025. These records concern only order R-517."
+          }
+        ]
+      },
+      {
+        "id": "elm",
+        "pages": [
+          {
+            "kind": "native",
+            "stratum": "core",
+            "text": "Elm Library loan L-28: The return due date is 7 November 2025. Another reader has reserved the book on loan L-28. Elm Library loans can be renewed only if no other reader has reserved the book."
+          }
+        ]
+      }
+    ],
+    "queries": [
+      {
+        "id": "payment_record",
+        "stratum": "core",
+        "question": "Has payment cleared for Ridge Parts order R-517?",
+        "scope": [
+          "ridge"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "ridge",
+            2
+          ]
+        ],
+        "expected_facts": [
+          [
+            "payment cleared on 18 September 2025"
+          ]
+        ]
+      },
+      {
+        "id": "arrival_record",
+        "stratum": "core",
+        "question": "Was Ridge Parts order R-517 delivered?",
+        "scope": [
+          "ridge"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "ridge",
+            2
+          ]
+        ],
+        "expected_facts": [
+          [
+            "delivered on 29 September 2025"
+          ]
+        ]
+      },
+      {
+        "id": "missing_order",
+        "stratum": "core",
+        "question": "Has payment cleared for Ridge Parts order R-518?",
+        "scope": [
+          "ridge"
+        ],
+        "answerable": false,
+        "relevant": [],
+        "expected_facts": []
+      },
+      {
+        "id": "general_delivery",
+        "stratum": "core",
+        "question": "How long does Ridge Parts normally take to deliver after payment clears?",
+        "scope": [
+          "ridge"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "ridge",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "8 working days"
+          ],
+          [
+            "after payment clears"
+          ]
+        ]
+      },
+      {
+        "id": "due_date_record",
+        "stratum": "core",
+        "question": "What is the exact return due date for Elm Library loan L-28?",
+        "scope": [
+          "elm"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "elm",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "7 November 2025"
+          ]
+        ]
+      },
+      {
+        "id": "reservation_record",
+        "stratum": "core",
+        "question": "Has another reader reserved the book on Elm Library loan L-28?",
+        "scope": [
+          "elm"
+        ],
+        "answerable": true,
+        "relevant": [
+          [
+            "elm",
+            1
+          ]
+        ],
+        "expected_facts": [
+          [
+            "Another reader has reserved the book on loan L-28"
+          ]
+        ]
+      },
+      {
+        "id": "missing_loan",
+        "stratum": "core",
+        "question": "What is the exact return due date for Elm Library loan L-29?",
+        "scope": [
+          "elm"
+        ],
+        "answerable": false,
+        "relevant": [],
+        "expected_facts": []
+      }
+    ]
+  },
+  "source_sha256": {
+    "scripts/evaluate_quality.py": "a17522de1bc28cc253ae19bfb231d0805131b6132b7908e89577c7fa676698e5",
+    "backend/omnirag/__init__.py": "ce0a823bc257930b33c71e77ab8e2b8a6b3f556377aa22b5ff517e526ffb0f0f",
+    "backend/omnirag/auth.py": "69f1a5ee0dc066339c99586889b7ed3d2cafb6a4c65417cb6a99e55b10d1698d",
+    "backend/omnirag/config.py": "3377f55a74d5226e49ec024e6b686cf3e44a51f5de4ba707c5d52be383b5a557",
+    "backend/omnirag/db.py": "72b10a3a25b74e5eacf46870bc2478a933bf21bc4a45fede8dc0bb10f10ec5ce",
+    "backend/omnirag/encoders.py": "f825f465b83bac479957fc51fdfe9d28041eb8432fb78922dd66ee4a8860d4a2",
+    "backend/omnirag/evaluation.py": "c8ea0e587482346d075a42fd59ab92a308cfac3a1bf4f1f69511c70d813004b9",
+    "backend/omnirag/generation.py": "facdfa8ac413928d2676dedbfb03a655ed02d82c9be69c64c21bff5ae7ed3077",
+    "backend/omnirag/hybrid.py": "b1c4aebe03ecbee7770ecce4bb04d34e2d9ac51efa35325819afc50d5defce3a",
+    "backend/omnirag/ingestion.py": "e8deefdc8bbdb40d45f0391faac3de203dee4ff36275538ba1b00841d047f03a",
+    "backend/omnirag/intents.py": "ce546407f5854cc378b99f1cba06165c333d27a1882513bdb6180b019e10c99d",
+    "backend/omnirag/main.py": "239ec55393caa2ff6222e7a7fc2e1286023945ebd7092205374af87e9c783cb3",
+    "backend/omnirag/ocr.py": "088feab138c62e6d8abbc785e6c7d222c23ebcbbc05fc540a8cb3f96adee23f1",
+    "backend/omnirag/retrieval.py": "3d90b320184da504f23eb0dfe0c0c41b1cd57a6e41e92f4e0edc71232a60dedd",
+    "backend/omnirag/security.py": "3acbccfff553b89db4f8065f2ef99866a03a4ec08317b5bdc9cee1ef61064ae4",
+    "backend/omnirag/summary.py": "060263830e0073c7aa811a183f2983cb961e87f6b4730801a63b0e0d8926a200",
+    "backend/omnirag/worker.py": "34aaa7373e0299fad0f0340bcf5e6b5f7c6e4690519180ad75d8c7219731eda4"
+  },
+  "packages": {
+    "fastapi": "0.158.1",
+    "httpx": "0.28.1",
+    "pypdf": "6.21.2",
+    "pypdfium2": "5.14.0",
+    "pillow": "12.3.0",
+    "reportlab": "4.5.1",
+    "fastembed": "0.9.0",
+    "qdrant-client": "1.20.0",
+    "onnxruntime": "1.31.0",
+    "tokenizers": "0.23.3"
+  },
+  "settings": {
+    "auth_enabled": false,
+    "serve_frontend": false,
+    "frontend_dist": "frontend/dist",
+    "ollama_base_url": "http://127.0.0.1:11434/",
+    "ollama_model": "qwen3-vl:2b-instruct",
+    "answer_mode": "grounded",
+    "model_timeout_seconds": 120,
+    "context_tokens": 4096,
+    "max_output_tokens": 768,
+    "top_k": 4,
+    "upload_max_mb": 10,
+    "max_pages": 100,
+    "ingest_timeout_seconds": 90,
+    "ocr_enabled": true,
+    "ocr_max_pages": 20,
+    "ocr_page_timeout_seconds": 20,
+    "retrieval_enabled": true,
+    "default_retrieval_mode": "hybrid_rerank",
+    "retrieval_models_dir": "data/models",
+    "retrieval_manifest": "models/retrieval.lock.json",
+    "retrieval_candidates": 12,
+    "retrieval_threads": 2
+  },
+  "ollama": {
+    "version": "0.40.8",
+    "model": {
+      "name": "qwen3-vl:2b-instruct",
+      "model": "qwen3-vl:2b-instruct",
+      "modified_at": "2026-10-22T21:54:30.016546638+05:30",
+      "size": 1930568531,
+      "digest": "afc393e3572c07db0bc84aa460d928a16c75f3fbb9ca9e0dccc4fbd2dafb573e",
+      "details": {
+        "parent_model": "dhiltgen/qwen3-vl:2b-instruct-q4_K_M-llamacpp",
+        "format": "gguf",
+        "family": "qwen3vl",
+        "families": [
+          "qwen3vl",
+          "clip"
+        ],
+        "parameter_size": "1.7B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 262144,
+        "embedding_length": 2048,
+        "runner": "llamacpp"
+      },
+      "capabilities": [
+        "completion",
+        "vision",
+        "tools"
+      ]
+    }
+  },
+  "retrieval_manifest": {
+    "format": 1,
+    "models": {
+      "embedding": {
+        "name": "BAAI/bge-small-en-v1.5",
+        "repo": "Qdrant/bge-small-en-v1.5-onnx-Q",
+        "revision": "aa8f8b060edb00e03bfdd08813a2949946c8ba55",
+        "license": "mit",
+        "files": {
+          "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+          "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a"
+        }
+      },
+      "reranker": {
+        "name": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "repo": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "revision": "a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+        "license": "apache-2.0",
+        "files": {
+          "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+          "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+        }
+      }
+    }
+  },
+  "summary": {
+    "transcription": {
+      "core/native": {
+        "pages": 3,
+        "errors": 0,
+        "cer": 0.0,
+        "wer": 0.0
+      }
+    },
+    "answers": {
+      "core/hybrid_rerank": {
+        "scheduled": 7,
+        "scored": 7,
+        "errors": 0,
+        "answerable": 5,
+        "unsupported": 2,
+        "answer_fact_match_rate": 1.0,
+        "unsupported_abstention_rate": 1.0,
+        "contract_pass_rate": 1.0,
+        "answered_with_citations": 5,
+        "mean_citation_page_precision_when_answered": 0.9,
+        "mean_retrieval_page_recall": 1.0,
+        "median_elapsed_ms": 5084.27
+      },
+      "challenge/hybrid_rerank": {
+        "scheduled": 0,
+        "scored": 0,
+        "errors": 0,
+        "answerable": 0,
+        "unsupported": 0,
+        "answer_fact_match_rate": null,
+        "unsupported_abstention_rate": null,
+        "contract_pass_rate": null,
+        "answered_with_citations": 0,
+        "mean_citation_page_precision_when_answered": null,
+        "mean_retrieval_page_recall": null,
+        "median_elapsed_ms": null
+      }
+    }
+  },
+  "finished_at": "2026-11-04T20:29:41.669944+00:00",
+  "exit_code": 0
+}

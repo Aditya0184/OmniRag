@@ -1,0 +1,24 @@
+{
+  "activated_at": "2026-11-04T20:56:16.991102+00:00",
+  "pre_activation_backup": "data/local/backups/phase13-before-activation-20261105-022600",
+  "preservation_snapshot": "data/local/backups/preservation-phase13-pre-activation.json",
+  "preservation_result": {
+    "problems": [],
+    "schema_before": 4,
+    "schema_after": 4,
+    "tables": {
+      "documents": 30,
+      "chunks": 50,
+      "query_runs": 45,
+      "page_extractions": 49,
+      "document_summaries": 0
+    },
+    "original_pdfs_verified": "all sha256 unchanged"
+  },
+  "live_checks": {
+    "frontend_200": true,
+    "private_routes_401_unauthenticated": true,
+    "documents_history_preserved": true
+  },
+  "notes": "Phase 13 build (grounded pipeline with attribute steering, requirement retry, quote discipline, partial-citation survival, page previews). No schema change. Authenticated checks require the owner's session; see docs/REVIEW_CHECKLIST.md. No credential was read, printed or reset."
+}

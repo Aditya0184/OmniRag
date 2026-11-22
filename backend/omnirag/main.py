@@ -1,17 +1,19 @@
 import hashlib
+import io
 import json
 import logging
+import math
 import os
 import re
 import sqlite3
 import threading
 import time
-from contextlib import asynccontextmanager
+from contextlib import asynccontextmanager, closing
 from typing import Literal
 from uuid import UUID, uuid4
 
 from fastapi import FastAPI, HTTPException, Request, UploadFile
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, Response
 from pydantic import BaseModel, Field, field_validator
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 from starlette.staticfiles import StaticFiles
@@ -123,7 +125,7 @@ def create_app(settings: Settings | None = None, gateway=None, index=None) -> Fa
             con.execute("SELECT count(*) FROM documents").fetchone()
         return {
             "status": "ok",
-            "phase": 12,
+            "phase": 13,
             "retrieval": settings.default_retrieval_mode,
             "authentication": settings.auth_enabled,
             "answer_mode": settings.answer_mode,
@@ -257,6 +259,48 @@ def create_app(settings: Settings | None = None, gateway=None, index=None) -> Fa
             )
         return {"status": "queued"}
 
+    @app.get("/api/v1/documents/{document_id}/pages/{page}/preview")
+    def page_preview(document_id: UUID, page: int):
+        """Rasterized single-page preview the in-app viewer can always render.
+
+        Headless and embedded PDF viewers are unreliable; this renders the page
+        with the local PDFium build into a bounded PNG. Original bytes stay local.
+        """
+        row = get_document(settings.database, str(document_id))
+        path = settings.uploads / f"{document_id}.pdf"
+        if row is None or not path.is_file():
+            fail(404, "DOCUMENT_NOT_FOUND", "Document not found.")
+        if row["status"] != "ready" or not 1 <= page <= (row["page_count"] or 0):
+            fail(422, "PAGE_OUT_OF_RANGE", "That page is not part of this document.")
+        import pypdfium2 as pdfium
+
+        try:
+            with pdfium.PdfDocument(path) as document:
+                if page - 1 >= len(document):
+                    fail(422, "PAGE_OUT_OF_RANGE", "That page is not part of this document.")
+                with closing(document[page - 1]) as pdf_page:
+                    width, height = pdf_page.get_size()
+                    if not all(math.isfinite(n) and n > 0 for n in (width, height)):
+                        fail(422, "INVALID_PAGE_SIZE", "Invalid PDF page dimensions.")
+                    # Bound both dimensions before PDFium allocates the bitmap.
+                    scale = min(1100 / width, 2000 / height, 1100 / 612)
+                    if min(width * scale, height * scale) < 1:
+                        fail(422, "INVALID_PAGE_SIZE", "PDF page is too elongated to preview.")
+                    with closing(pdf_page.render(scale=scale)) as bitmap:
+                        with bitmap.to_pil() as image, image.convert("RGB") as rgb:
+                            buffer = io.BytesIO()
+                            rgb.save(buffer, format="PNG")
+        except HTTPException:
+            raise
+        except Exception:
+            log.exception("Page preview failed for %s page %s", document_id, page)
+            fail(502, "PREVIEW_FAILED", "The page could not be rendered locally.")
+        return Response(
+            content=buffer.getvalue(),
+            media_type="image/png",
+            headers={"X-Content-Type-Options": "nosniff", "Cache-Control": "private, max-age=3600"},
+        )
+
     @app.get("/api/v1/documents/{document_id}/file")
     def document_file(document_id: UUID):
         row = get_document(settings.database, str(document_id))
@@ -360,22 +404,28 @@ def create_app(settings: Settings | None = None, gateway=None, index=None) -> Fa
         }
         return rows, coverage
 
-    def run_generation(question, evidence, conversation, intent=None):
+    def run_generation(question, evidence, conversation, intent=None, scope=None):
+        turns = [
+            {"question": turn.question, "answer": turn.answer}
+            for turn in (conversation or [])
+            # Context reset at document boundaries: a follow-up answered from
+            # another document must not steer this one.
+            if not scope
+            or not turn.document_ids
+            or {str(item) for item in turn.document_ids} & set(scope)
+        ]
         if grounded:
             return gateway.generate_grounded(
                 question,
                 evidence,
-                conversation=[
-                    {"question": turn.question, "answer": turn.answer}
-                    for turn in (conversation or [])
-                ],
+                conversation=turns,
                 intent=intent,
             )
         return gateway.generate(question, evidence)
 
-    def build_claims(draft, evidence, question=""):
+    def build_claims(draft, evidence, question="", attribute=""):
         if grounded:
-            return validate_grounded(draft, evidence, question)
+            return validate_grounded(draft, evidence, question, attribute)
         return validate_citations(
             draft, evidence, extractive=getattr(gateway, "answer_strategy", None)
             == "extractive_source_binding"
@@ -683,10 +733,12 @@ def create_app(settings: Settings | None = None, gateway=None, index=None) -> Fa
             try:
                 for validation_attempt in range(2):
                     draft, usage = run_generation(
-                        body.question, evidence, body.conversation, intent["kind"]
+                        body.question, evidence, body.conversation, intent["kind"], scope
                     )
                     try:
-                        claims, claim_usage = build_claims(draft, evidence, body.question)
+                        claims, claim_usage = build_claims(
+                            draft, evidence, body.question, usage.get("asked_attribute", "")
+                        )
                         usage.update(claim_usage)
                         break
                     except GenerationError as exc:
@@ -699,7 +751,19 @@ def create_app(settings: Settings | None = None, gateway=None, index=None) -> Fa
                             usage["validation_retry"] = True
                             continue
                         raise
-                if usage.get("asked_record_absent"):
+                if usage.get("attribute_absent"):
+                    status = "unsupported_question"
+                    claims = []
+                    reason = (
+                        f"The document never mentions “{usage.get('asked_attribute', '')}”, "
+                        "which is what the question asks about; the retrieved facts are "
+                        "about something else."
+                    )
+                    suggestion = (
+                        "Check whether the right document is selected, or ask about "
+                        "what the document does contain."
+                    )
+                elif usage.get("asked_record_absent"):
                     status = "unsupported_question"
                     claims = []
                     reason = (
@@ -816,6 +880,13 @@ def create_app(settings: Settings | None = None, gateway=None, index=None) -> Fa
                         "The model's answer failed source validation and was withheld."
                     )
                     suggestion = "Try rephrasing the question or asking again."
+                elif exc.code == "MODEL_TRUNCATED":
+                    status = "unsupported_question"
+                    reason = (
+                        "The model's answer ran over its output limit twice and was "
+                        "withheld; nothing unverified was shown."
+                    )
+                    suggestion = "Try a narrower question, or ask again."
                 else:
                     fail(exc.status_code, exc.code, exc.message)
             finally:

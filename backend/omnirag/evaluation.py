@@ -2,7 +2,6 @@
 
 import re
 import unicodedata
-from itertools import chain
 
 
 def canonical_text(text):
@@ -39,12 +38,37 @@ def transcription_metrics(reference, observed):
 
 
 def contains_phrase(text, phrase):
-    """Whole token sequence; 14 must not match 114. This does not detect negation."""
+    """Whole consecutive token sequence; 14 must not match 114. No negation detection."""
     tokens = re.findall(r"\w+", canonical_text(text).casefold())
     wanted = re.findall(r"\w+", canonical_text(phrase).casefold())
     return bool(wanted) and any(
         tokens[i : i + len(wanted)] == wanted for i in range(len(tokens) - len(wanted) + 1)
     )
+
+
+def contains_fact(text, phrase):
+    """Every fact token present in order, gaps allowed: a written answer may insert
+    an identifier between "payment" and "cleared" without changing the fact.
+
+    Independently justified rule for expected_facts only (never for forbidden
+    phrases or quotes): all tokens required, order preserved, so "cleared on
+    18 September 2025" cannot match "cleared on 19 September 2025" or a
+    reordered "2025 ... cleared". Token boundaries keep 14 from matching 118.
+    Negation still requires human review, as documented.
+    """
+    tokens = re.findall(r"\w+", canonical_text(text).casefold())
+    wanted = re.findall(r"\w+", canonical_text(phrase).casefold())
+    if not wanted:
+        return False
+    position = 0
+    for token in wanted:
+        position = next(
+            (index + 1 for index in range(position, len(tokens)) if tokens[index] == token),
+            None,
+        )
+        if position is None:
+            return False
+    return True
 
 
 ABSTENTION_STATUSES = {
@@ -73,7 +97,7 @@ def score_answer(query, response, names, *, error=None):
     )
     facts = [
         any(
-            contains_phrase(text, alternative)
+            contains_fact(text, alternative)
             for text in fact_texts
             for alternative in alternatives
         )
@@ -81,7 +105,7 @@ def score_answer(query, response, names, *, error=None):
     ]
     facts_on_reference_pages = [
         any(
-            contains_phrase(claim["text"], alternative)
+            contains_fact(claim["text"], alternative)
             and any(
                 (names.get(c["document_id"], c["document_id"]), c["page"]) in relevant
                 for c in claim.get("citations", [])
@@ -126,26 +150,16 @@ def score_answer(query, response, names, *, error=None):
             coverage = (response.get("coverage") or {}).get("complete")
             contract = contract and (coverage is not query.get("expect_partial"))
     else:
-        # The claims that state the expected facts must cite reference pages. Whole-
-        # answer page precision stays a reported metric: a correct answer that adds
-        # another true, cited fact is still correct, while an answer drawn from the
-        # wrong page or document still fails here.
-        wanted = query["expected_facts"]
-        fact_bearing_in_scope = all(
-            not any(
-                contains_phrase(claim["text"], alternative)
-                for alternative in chain.from_iterable(wanted)
-            )
-            or any(
-                (names.get(c["document_id"], c["document_id"]), c["page"]) in relevant
-                for c in claim.get("citations", [])
-            )
-            for claim in claims
-        )
+        # Every expected fact must appear in a claim that cites a reference page
+        # (facts_on_reference_pages), and citations may not leave the scope
+        # documents. Whole-answer page precision stays a reported metric: a
+        # correct answer that adds another true, cited fact from elsewhere in the
+        # same document is still correct. An answer drawn from the wrong page or
+        # document still fails because its fact-bearing claim cites no reference
+        # page.
         contract = bool(
             answered
             and all(facts_on_reference_pages)
-            and fact_bearing_in_scope
             and citations_in_scope
             and forbidden_absent
             if expected_answer

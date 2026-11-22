@@ -14,6 +14,11 @@
           "kind": "native",
           "stratum": "core",
           "text": "Bookings require 5 days notice. Cancellations within 48 hours of the event are charged 50 percent of the price. Meridian delivers within the city only."
+        },
+        {
+          "kind": "native",
+          "stratum": "challenge",
+          "text": "Harvest Menu pricing note. The Harvest Menu costs 520 credits. Some earlier printed menus listed 480 credits; the current price applies."
         }
       ]
     },
@@ -588,6 +593,107 @@
       "answerable": false,
       "relevant": [],
       "expected_facts": []
+    },
+    {
+      "id": "meridian_conflict",
+      "stratum": "challenge",
+      "question": "How much does the Harvest Menu cost?",
+      "scope": [
+        "meridian"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "meridian",
+          3
+        ]
+      ],
+      "expected_facts": [
+        [
+          "520 credits"
+        ],
+        [
+          "480 credits"
+        ]
+      ]
+    },
+    {
+      "id": "meridian_followup_detail",
+      "stratum": "challenge",
+      "question": "Give more detail about booking.",
+      "scope": [
+        "meridian"
+      ],
+      "conversation": [
+        {
+          "question": "How much does the Garden Menu cost?",
+          "answer": "The Garden Menu costs 340 credits."
+        }
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "meridian",
+          2
+        ]
+      ],
+      "expected_facts": [
+        [
+          "5 days",
+          "five days"
+        ]
+      ]
+    },
+    {
+      "id": "meridian_followup_else",
+      "stratum": "challenge",
+      "question": "What else does each menu include?",
+      "scope": [
+        "meridian"
+      ],
+      "conversation": [
+        {
+          "question": "Which set menus does Meridian Catering offer?",
+          "answer": "The Garden Menu, the Coastal Menu, and the Harvest Menu."
+        }
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "meridian",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "10 guests",
+          "ten guests"
+        ]
+      ]
+    },
+    {
+      "id": "meridian_topic_menus",
+      "stratum": "core",
+      "question": "menus",
+      "scope": [
+        "meridian"
+      ],
+      "answerable": true,
+      "relevant": [
+        [
+          "meridian",
+          1
+        ]
+      ],
+      "expected_facts": [
+        [
+          "Garden Menu"
+        ],
+        [
+          "set menus",
+          "menu"
+        ]
+      ]
     }
   ]
 }

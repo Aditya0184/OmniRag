@@ -1121,3 +1121,12 @@ h1 {
   align-self: center;
 }
 .doc-view-button:hover { background: #edf6f2; }
+
+.page-preview {
+  width: 100%;
+  border: 1px solid #d7e4e8;
+  border-radius: 8px;
+  background: white;
+  min-height: 220px;
+  object-fit: contain;
+}

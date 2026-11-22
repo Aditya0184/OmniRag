@@ -119,7 +119,8 @@ def test_invented_numbers_and_unknown_chunks_are_rejected():
     claims, usage = validate_grounded(fabricated_number, EVIDENCE)
     assert usage["claims_dropped"] == 1 and claims == []
 
-    # A fabricated citation drops its own claim; other claims survive.
+    # A fabricated citation is shed individually: the claim survives on its
+    # remaining verified citations and is dropped only when none verify.
     claims, usage = validate_grounded(
         GroundedAnswerDraft(
             answerable=True,
@@ -131,12 +132,12 @@ def test_invented_numbers_and_unknown_chunks_are_rejected():
                     ],
                 ),
                 GroundedClaimDraft(
-                    text="Orion Supplies has a standard delivery window of 14 calendar days.",
+                    text="Orion Supplies has a 14 calendar day delivery window.",
                     citations=[
+                        GroundedCitationDraft(chunk_id="doc:1:0", quote=EVIDENCE[0]["text"]),
                         GroundedCitationDraft(
-                            chunk_id="doc:1:0",
-                            quote=EVIDENCE[0]["text"],
-                        )
+                            chunk_id="other:9:9", quote="some invented text"
+                        ),
                     ],
                 ),
             ],
@@ -144,6 +145,9 @@ def test_invented_numbers_and_unknown_chunks_are_rejected():
         EVIDENCE,
     )
     assert usage["claims_dropped"] == 1 and len(claims) == 1
+    assert usage["invalid_citations_dropped"] == 2  # Both shed citations count.
+    assert len(claims[0]["citations"]) == 1
+    assert claims[0]["text"] == "Orion Supplies has a 14 calendar day delivery window."
 
 
 def test_disagreeing_answerability_is_invalid():
@@ -386,6 +390,58 @@ def test_worker_overview_failure_never_fails_the_document(settings, monkeypatch)
     assert client.get(f"/api/v1/documents/{document_id}").json()["status"] == "ready"
     row = get_summary(settings.database, document_id, "overview")
     assert row["status"] == "failed" and "MODEL_TIMEOUT" in row["error"]
+
+
+def test_page_preview_renders_png_and_rejects_bad_pages(grounded_client, settings):
+    from omnirag.worker import run_once
+
+    response = grounded_client.post(
+        "/api/v1/documents",
+        files={
+            "file": (
+                "preview.pdf",
+                make_pdf(["Some policy content for preview."]),
+                "application/pdf",
+            )
+        },
+    )
+    document_id = response.json()["document"]["id"]
+    assert run_once(settings)
+    preview = grounded_client.get(f"/api/v1/documents/{document_id}/pages/1/preview")
+    assert preview.status_code == 200
+    assert preview.headers["content-type"] == "image/png"
+    assert preview.content[:8] == b"\x89PNG\r\n\x1a\n" and len(preview.content) > 1000
+    # A large native-text page must not allocate a correspondingly huge bitmap.
+    import io
+
+    from PIL import Image
+    from reportlab.pdfgen import canvas
+
+    large = io.BytesIO()
+    writer = canvas.Canvas(large, pagesize=(14400, 14400))
+    writer.drawString(20, 20, "Large page")
+    writer.save()
+    (settings.uploads / f"{document_id}.pdf").write_bytes(large.getvalue())
+    bounded = grounded_client.get(f"/api/v1/documents/{document_id}/pages/1/preview")
+    assert bounded.status_code == 200
+    with Image.open(io.BytesIO(bounded.content)) as image:
+        assert image.width <= 1100 and image.height <= 2000
+    # Corrupt page metadata must remain a client error, not be swallowed as 502.
+    from omnirag.db import connection
+
+    with connection(settings.database) as con:
+        con.execute("UPDATE documents SET page_count=2 WHERE id=?", (document_id,))
+    assert grounded_client.get(
+        f"/api/v1/documents/{document_id}/pages/2/preview"
+    ).status_code == 422
+    assert (
+        grounded_client.get(f"/api/v1/documents/{document_id}/pages/5/preview").status_code
+        == 422
+    )
+    assert (
+        grounded_client.get(f"/api/v1/documents/{document_id}/pages/0/preview").status_code
+        == 422
+    )
 
 
 def test_intent_classification_boundaries():

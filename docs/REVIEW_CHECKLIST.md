@@ -81,6 +81,22 @@ item. Nothing here needs tooling beyond a browser and a few PDFs.
 - [ ] The Mac stays offline-capable: with Wi-Fi off, upload→ask→summary still work
       (Ollama and the app are local).
 
+## Phase 13 additions
+
+- [ ] Click a citation: the source panel now shows the **page image** rendered
+      locally from the PDF (it should always be visible, not a blank frame), with
+      “Open PDF” and “Download” for the full document.
+- [ ] Ask a follow-up like **“Explain that.”**, **“What else…?”** or **“Give more
+      detail about …”** right after an answer — the previous exchange stays in
+      context.
+- [ ] Click a different document in the sidebar: the follow-up context resets (the
+      next question is answered from the newly selected document only).
+- [ ] In **Keyword search**, a topic-only query like “cancellation policy” now finds
+      plural word forms too; synonyms still belong to Hybrid + reranking.
+- [ ] If a document contains two different values for the same fact, the answer
+      should mention the disagreement — this is a known weak spot of the small
+      model; record what you see.
+
 ## Notes for the reviewer
 
 - OCR pages can contain recognition errors; the citation marks them "OCR" and asks you

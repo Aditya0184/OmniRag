@@ -121,9 +121,82 @@ test("clarification flow offers ready documents", async ({ page }) => {
   await expect(page.getByLabel("Answer")).toContainText("Choose");
   expect(result.candidates!.length).toBeGreaterThan(1);
   const first = result.candidates![0];
+  // Choosing a document resets the context, so the card unmounts until the real
+  // model answers; await the second query instead of the transient card.
+  const chosen = page.waitForResponse(
+    (r) => r.url().endsWith("/api/v1/queries") && r.request().method() === "POST",
+    { timeout: 180_000 },
+  );
   await page
     .getByLabel("Answer")
     .getByRole("button", { name: first.name, exact: true })
     .click();
-  await expect(page.getByLabel("Answer")).toBeVisible();
+  const followUp = await (await chosen).json();
+  expect(followUp.scope.document_ids).toEqual([first.id]);
+  await expect(page.getByLabel("Answer")).toBeVisible({ timeout: 30_000 });
+});
+
+// Deterministic UI regressions: no inference or live workspace writes.
+test("refresh preserves context and clarification uses the chosen document", async ({ page }) => {
+  test.setTimeout(30000);
+  const docs = ["a", "b"].map(id => ({ id, name: `${id}.pdf`, status: "ready", page_count: 1, vector_status: "ready", warnings: [] }));
+  const queries: any[] = [];
+  let refreshes = 0;
+  await page.route("**/api/v1/documents", route => { refreshes++; return route.fulfill({ json: docs }); });
+  await page.route("**/api/v1/history", route => route.fulfill({ json: [] }));
+  await page.route("**/api/v1/documents/*/summary?*", route => route.fulfill({ json: { status: "ready", created_at: 1, content: { summary: "Overview", key_points: [{ text: "Persistent point", pages: [] }] } } }));
+  await page.route("**/api/v1/queries", async route => {
+    const body = route.request().postDataJSON(); queries.push(body);
+    await route.fulfill({ json: {
+      id: `q-${queries.length}`,
+      question: body.question,
+      status: body.document_ids.length ? "answered" : "clarification_needed",
+      reason: body.document_ids.length ? "" : "Choose a document.",
+      candidates: docs,
+      claims: body.document_ids.length ? [{ text: "Supported answer", citations: [] }] : [],
+      evidence: [],
+      verification: "grounded_citation_v1",
+      model: "test-double",
+      retrieval_mode: "hybrid_rerank",
+      timings: { retrieval_ms: 1, generation_ms: 1, total_ms: 2 },
+      scope: { document_ids: body.document_ids, source: "selection" },
+    } });
+  });
+  await page.goto("/");
+  await ask(page, "Tell me about this document.");
+  await page.getByRole("group", { name: "Choose a document" }).getByRole("button", { name: "a.pdf" }).click();
+  await expect.poll(() => queries.length).toBe(2);
+  expect(queries[1].document_ids).toEqual(["a"]);
+  expect(queries[1].conversation).toEqual([]);
+  await expect(page.getByLabel("Answer")).toContainText("Supported answer");
+  await page.getByRole("button", { name: "Show key points" }).click();
+  const before = refreshes;
+  await expect.poll(() => refreshes, { timeout: 10000 }).toBeGreaterThan(before);
+  await expect(page.getByLabel("Document overview")).toContainText("Persistent point");
+  await ask(page, "Explain that.");
+  expect(queries[2].conversation[0].answer).toBe("Supported answer");
+});
+
+test("late summaries cannot overwrite a new document selection", async ({ page }) => {
+  test.setTimeout(30000);
+  const docs = ["a", "b"].map(id => ({ id, name: `${id}.pdf`, status: "ready", page_count: 1, vector_status: "ready", warnings: [] }));
+  let release!: () => void;
+  const gate = new Promise<void>(resolve => { release = resolve; });
+  let started = false;
+  await page.route("**/api/v1/documents", route => route.fulfill({ json: docs }));
+  await page.route("**/api/v1/history", route => route.fulfill({ json: [] }));
+  await page.route("**/api/v1/documents/*/summary**", async route => {
+    if (route.request().method() === "POST") { started = true; await gate; }
+    await route.fulfill({ json: { status: "ready", created_at: 1, content: { summary: route.request().method() === "POST" ? "Stale A summary" : "Current overview", sections: [] } } });
+  });
+  await page.goto("/");
+  await page.getByLabel("Document scope").selectOption("a");
+  await page.getByRole("button", { name: "Summarize document" }).click();
+  await expect.poll(() => started).toBe(true);
+  await page.getByLabel("Document scope").selectOption("b");
+  const completed = page.waitForResponse(r => r.request().method() === "POST" && r.url().endsWith("/summary"));
+  release(); await completed;
+  await expect(page.getByLabel("Document overview")).toContainText("About b.pdf");
+  await expect(page.getByLabel("Document overview")).not.toContainText("Stale A summary");
+  await expect(page.getByRole("button", { name: "Summarize document" })).toBeEnabled();
 });

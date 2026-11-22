@@ -134,3 +134,6 @@ export async function request<T>(
 
 export const fileUrl = (id: string, page = 1) =>
   `/api/v1/documents/${encodeURIComponent(id)}/file#page=${page}`;
+
+export const pagePreviewUrl = (id: string, page: number) =>
+  `/api/v1/documents/${encodeURIComponent(id)}/pages/${page}/preview`;

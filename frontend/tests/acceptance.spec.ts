@@ -141,10 +141,15 @@ test("actual Ollama answers, page citations and keyword-overlap abstention", asy
       .click();
     const viewer = page.getByLabel("Source viewer");
     await expect(viewer.locator("blockquote")).toHaveText(citation.quote);
-    await expect(viewer.locator("iframe")).toHaveAttribute(
+    // The page image must actually render pixels, not just resolve a URL.
+    const preview = viewer.locator("img.page-preview");
+    await expect(preview).toHaveAttribute(
       "src",
-      `/api/v1/documents/${doc.id}/file#page=${item.page}`,
+      `/api/v1/documents/${doc.id}/pages/${item.page}/preview`,
     );
+    await expect
+      .poll(async () => preview.evaluate((node: HTMLImageElement) => node.naturalWidth))
+      .toBeGreaterThan(100);
     const link = viewer.getByRole("link", { name: "Open PDF" });
     await expect(link).toHaveAttribute(
       "href",

@@ -1,0 +1,18 @@
+{
+  "activated_at": "2026-11-05T16:33:00.470966+00:00",
+  "change": "Review-driven flow fixes: polling refresh no longer re-renders unchanged data; conversation/summary state resets only on a real document change; clarification passes the chosen document explicitly; late summary responses are ignored after a switch; page previews bounded by pixel dimensions with explicit resource closing.",
+  "pre_activation_backup": "data/local/backups/flowfix-before-20261105-220236",
+  "preservation": {
+    "problems": [],
+    "schema": 4,
+    "documents": 30,
+    "chunks": 50,
+    "query_runs": 45
+  },
+  "validation": {
+    "backend_tests": 173,
+    "ruff": "clean",
+    "frontend": "tsc + build clean",
+    "browser": "14/14 with real model, including two new deterministic UI regressions (refresh context preservation, stale summary rejection) and pixel-level preview assertions"
+  }
+}

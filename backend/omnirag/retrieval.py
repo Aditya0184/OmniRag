@@ -12,8 +12,10 @@ STOP_WORDS = set(
 def keyword_variants(tokens: list[str]) -> list[str]:
     """Literal plural/singular variants; still exact token matching, not stemming.
 
-    FTS5 has no stemmer, so "internships" never matched "internship". Adding the
-    bounded singular keeps keyword search honest (no synonyms, no semantics).
+    FTS5 has no stemmer, so "internships" never matched "internship" and a
+    singular query ("cancellation policy") never matched "Cancellations".
+    Adding the bounded other-side form keeps keyword search honest (no synonyms,
+    no semantics).
     """
     variants = []
     for token in tokens:
@@ -22,6 +24,15 @@ def keyword_variants(tokens: list[str]) -> list[str]:
             variants.append(f"{token[:-3]}y")
         elif token.endswith("s") and not token.endswith("ss") and len(token) >= 4:
             variants.append(token[:-1])
+        elif token.endswith("ing") and len(token) >= 7:
+            variants.append(f"{token[:-3]}e")  # descaling -> descale
+            variants.append(token[:-3])
+        elif token.endswith("y") and len(token) >= 5 and token[-2] not in "aeiou":
+            variants.append(f"{token[:-1]}ies")
+        elif len(token) >= 4 and not token.endswith(
+            ("s", "x", "z", "ed", "ing", "y", "ous", "ful", "ic", "al")
+        ):
+            variants.append(f"{token}s")
     return list(dict.fromkeys(variants))
 
 

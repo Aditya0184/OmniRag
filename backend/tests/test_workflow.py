@@ -407,8 +407,14 @@ def test_type_size_origin_and_filename_boundaries(client, settings, sample_pdf):
 def test_fts_query_is_data_not_expression(client, settings, sample_pdf):
     upload(client, sample_pdf)
     run_once(settings)
-    assert query_expression('delivery" OR body:secret*') == '"delivery" OR "body" OR "secret"'
+    assert query_expression('delivery" OR body:secret*') == (
+        '"delivery" OR "deliveries" OR "body" OR "secret" OR "secrets"'
+    )
     assert retrieve(settings.database, 'delivery" OR body:secret*', [], 4)
+    # Literal singular/plural variants both directions, still exact tokens.
+    assert query_expression("cancellation policy") == (
+        '"cancellation" OR "cancellations" OR "policy" OR "policies"'
+    )
 
 
 def test_page_limit(client, settings, sample_pdf):

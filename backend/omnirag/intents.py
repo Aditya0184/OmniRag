@@ -35,8 +35,8 @@ DEMONSTRATIVE_PATTERN = re.compile(
 # verb with no question mark. "Summarize this." and overview intents are excluded,
 # and a question mark keeps genuine questions such as "Write access for whom?".
 ACTION_REQUEST_PATTERN = re.compile(
-    r"^(?:transfer|send|give|delete|remove|generate|reveal|execute|run|pay|email|"
-    r"move|ignore|export|show me your|tell me your)\b",
+    r"^(?:transfer|send|delete|remove|generate|reveal|execute|run|pay|email|"
+    r"move|ignore|export|announce|show me your|tell me your)\b",
     re.IGNORECASE,
 )
 

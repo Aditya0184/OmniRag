@@ -38,6 +38,11 @@ def main() -> None:
         action="store_true",
         help="Skip cases that need real Ollama generation.",
     )
+    parser.add_argument(
+        "--grep",
+        default="",
+        help="Playwright -g filter to run a subset of tests.",
+    )
     args = parser.parse_args()
     label = args.label
     api_port, ui_port = free_port(), free_port()
@@ -173,6 +178,7 @@ def main() -> None:
                         "test",
                         "--config",
                         str(playwright),
+                        *([item for item in ("-g", args.grep) if args.grep]),
                     ],
                     cwd=ROOT / "frontend",
                     env=env,
